@@ -1,0 +1,40 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["es2024"],
+    "types": ["node"],
+    "rootDir": ".",
+    "outDir": "../../.cache/tsc/desktop-node",
+    "tsBuildInfoFile": "../../.cache/tsc/desktop-node.tsbuildinfo"
+  },
+  "include": [
+    "src/main",
+    "src/worker",
+    "src/shared",
+    "src/build-flags.d.ts",
+    "electron.vite.config.ts",
+    "scripts",
+    "src/shared/**/*.json"
+  ],
+  "exclude": ["src/**/*.test.ts"],
+  "references": [
+    {
+      "path": "../../packages/core"
+    },
+    {
+      "path": "../../packages/adapters"
+    },
+    {
+      "path": "../../packages/ipc"
+    },
+    {
+      "path": "../../packages/schemas"
+    },
+    {
+      "path": "../../packages/tools"
+    },
+    {
+      "path": "../../packages/brand"
+    }
+  ]
+}

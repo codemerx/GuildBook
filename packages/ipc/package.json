@@ -1,0 +1,18 @@
+{
+  "name": "@app/ipc",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "The typed RPC runtime over MessagePorts and every contract between processes (IMPLEMENTATION.md \u00a72.8).",
+  "exports": {
+    ".": "./src/index.ts",
+    "./test-api": "./src/contracts/test-api.ts"
+  },
+  "dependencies": {
+    "@app/schemas": "workspace:*",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@app/testkit": "workspace:*"
+  }
+}

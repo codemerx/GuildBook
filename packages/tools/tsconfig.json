@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["es2024"],
+    "types": [],
+    "rootDir": ".",
+    "outDir": "../../.cache/tsc/tools",
+    "tsBuildInfoFile": "../../.cache/tsc/tools.tsbuildinfo"
+  },
+  "include": ["src", "src/**/*.json", "../../types/runtime-globals.d.ts"],
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx"],
+  "references": [
+    {
+      "path": "../schemas"
+    },
+    {
+      "path": "../brand"
+    }
+  ]
+}

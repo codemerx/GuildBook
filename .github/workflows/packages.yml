@@ -1,0 +1,48 @@
+# Unsigned packages for every target (macOS, Windows and Linux, each on arm64 and x64). Each is built on a runner of its
+# own architecture. These are unsigned: the signed ones come from release.yml. Started by hand only: the artifacts of a
+# public repository can be downloaded by anyone.
+name: packages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    name: ${{ matrix.os }} ${{ matrix.arch }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: macos-latest, arch: arm64 }
+          - { os: macos-15-intel, arch: x64 }
+          - { os: windows-latest, arch: x64 }
+          - { os: windows-11-arm, arch: arm64 }
+          - { os: ubuntu-latest, arch: x64 }
+          - { os: ubuntu-24.04-arm, arch: arm64 }
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      # The rpm target needs rpmbuild (ADR 0024).
+      - if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y rpm
+      - run: node apps/desktop/scripts/build.ts production --installers --arch=${{ matrix.arch }}
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: packages-${{ runner.os }}-${{ matrix.arch }}
+          path: |
+            apps/desktop/release/production-*/*.dmg
+            apps/desktop/release/production-*/*.zip
+            apps/desktop/release/production-*/*.exe
+            apps/desktop/release/production-*/*.AppImage
+            apps/desktop/release/production-*/*.deb
+            apps/desktop/release/production-*/*.rpm
+          if-no-files-found: error

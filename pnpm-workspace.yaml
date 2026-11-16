@@ -1,0 +1,34 @@
+packages:
+  - apps/*
+  - packages/*
+  - tests
+
+# Supply-chain safety: pnpm refuses any version, transitive ones included, published less than 7 days ago. Most
+# hijacked releases are found and pulled within days. Never add exceptions; pin an older version instead.
+minimumReleaseAge: 10080
+
+# Install scripts run only for these. dugite downloads its git (the fake host server's git http-backend); esbuild
+# checks its binary. Electron 44 has no install script: it downloads its binary on first use (ADR 0023).
+allowBuilds:
+  dugite: true
+  electron: true
+  esbuild: true
+  electron-winstaller: false
+  # Ships N-API prebuilds per platform; its install script would only build from source (ADR 0023).
+  '@parcel/watcher': false
+
+# One vite for electron-vite, Vitest and Storybook (electron-vite 5 supports vite 7, not 8).
+overrides:
+  vite: 7.3.7
+  # typed-rest-client (in Stryker) pins qs 6.15.1, which has DoS advisories fixed in 6.16.0.
+  qs: 6.16.0
+  # The router's seroval 1.6.8 has two advisories (GHSA-9wx9-5pv9-3349, GHSA-f86p-h4j2-7qgj) fixed in 1.6.11 (Step 17).
+  seroval: 1.6.12
+  seroval-plugins: 1.6.12
+  # The app's own version for the lint and mutation tools too: zod 4.6.5 has GHSA-mrhx-c7xc-m3w5 (Step 17).
+  zod: 4.6.7
+
+# Also install the x64 prebuilds, so an Apple Silicon Mac can package and run the x64 build under Rosetta (ADR 0023).
+supportedArchitectures:
+  os: [current]
+  cpu: [current, x64]

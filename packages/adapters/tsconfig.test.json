@@ -1,0 +1,31 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["es2024", "dom"],
+    "types": ["node"],
+    "rootDir": ".",
+    "outDir": "../../.cache/tsc/adapters-test",
+    "tsBuildInfoFile": "../../.cache/tsc/adapters-test.tsbuildinfo"
+  },
+  "include": ["src/**/*.test.ts", "src/**/*.test.tsx"],
+  "references": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../testkit"
+    },
+    {
+      "path": "../core"
+    },
+    {
+      "path": "../schemas"
+    },
+    {
+      "path": "../tools"
+    },
+    {
+      "path": "../brand"
+    }
+  ]
+}

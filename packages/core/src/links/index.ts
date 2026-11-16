@@ -1,0 +1,90 @@
+// The links module (IMPLEMENTATION.md §2.3, PLAN.md §3.4, §3.5, §3.8): link strategies, the registry's skill-link
+// rows, `inspect()`, the skill-link reconciler and the health scenarios S1–S6 and S8, copy mode (Step 16), and the link
+// engine.
+export {
+  type AgentPlace,
+  type AgentToolView,
+  agentView,
+  type AgentViewDeps,
+  AgentViewQuery,
+} from './app/agent-view.ts';
+export { mirrorFolder, type MirrorOptions } from './app/copy-folder.ts';
+export {
+  type AttentionItem,
+  type AttentionKind,
+  AttentionQuery,
+  CheckLinks,
+  type CompanionReconcile,
+  type FileDifference,
+  FolderDifferences,
+  type LinkChangeView,
+  type LinkCheckReport,
+  type LinkNaming,
+  type LinkNotice,
+  type LinkPlacement,
+  type LinkProjection,
+  type LinkPlanView,
+  type LinkPreview,
+  LinkService,
+  type LinkServiceDeps,
+  type LinksChanged,
+  type PlacedSkills,
+  type PlacedWhere,
+  type PlacementContext,
+  type PlacementMove,
+  type RetargetReport,
+  type SetupLinkInputs,
+  type SetupLinkPreview,
+  PreviewDecision,
+  PreviewTools,
+  RemoveAllLinks,
+  ResolveLink,
+  RestoreFromTrash,
+  RestoreSkill,
+  SetTools,
+  SkillLinksQuery,
+  type SkillLinksState,
+  type SkillLinkView,
+  type SkillPlaces,
+  ToolsQuery,
+  type ToolsState,
+  type ToolView,
+} from './app/link-service.ts';
+export { type LinkStrategy, osLinkStrategy } from './app/link-strategy.ts';
+export { retargetReconciler } from './app/retarget-reconciler.ts';
+export {
+  COPY_MARKER,
+  readRow,
+  skillLinkReconciler,
+  type SkillLinkReconcilerDeps,
+} from './app/skill-link-reconciler.ts';
+export { type CopyEntry, renamedSkillMd, type SkillCopies, skillCopies, type SkillCopyDeps } from './app/skill-copy.ts';
+export {
+  type ChosenFolder,
+  desiredSkillLinks,
+  isWarning,
+  itemOf,
+  type LinkableSkill,
+  type LinkDecision,
+  type NameSource,
+  type PathState,
+  planSkillLinks,
+  type ReplaceWhy,
+  rowAfter,
+  type SkillLinkAction,
+  type SkillLinkConflict,
+  type SkillLinkDesired,
+  type SkillLinkInputs,
+  type SkillLinkObserved,
+  type SkillLinkScope,
+  type StrayLink,
+  targetOf,
+} from './domain/skill-links.ts';
+export {
+  desiredRetargets,
+  planRetargets,
+  type RetargetAction,
+  type RetargetDesired,
+  type RetargetInputs,
+  type RetargetObserved,
+} from './domain/retarget.ts';

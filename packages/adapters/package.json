@@ -1,0 +1,21 @@
+{
+  "name": "@app/adapters",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Node implementations of core's ports (IMPLEMENTATION.md §2.2).",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@app/core": "workspace:*",
+    "@app/schemas": "workspace:*",
+    "@app/tools": "workspace:*",
+    "electron-log": "5.4.4",
+    "@parcel/watcher": "2.6.0",
+    "dugite": "3.2.3"
+  },
+  "devDependencies": {
+    "@app/testkit": "workspace:*"
+  }
+}

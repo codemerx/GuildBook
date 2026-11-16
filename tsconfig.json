@@ -1,0 +1,68 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "packages/brand"
+    },
+    {
+      "path": "packages/brand/tsconfig.test.json"
+    },
+    {
+      "path": "packages/schemas"
+    },
+    {
+      "path": "packages/schemas/tsconfig.test.json"
+    },
+    {
+      "path": "packages/tools"
+    },
+    {
+      "path": "packages/tools/tsconfig.test.json"
+    },
+    {
+      "path": "packages/ipc"
+    },
+    {
+      "path": "packages/ipc/tsconfig.test.json"
+    },
+    {
+      "path": "packages/core"
+    },
+    {
+      "path": "packages/core/tsconfig.test.json"
+    },
+    {
+      "path": "packages/adapters"
+    },
+    {
+      "path": "packages/adapters/tsconfig.test.json"
+    },
+    {
+      "path": "packages/editor"
+    },
+    {
+      "path": "packages/editor/tsconfig.test.json"
+    },
+    {
+      "path": "packages/testkit"
+    },
+    {
+      "path": "packages/testkit/tsconfig.test.json"
+    },
+    {
+      "path": "apps/desktop/tsconfig.node.json"
+    },
+    {
+      "path": "apps/desktop/tsconfig.preload.json"
+    },
+    {
+      "path": "apps/desktop/tsconfig.web.json"
+    },
+    {
+      "path": "apps/desktop/tsconfig.test.json"
+    },
+    {
+      "path": "scripts"
+    }
+  ]
+}

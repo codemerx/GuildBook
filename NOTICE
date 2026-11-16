@@ -1,0 +1,14 @@
+Guild Book
+Copyright © CodeMerx
+
+This product is licensed under the Apache NON-AI License, Version 2.0. See the file LICENSE.
+
+A build of the app also holds the software of other projects: npm packages, Electron and Git. The file
+THIRD_PARTY_NOTICES.txt in the resources folder of the app names each part and gives its license.
+
+Some files in this repository come from other projects. They keep their own licenses:
+
+- packages/testkit/corpus: skill and instruction files from other projects. The file packages/testkit/corpus/README.md
+  names the source and the license of each folder.
+- packages/core/src/sync/domain/secrets.ts: the rules for secret detection are adapted from the default configuration of
+  gitleaks (MIT License, Copyright (c) 2019 Zachary Rice). The file holds the license text.

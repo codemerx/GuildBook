@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="100 100 824 824" width="824" height="824" role="img" aria-labelledby="title">
+  <title id="title">Guild Book</title>
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4A7BF7"/>
+      <stop offset="1" stop-color="#2154DC"/>
+    </linearGradient>
+    <clipPath id="cover"><rect x="316" y="227" width="370" height="493" rx="33"/></clipPath>
+  </defs>
+  <rect x="100" y="100" width="824" height="824" rx="184" fill="url(#tile)"/>
+  <rect x="338" y="249" width="370" height="493" rx="33" fill="#BED0FA"/>
+  <path d="M511 249H567V798L539 774L511 798Z" fill="#FFB020"/>
+  <rect x="316" y="227" width="370" height="493" rx="33" fill="#FFFFFF"/>
+  <rect x="316" y="227" width="66" height="493" fill="#E1E9FC" clip-path="url(#cover)"/>
+  <rect x="382" y="227" width="9" height="493" fill="#C3D2F6"/>
+  <g fill="none" stroke="#2D5FE6" stroke-width="24">
+    <circle cx="518" cy="424" r="56"/>
+    <circle cx="560" cy="424" r="56"/>
+  </g>
+  <rect x="471" y="562" width="136" height="15" rx="7.5" fill="#C3D2F6"/>
+  <rect x="493" y="595" width="92" height="15" rx="7.5" fill="#C3D2F6"/>
+</svg>

@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["es2024", "dom", "dom.iterable"],
+    "types": [],
+    "jsx": "react-jsx",
+    "rootDir": ".",
+    "outDir": "../../.cache/tsc/editor",
+    "tsBuildInfoFile": "../../.cache/tsc/editor.tsbuildinfo"
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx"],
+  "references": [
+    {
+      "path": "../schemas"
+    },
+    {
+      "path": "../brand"
+    }
+  ]
+}

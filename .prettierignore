@@ -1,0 +1,21 @@
+pnpm-lock.yaml
+docs/
+artifacts/
+out/
+release/
+coverage/
+reports/
+.cache/
+.stryker-tmp/
+**/__screenshots__/
+packages/testkit/corpus/
+apps/desktop/legal/
+**/__golden__/
+
+# Prettier also reads .gitignore, which hides the test cases. The scripts pass --ignore-path .prettierignore, so only this
+# file decides, and the test cases are still checked. These are the other folders that .gitignore hides:
+test-results/
+storybook-static/
+.claude/
+.idea/
+.vscode/

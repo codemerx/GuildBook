@@ -1,0 +1,53 @@
+/* The editor's look in the app (ADR 0029): Crepe's common styles for the features the app adds (no LaTeX, image
+   blocks, top bar or AI), with its colour and font variables taken from the app's tokens, so the rich editor follows
+   the light and dark themes. The page sets the tokens (renderer styles.css). */
+@import '@milkdown/crepe/theme/common/prosemirror.css';
+@import '@milkdown/crepe/theme/common/reset.css';
+@import '@milkdown/crepe/theme/common/block-edit.css';
+@import '@milkdown/crepe/theme/common/code-mirror.css';
+@import '@milkdown/crepe/theme/common/cursor.css';
+@import '@milkdown/crepe/theme/common/link-tooltip.css';
+@import '@milkdown/crepe/theme/common/placeholder.css';
+@import '@milkdown/crepe/theme/common/toolbar.css';
+@import '@milkdown/crepe/theme/common/table.css';
+
+.milkdown {
+  --crepe-color-background: var(--background);
+  --crepe-color-on-background: var(--foreground);
+  --crepe-color-surface: var(--muted);
+  --crepe-color-surface-low: var(--secondary);
+  --crepe-color-on-surface: var(--foreground);
+  --crepe-color-on-surface-variant: var(--muted-foreground);
+  --crepe-color-outline: var(--input);
+  --crepe-color-primary: var(--primary);
+  --crepe-color-secondary: var(--accent);
+  --crepe-color-on-secondary: var(--accent-foreground);
+  --crepe-color-inverse: var(--foreground);
+  --crepe-color-on-inverse: var(--background);
+  --crepe-color-inline-code: var(--danger);
+  --crepe-color-error: var(--danger);
+  --crepe-color-hover: var(--accent);
+  --crepe-color-selected: var(--accent);
+  --crepe-color-inline-area: var(--muted);
+  --crepe-base-font-size: 15px;
+  --crepe-font-title: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --crepe-font-default: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --crepe-font-code: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --crepe-shadow-1: 0 1px 3px 1px rgb(0 0 0 / 0.15), 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --crepe-shadow-2: 0 2px 6px 2px rgb(0 0 0 / 0.15), 0 1px 2px 0 rgb(0 0 0 / 0.3);
+}
+
+/* Room on the left for the block handle; no page-wide margins inside a panel. */
+.editor-surface .milkdown .ProseMirror {
+  padding: 16px 24px 24px 64px;
+  min-height: 14rem;
+}
+
+.editor-surface .milkdown .ProseMirror:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: -2px;
+}
+
+.editor-surface .cm-editor {
+  min-height: 14rem;
+}

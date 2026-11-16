@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["es2024", "dom"],
+    "types": ["node"],
+    "rootDir": ".",
+    "outDir": "../../.cache/tsc/ipc-test",
+    "tsBuildInfoFile": "../../.cache/tsc/ipc-test.tsbuildinfo"
+  },
+  "include": ["src/**/*.test.ts", "src/**/*.test.tsx"],
+  "references": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../testkit"
+    },
+    {
+      "path": "../schemas"
+    },
+    {
+      "path": "../brand"
+    }
+  ]
+}

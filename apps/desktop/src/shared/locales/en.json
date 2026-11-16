@@ -1,0 +1,2737 @@
+{
+  "shell": {
+    "skipToContent": "Skip to content",
+    "libraries": "Libraries",
+    "libraryPages": "Library",
+    "devicePages": "This device",
+    "overview": "Overview",
+    "settings": "Settings",
+    "addTestLibrary": "Add test library",
+    "noLibraries": "No libraries yet",
+    "switcherLabel": "Libraries on this device",
+    "testBuild": "Test build",
+    "joinLibrary": "Join a library",
+    "createLibrary": "Create a library",
+    "setupsInProgress": "Setups in progress",
+    "settingUp": "Setting up {{repo}}",
+    "settingUpStatus": "Setup in progress",
+    "needsAttention_one": "1 warning",
+    "needsAttention_other": "{{count}} warnings",
+    "instructions": "Instructions",
+    "incoming_one": "1 change to pull",
+    "incoming_other": "{{count}} changes to pull",
+    "toPush_one": "1 commit to push",
+    "toPush_other": "{{count}} commits to push"
+  },
+  "status": {
+    "pending": "Waiting",
+    "setting-up": "Setting up",
+    "starting": "Starting…",
+    "ready": "Ready",
+    "accessLost": "Access lost",
+    "restarting": "Restarting…",
+    "error": "Error",
+    "removing": "Removing…"
+  },
+  "empty": {
+    "title": "No libraries yet",
+    "body": "A library is a company's skills and instructions, shared through its git server. Join your company's library, or create a new one on an empty repo.",
+    "testHint": "This is a test build: add a local folder as a test library.",
+    "join": "Join a library",
+    "create": "Create a library"
+  },
+  "library": {
+    "status": "Status",
+    "folder": "Library folder",
+    "dataFolder": "Data folder",
+    "schema": "Database version",
+    "busy": "Working: {{command}}",
+    "idle": "Idle",
+    "restarts_one": "Restarted once since {{appName}} started",
+    "restarts_other": "Restarted {{count}} times since {{appName}} started",
+    "restartingHint": "Its worker stopped and is being started again. Other libraries aren't affected.",
+    "notFound": "This library isn't on this device.",
+    "continueSetup": "Continue setup",
+    "setupUnfinished": "This library's setup isn't finished yet.",
+    "signedInAs": "Signed in as {{login}}",
+    "role": "Role",
+    "account": "Signed in",
+    "accountKey": "With a key or token, without an account",
+    "host": "Host"
+  },
+  "addTestLibrary": {
+    "title": "Add a test library",
+    "description": "A local folder used as a library, in test and development builds only. Real libraries come from git servers.",
+    "name": "Name",
+    "namePlaceholder": "Acme",
+    "folder": "Folder",
+    "noFolder": "No folder chosen",
+    "chooseFolder": "Choose folder…",
+    "add": "Add library",
+    "cancel": "Cancel",
+    "nameRequired": "Enter a name.",
+    "folderRequired": "Choose a folder."
+  },
+  "diagnostics": {
+    "export": "Export diagnostics…",
+    "preparing": "Gathering the diagnostics…",
+    "reviewTitle": "Review the diagnostics",
+    "reviewBody": "This is all the file holds. Secrets are masked, and your home folder shows as ~. Nothing leaves this computer: you send the file yourself, if you want to.",
+    "contents": "What the file holds",
+    "summaryPart": "The app's version and platform, and each library's state",
+    "reportsPart_one": "The Doctor report of 1 library",
+    "reportsPart_other": "The Doctor reports of {{count}} libraries",
+    "logsPart_one": "1 log file",
+    "logsPart_other": "{{count}} log files",
+    "truncated": "Long logs: only their end goes in.",
+    "notIncluded": "No skill, instruction or tool file, and nothing from your code repos.",
+    "text": "The text of the diagnostics file",
+    "save": "Save…",
+    "saved": "Saved to",
+    "close": "Close"
+  },
+  "settings": {
+    "title": "Settings",
+    "appearance": "Appearance",
+    "theme": "Theme",
+    "themeSystem": "Same as the system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "language": "Language",
+    "languageEnglish": "English",
+    "about": "About",
+    "version": "{{appName}} {{version}}",
+    "certificates": "Extra certificates",
+    "certificatesCount_zero": "No extra certificates are trusted.",
+    "certificatesCount_one": "{{count}} extra certificate is trusted.",
+    "certificatesCount_other": "{{count}} extra certificates are trusted.",
+    "removeEverything": {
+      "title": "Remove everything this app set up",
+      "body": "Before you uninstall {{appName}}, remove what it set up: the links in the tool folders and in your code repos, the instruction files and blocks, and the entries in the repos' exclude files. Your library folders stay.",
+      "button": "Remove everything…",
+      "confirmTitle": "Remove everything {{appName}} set up?",
+      "confirmBody_zero": "No library is set up on this device. Nothing is removed.",
+      "confirmBody_one": "{{count}} library is removed from this device, with everything {{appName}} made for it.",
+      "confirmBody_other": "{{count}} libraries are removed from this device, with everything {{appName}} made for them.",
+      "kept": "The library folders stay where they are, with their work. The libraries on the server are not touched.",
+      "confirm": "Remove everything",
+      "done_zero": "Nothing was set up.",
+      "done_one": "{{count}} library was removed. Nothing of {{appName}} is left in the tool folders.",
+      "done_other": "{{count}} libraries were removed. Nothing of {{appName}} is left in the tool folders."
+    },
+    "support": "Support",
+    "supportBody": "To report a problem, export the diagnostics: the logs and the Doctor reports, without file contents. You review them before you save.",
+    "launchAtLogin": "Start {{appName}} at login",
+    "launchAtLoginHint": "It starts in the tray, without a window.",
+    "startup": "Startup",
+    "notifications": {
+      "title": "Notifications",
+      "body": "{{appName}} shows a system notification for each of these. Switch off the ones you don't want.",
+      "incoming": "Incoming changes, at most once an hour for each library",
+      "linksChanged": "Links changed by a branch switch or another git tool",
+      "warning": "New red warnings",
+      "doNotDisturb": "Do not disturb",
+      "doNotDisturbHint": "No notifications at all. {{appName}} still shows everything on its own pages."
+    },
+    "certificatesBody": "For a server whose certificate comes from a company authority that this computer doesn't trust. {{appName}} trusts them for git and for the servers' APIs.",
+    "certificateAdd": "Add certificate…",
+    "certificateRemove": "Remove",
+    "certificateRemoveLabel": "Remove the certificate {{subject}}",
+    "certificateValidTo": "Valid until",
+    "certificatesAdded_one": "{{count}} certificate added.",
+    "certificatesAdded_other": "{{count}} certificates added.",
+    "certificatesAdded_zero": "These certificates are trusted already."
+  },
+  "needsUpdate": {
+    "title": "{{appName}} needs an update",
+    "body": "This device's data was written by a newer version of {{appName}}. Nothing was changed. Install the latest version to continue."
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "body": "This page couldn't be shown. The problem was logged.",
+    "retry": "Try again"
+  },
+  "tray": {
+    "tooltip": "{{appName}}",
+    "instance": "{{name}}: {{status}}",
+    "noLibraries": "No libraries",
+    "open": "Open {{appName}}",
+    "quit": "Quit {{appName}}",
+    "instanceAttention_one": "{{name}}: {{status}} · 1 warning needs attention",
+    "instanceAttention_other": "{{name}}: {{status}} · {{count}} warnings need attention",
+    "tooltipAttention_one": "{{appName}}: 1 warning needs attention",
+    "tooltipAttention_other": "{{appName}}: {{count}} warnings need attention"
+  },
+  "dialogs": {
+    "chooseTestLibraryFolder": "Choose a folder for the test library",
+    "chooseLibraryFolder": "Choose a folder for the library",
+    "chooseToolFolder": "Choose the folder the tool uses",
+    "chooseRepoFolder": "Choose a code repo",
+    "chooseRepoRoot": "Choose a folder that holds your code repos",
+    "chooseNewLocation": "Choose the new place for the library",
+    "locateLibrary": "Find the library folder",
+    "loadInstructions": "Choose an AGENTS.md or CLAUDE.md file to load",
+    "chooseSkillFile": "Choose a file to add to the skill",
+    "chooseSigningKey": "Choose your SSH public key (.pub file)",
+    "chooseImportFolder": "Choose a skills repo or folder to import from",
+    "chooseExistingSkill": "Choose a skill folder to add to the library",
+    "chooseImportFile": "Choose a .zip or .skill file to import",
+    "saveDiagnostics": "Save the diagnostics",
+    "chooseCertificate": "Choose your company's certificate (a .pem or .crt file)"
+  },
+  "errors": {
+    "internal": "Something unexpected went wrong. It was logged.",
+    "rpc": {
+      "invalidMessage": "A message between parts of the app was malformed.",
+      "unknownMethod": "The app asked for something that doesn't exist.",
+      "invalidInput": "The request wasn't valid.",
+      "invalidOutput": "The answer wasn't valid.",
+      "cancelled": "Cancelled.",
+      "disconnected": "Lost the connection to this library. It reconnects on its own.",
+      "timeout": "This took too long."
+    },
+    "device": {
+      "newerData": "This device's data was written by a newer version of {{appName}}.",
+      "unreadable": "This device's data can't be read."
+    },
+    "instance": {
+      "newerData": "This library's data was written by a newer version of {{appName}}. Update {{appName}} to use it.",
+      "notFound": "This library isn't on this device.",
+      "workerFailed": "This library keeps stopping, so {{appName}} stopped restarting it.",
+      "migrationFailed": "This library's data couldn't be updated. Nothing was lost.",
+      "otherLibrary": "That URL holds another library. The URL is accepted only if it holds this library."
+    },
+    "fs": {
+      "outsideAllowedRoots": "{{appName}} doesn't write there.",
+      "throughLink": "{{appName}} never deletes through a link.",
+      "notFound": "The file or folder isn't there."
+    },
+    "testLibrary": {
+      "nameInvalid": "Enter a name of up to 100 characters.",
+      "pathInvalid": "Choose an existing folder.",
+      "alreadyAdded": "That name or folder is already in use."
+    },
+    "asset": {
+      "outsideLibrary": "That file is outside the library.",
+      "notFound": "That file isn't in the library."
+    },
+    "plan": {
+      "changed": "Something changed, please check again."
+    },
+    "command": {
+      "cancelled": "Cancelled.",
+      "unknown": "The app asked for something that doesn't exist."
+    },
+    "operation": {
+      "unknown": "Unknown operation.",
+      "failed": "The operation stopped. It continues at the next start."
+    },
+    "lock": {
+      "cancelled": "Cancelled while waiting."
+    },
+    "git": {
+      "authFailed": "The server didn't accept your sign-in.",
+      "notFound": "The repository wasn't found, or you have no access to it.",
+      "certificate": "The server's certificate isn't trusted. A company certificate can be added in Settings.",
+      "offline": "Can't reach the server. Check the network.",
+      "busy": "Another git program is working in this folder. Try again when it's done.",
+      "notARepository": "This folder isn't a git repository.",
+      "notAllowed": "{{appName}} doesn't run that git command here.",
+      "wouldBeOverwritten": "Your changes to {{files}} would be overwritten.",
+      "nothingToCommit": "There's nothing to commit.",
+      "noOperation": "No merge or rebase is in progress.",
+      "failed": "git stopped with an error: {{message}}",
+      "forbidden": "The server lets this sign-in read, but not write."
+    },
+    "feature": {
+      "unavailable": "Not available in this build."
+    },
+    "url": {
+      "notAllowed": "Only web links can be opened."
+    },
+    "secrets": {
+      "unavailable": "Secure storage isn't available."
+    },
+    "host": {
+      "noAccess": "You don't have access to {{repo}}. Ask your admin.",
+      "appNotInstalled": "Ask an owner of {{owner}} to install {{appName}} on {{name}}.",
+      "unauthorized": "The server didn't accept the sign-in.",
+      "signInDenied": "The sign-in was declined in the browser.",
+      "signInExpired": "The code ran out before it was approved. Try again.",
+      "signInAgain": "Sign in again: the sign-in ran out and couldn't be renewed.",
+      "clientIdRequired": "Enter the client ID of the app your admin registered on this server.",
+      "notSupported": "This server doesn't offer that way to sign in.",
+      "offline": "The server can't be reached. Check your connection.",
+      "certificate": "The server's certificate isn't trusted. A company certificate can be added in Settings.",
+      "requestFailed": "The server's answer couldn't be used."
+    },
+    "setup": {
+      "notFound": "This setup is no longer running. Start again.",
+      "urlInvalid": "This git URL can't be used.",
+      "alreadyConnected": "You're already connected to {{name}}.",
+      "wrongStep": "This step is done already, or not yet.",
+      "locationInvalid": "This folder can't be used.",
+      "notSetUp": "This library isn't set up yet. Ask your admin to set the prefix.",
+      "idInvalid": "This library's library.yaml has no valid id. Ask your admin to fix it.",
+      "notEmpty": "This repo isn't empty. Create an empty repo for the library and import from this one.",
+      "alreadySetUp": "Someone set up this repo first. Join it instead.",
+      "cannotWrite": "You can't write to {{repo}}. To create a library, you need write access to its main branch.",
+      "prefixInvalid": "This prefix isn't allowed.",
+      "prefixInUse": "The {{name}} library on this device uses {{prefix}} already. Choose another prefix.",
+      "identityRequired": "Enter your name and email for commits.",
+      "weakStorageNotConfirmed": "Confirm that your sign-in may be kept with weaker protection.",
+      "needsUpdate": "Update {{appName}} to join this library.",
+      "notPublished": "Push the first version before you continue: people can join only then.",
+      "tagInvalid": "\"{{tag}}\" can't be a tag. Use lowercase letters, digits and dashes.",
+      "patternInvalid": "\"{{pattern}}\" can't be a remote pattern. Use letters, digits, dashes, dots, slashes and *.",
+      "libraryYamlUnreadable": "library.yaml can't be read. Fix it in the editor first.",
+      "folderInvalid": "Choose Move or Keep for each of your folders."
+    },
+    "tools": {
+      "unknown": "That tool isn't known on this device.",
+      "folderInvalid": "Use a full folder path, for example ~/my-agent/skills.",
+      "customInvalid": "Give the tool a name that isn't in use yet, of up to 100 characters."
+    },
+    "links": {
+      "frozen": "This library needs a newer version of {{appName}}. Links don't change until you update.",
+      "busy": "A git operation is in progress in the library. Links change when it's done.",
+      "noWarning": "This was already settled. The list is up to date now.",
+      "nameInvalid": "Use lower-case letters, digits and dashes, and don't start with a company prefix.",
+      "pathTaken": "Something with that name is already there. Choose another name.",
+      "notRestorable": "This skill isn't in git, so it can't be restored from there.",
+      "notReady": "The library is still being read. Try again in a moment."
+    },
+    "trash": {
+      "notFound": "This is no longer in the trash.",
+      "pathTaken": "Something is at its old place now. Move that away first."
+    },
+    "diagnostics": {
+      "expired": "The diagnostics changed since you reviewed them. Review them again, then save."
+    },
+    "placement": {
+      "notARepo": "{{path}} is not a git repo. Choose the folder that holds the repo.",
+      "notAFolder": "Choose a folder on this computer.",
+      "libraryFolder": "{{path}} is a library folder. A library folder is never a code repo.",
+      "alreadyAdded": "This repo is already added.",
+      "repoNotFound": "This repo is no longer added. The list is up to date now.",
+      "rootNotFound": "This parent folder is no longer added. The list is up to date now.",
+      "remoteMismatch": "This folder holds another repo. Choose the folder of {{expected}}.",
+      "everywhere": "This skill is available everywhere, so it can't be left out of one repo. Choose specific repos for it first.",
+      "tagUnknown": "No skill has this tag."
+    },
+    "instructions": {
+      "paused": "The instructions can’t change now: a git operation in the library is not finished, or the library is not ready.",
+      "noChange": "There is no change to decide about any more. The page is up to date now.",
+      "othersLinked": "The instructions of {{names}} are linked. Decide on the Instructions page."
+    },
+    "doctor": {
+      "noCommand": "This tool has no command for that."
+    },
+    "localPrefix": {
+      "invalid": "This prefix can't be used. A prefix has 3 to 16 lowercase letters a–z, and no “claude” or “anthropic”.",
+      "inUse": "{{prefix}} is in use on this device already. Choose another one.",
+      "same": "This library uses this prefix on this device already.",
+      "stillInUse": "The library's own prefix is still in use on this device. Keep the local prefix.",
+      "unresolved": "Some copies changed in two places. Decide about them in Needs attention first.",
+      "paused": "A git operation in the library is not finished. Finish it, then try again."
+    },
+    "projection": {
+      "noConflict": "There is nothing to decide about this copy any more. The page is up to date now."
+    },
+    "relocation": {
+      "invalid": "The library can't move there. Choose another place.",
+      "unfinished": "A move of this library is not finished yet.",
+      "notUnfinished": "No move of this library waits.",
+      "renameBlocked": "The folder can't be moved now: a program has a file in it open.",
+      "verifyFailed": "The copy didn't match the library. Nothing was moved.",
+      "pathTaken": "Something else is at the old place of the library now.",
+      "notALibrary": "This folder holds no library.",
+      "otherLibrary": "This folder holds another library.",
+      "otherRemote": "This folder's git remote isn't the library's URL.",
+      "notMissing": "The library folder is not missing."
+    },
+    "recovery": {
+      "notNeeded": "This library's records aren't lost."
+    },
+    "editor": {
+      "notEditable": "{{path}} can't be opened in the editor.",
+      "notFound": "{{path}} doesn't exist any more.",
+      "changedOnDisk": "{{path}} changed on disk while you were editing it.",
+      "fileExists": "A file named {{name}} is already there.",
+      "fileTooLarge": "{{name}} is larger than 50 MB. Files this large can't be added to a skill.",
+      "skillExists": "A skill named {{name}} already exists.",
+      "nameInvalid": "{{name}} isn't a valid skill name.",
+      "headerUnreadable": "The header of {{path}} can't be read, so it can't be changed here. Fix it in source mode.",
+      "notText": "{{path}} isn't a text file."
+    },
+    "history": {
+      "versionNotFound": "This version of {{path}} can't be found in the history."
+    },
+    "sync.identityNeeded": "Give a name and an email address for your commits.",
+    "sync.nothingSelected": "Choose the changes to commit, and write a message.",
+    "sync.confirmationNeeded": "Answer the questions before the commit continues.",
+    "sync.caseClash": "{{a}} and {{b}} differ only in letter case. Rename one of them: macOS and Windows cannot keep both.",
+    "sync.fileTooLarge": "{{path}} is larger than 50 MB. Large files are not added to the library.",
+    "sync.markersLeft": "The file still has conflict markers. Resolve each conflict first.",
+    "sync.libraryTooNew": "Update {{appName}} to continue.",
+    "sync.alreadyPushed": "The last commit is pushed. Revert it in History instead.",
+    "sync.noUpstream": "This branch is not on the server yet.",
+    "sync.detached": "No branch is checked out.",
+    "sync.branchName": "\"{{name}}\" cannot be a branch name. Use letters, digits, \"-\", \"_\" and \"/\".",
+    "sync.branchExists": "A branch named {{name}} exists already.",
+    "sync.currentBranch": "{{name}} is checked out. Switch to another branch first.",
+    "sync.branchNotMerged": "{{name}} has commits that are on no other branch.",
+    "sync.nothingToStash": "Nothing changed: nothing to put aside.",
+    "sync.notConflicted": "{{path}} has no conflict.",
+    "sync.stashNotFound": "These changes put aside are not there any more.",
+    "review.notAllowed": "Your role on this library doesn't allow this.",
+    "review.noApi": "{{appName}} can't do this through this server's API. Do it on the server's website.",
+    "review.notARequestBranch": "Switch to the branch of your change request first.",
+    "review.signingKeyNeeded": "Choose the key that signs your commits first.",
+    "review.keyInvalid": "This file is not an SSH public key.",
+    "review.keyNotFound": "The signing key is not there any more. Choose a key again.",
+    "review.signingFailed": "Your commits could not be signed: {{message}}",
+    "archive.unreadable": "This file is not a zip archive that the app can read.",
+    "archive.sizeMismatch": "The archive is damaged: {{path}} is larger than it says.",
+    "import.cannotRead": "Your sign-in for this library can't read this repo.",
+    "import.urlInvalid": "This is not a repo URL the app accepts. Use an https:// or SSH URL.",
+    "import.sourceNotFound": "The folder or file is not there any more.",
+    "import.archiveRefused": "The app refused this archive: {{reason}}",
+    "import.archiveTooLarge": "The archive is larger than 200 MB.",
+    "import.noSession": "This import is closed. Start it again.",
+    "import.unknownSkill": "This skill is not in the import.",
+    "import.notReviewed": "Open every selected skill before you add them.",
+    "import.nothingSelected": "Select at least one skill.",
+    "import.nameInvalid": "{{name}} is not a valid name for this library.",
+    "import.nameTaken": "The library already has a skill named {{name}}.",
+    "import.notInCompany": "{{skill}} is not in the company version yet. Push it first.",
+    "import.originalGone": "The original folder is not there any more.",
+    "prefix": {
+      "same": "The library uses {{prefix}} already.",
+      "invalid": "This prefix can't be used. A prefix has 3 to 16 lowercase letters a–z, and no “claude” or “anthropic”.",
+      "notAllowed": "Your role can't change the prefix. Before the first skill is pushed, someone who can push to the company branch can correct it. After that, only an Admin can change it.",
+      "notReady": "The library isn't ready for a prefix change. Commit or discard your changes, pull, push, and switch to the company branch first.",
+      "namesBlocked": "{{skill}} can't get the new name {{name}}. Choose another prefix.",
+      "localPrefixNeeded": "This device already uses {{prefix}}. Choose a local prefix first.",
+      "nothingToAdopt": "No prefix change waits for a local prefix."
+    },
+    "invite": {
+      "invalid": "This invite link isn't valid."
+    },
+    "update": {
+      "failed": "The update check failed. It tries again tomorrow, or now with [Check now].",
+      "offline": "No connection for the update check. It tries again tomorrow, or now with [Check now].",
+      "notAvailable": "No newer version is available."
+    },
+    "certificate": {
+      "invalid": "This file holds no certificate. Choose a PEM file (it starts with -----BEGIN CERTIFICATE-----)."
+    }
+  },
+  "inspector": {
+    "open": "Inspect this library (developer page)",
+    "title": "Library inspector",
+    "subtitle": "{{name}}: what the app reads from the library folder. A developer page, in development and test builds only.",
+    "unavailable": "This page is only in development and test builds.",
+    "loading": "Scanning the library…",
+    "summary": "library.yaml and totals",
+    "prefix": "Prefix",
+    "id": "Library id",
+    "format": "Format",
+    "compatibility": "This app version",
+    "compatibilityState": {
+      "ok": "Can work with this library",
+      "formatTooNew": "Too old for this library's format",
+      "appTooOld": "Older than the library's minimum version",
+      "unknown": "Unknown: library.yaml can't be read"
+    },
+    "skills": "Skills",
+    "skill": "Skill folder",
+    "tags": "Tags",
+    "files": "Files",
+    "fingerprint": "Fingerprint",
+    "issues": "Issues",
+    "issueCounts": "Errors: {{errors}} · Warnings: {{warnings}}",
+    "noIssues": "No issues.",
+    "noSkills": "No skills yet.",
+    "none": "—",
+    "tagsAndInstructions": "Tags and instructions",
+    "instructions": "{{path}}: {{bytes}} bytes, {{characters}} characters.",
+    "noInstructions": "No instructions/AGENTS.md yet.",
+    "noTags": "No tags yet.",
+    "severity": {
+      "error": "Error",
+      "warning": "Warning"
+    }
+  },
+  "gitPage": {
+    "open": "Git state of this library (developer page)",
+    "title": "Library git",
+    "subtitle": "{{name}}: what the git engine reads from the library folder. A developer page, in development and test builds only.",
+    "loading": "Reading git…",
+    "branchTitle": "Branch",
+    "branch": "Branch",
+    "detached": "None (detached HEAD)",
+    "head": "HEAD",
+    "upstream": "Upstream",
+    "noUpstream": "None",
+    "sync": "Compared with upstream",
+    "toPush_one": "{{count}} to push",
+    "toPush_other": "{{count}} to push",
+    "incomingCount_one": "{{count}} incoming",
+    "incomingCount_other": "{{count}} incoming",
+    "stashes": "Stashes",
+    "stateTitle": "Merge, rebase and locks",
+    "noOperation": "No merge or rebase in progress.",
+    "operation": {
+      "merging": "Merge in progress",
+      "rebasing": "Rebase in progress",
+      "cherryPicking": "Cherry-pick in progress",
+      "reverting": "Revert in progress"
+    },
+    "busy": "Busy: another git program holds the repository's lock (index.lock).",
+    "conflicts_one": "Conflicts in {{count}} file",
+    "conflicts_other": "Conflicts in {{count}} files",
+    "conflictList": "Files with conflicts",
+    "conflict": {
+      "bothModified": "changed on both sides",
+      "bothAdded": "added on both sides",
+      "bothDeleted": "deleted on both sides",
+      "addedByUs": "added here",
+      "addedByThem": "added there",
+      "deletedByUs": "deleted here, changed there",
+      "deletedByThem": "changed here, deleted there"
+    },
+    "changes": "Changes on this device",
+    "changesHint": "git status, every untracked file listed.",
+    "noChanges": "No changes.",
+    "file": "File",
+    "change": "Change",
+    "stagedColumn": "Staged",
+    "staged": "Staged",
+    "notStaged": "Not staged",
+    "changeKind": {
+      "modified": "Modified",
+      "added": "Added",
+      "deleted": "Deleted",
+      "renamed": "Renamed",
+      "copied": "Copied",
+      "typeChanged": "Type changed",
+      "untracked": "New, not tracked",
+      "conflicted": "Conflict"
+    },
+    "incoming": "Incoming (fetched, not pulled)",
+    "noIncoming": "Nothing incoming.",
+    "history": "History",
+    "noCommits": "No commits yet."
+  },
+  "issues": {
+    "units": {
+      "bytes": "bytes",
+      "characters": "characters"
+    },
+    "library": {
+      "configMissing": "library.yaml is missing.",
+      "configInvalid": "library.yaml can't be read as settings.",
+      "idInvalid": "library.yaml has no valid id (lib_ and 32 hexadecimal digits).",
+      "formatInvalid": "library.yaml has no valid format number.",
+      "notSetUp": "This library isn't set up yet. Ask your admin to set the prefix.",
+      "minAppVersionInvalid": "minAppVersion in library.yaml isn't a version number.",
+      "suggestInvalid": "The tag suggestions in library.yaml can't be read.",
+      "repoOnlyTagsInvalid": "repoOnlyTags in library.yaml must be a list of tags.",
+      "formatTooNew": "This library uses a newer layout (format {{format}}). Update {{appName}} to continue.",
+      "appTooOld": "This library needs {{appName}} {{minAppVersion}} or later. Update {{appName}} to continue."
+    },
+    "skills": {
+      "unexpectedEntry": "Only skill folders belong in skills/."
+    },
+    "skill": {
+      "skillMdMissing": "This folder has no SKILL.md, so it isn't a skill.",
+      "headerMissing": "SKILL.md doesn't start with a header between --- lines.",
+      "headerUnclosed": "The header in SKILL.md has no closing --- line.",
+      "headerInvalid": "The header in SKILL.md isn't valid YAML: {{reason}}",
+      "headerNotMap": "The header in SKILL.md must list its fields as name: value.",
+      "nameMissing": "The header has no name.",
+      "nameMismatch": "The name {{name}} must be the same as the folder name, {{folder}}.",
+      "descriptionMissing": "Add a description that says when to use this skill.",
+      "descriptionTooLong": "The description has {{length}} characters. At most {{max}} are allowed.",
+      "compatibilityTooLong": "compatibility has {{length}} characters. At most {{max}} are allowed.",
+      "metadataInvalid": "metadata should give each name a text value.",
+      "allowedToolsInvalid": "allowed-tools should be one line of tool names.",
+      "tooLong": "SKILL.md has {{lines}} lines. Keep it under {{max}}: an agent reads the whole file when it uses the skill. Move longer material into references/.",
+      "nameTaken": "The name {{name}} is already used. Choose another name before you add the skill."
+    },
+    "skillName": {
+      "empty": "Enter a name.",
+      "tooLong": "A name has at most 64 characters.",
+      "characters": "Use only lowercase letters, digits and hyphens.",
+      "hyphens": "A hyphen can't start or end the name, or follow another hyphen.",
+      "reserved": "A name can't contain claude or anthropic.",
+      "prefix": "Company skill names start with {{prefix}}-."
+    },
+    "prefix": {
+      "tooShort": "Use at least 3 letters.",
+      "tooLong": "Use at most 16 letters.",
+      "uppercase": "Use lowercase letters only.",
+      "digits": "Digits aren't allowed.",
+      "punctuation": "Hyphens, underscores, spaces and other symbols aren't allowed.",
+      "nonAscii": "Use only the letters a to z.",
+      "reserved": "A prefix can't contain claude or anthropic.",
+      "generic": "This prefix is common and may clash with another company's library. A company or product name is safer."
+    },
+    "tag": {
+      "invalid": "{{tag}} isn't a valid tag. Use lowercase letters, digits and hyphens."
+    },
+    "link": {
+      "broken": "Line {{line}} links to {{target}}, which isn't in this skill.",
+      "outsideSkill": "Line {{line}} links to {{target}}, outside this skill. The link breaks once the skill is installed."
+    },
+    "symlink": {
+      "outsideSkill": "This link points outside its skill, to {{target}}. It's never followed or shared."
+    },
+    "file": {
+      "large": "Large files slow down every pull. Consider a link instead.",
+      "tooLarge": "Files over 50 MB can't be added to a skill."
+    },
+    "path": {
+      "caseConflict": "Differs from {{others}} only in letter case. macOS and Windows can keep only one of them.",
+      "tooLongForWindows": "The full path has {{length}} characters. On Windows, some tools can't read paths of 260 or more."
+    },
+    "instructions": {
+      "nearLimit": "The instructions are close to {{tool}}'s limit: {{size}} of {{limit}} {{unit}}.",
+      "overLimit": "The instructions are over {{tool}}'s limit: {{size}} of {{limit}} {{unit}}. It stops reading at the limit."
+    }
+  },
+  "roles": {
+    "viewer": "Viewer",
+    "member": "Member",
+    "maintainer": "Maintainer",
+    "admin": "Admin",
+    "unknown": "Not known yet"
+  },
+  "hosts": {
+    "github": "GitHub",
+    "gitlab": "GitLab",
+    "plain": "Git server"
+  },
+  "setup": {
+    "steps": {
+      "label": "Setup steps",
+      "url": "Library",
+      "signIn": "Sign in",
+      "folder": "Folder",
+      "download": "Download",
+      "prefix": "Prefix",
+      "finish": "Finish",
+      "current": "current step",
+      "done": "done",
+      "localPrefix": "Local prefix",
+      "import": "Import",
+      "instructions": "Instructions",
+      "tags": "Tags",
+      "publish": "First version",
+      "tools": "Tools",
+      "repos": "Code repos",
+      "names": "Name check",
+      "summary": "Summary"
+    },
+    "joinTitle": "Join a library",
+    "createTitle": "Create a library",
+    "joinDescription": "Paste the git URL of your company's library. You can find it on the repo's page on GitHub, GitLab or your company's git server.",
+    "createDescription": "Paste the git URL of an empty repo. A README, LICENSE or .gitignore in it is fine: they are kept.",
+    "urlLabel": "Git URL",
+    "urlPlaceholder": "https://github.com/acme/agent-library.git",
+    "hostLabel": "Host",
+    "repoLabel": "Repository",
+    "continue": "Continue",
+    "cancel": "Cancel",
+    "cancelSetup": "Cancel setup",
+    "back": "Back",
+    "alreadyConnected": "You're already connected to {{name}}.",
+    "openLibrary": "Open {{name}}",
+    "url": {
+      "gitUrl": {
+        "empty": "Enter the git URL of the library.",
+        "leadingDash": "A git URL can't start with a dash.",
+        "transport": "Only https:// and SSH URLs (git@host:path or ssh://) can be used.",
+        "localPath": "This is a folder on a computer, not a git server's URL.",
+        "characters": "The URL has spaces or characters a git URL can not have.",
+        "credentials": "Leave the password out of the URL: you sign in on the next page.",
+        "host": "The server's name isn't valid.",
+        "port": "The port number isn't valid.",
+        "user": "The user name in the URL isn't valid.",
+        "path": "The repository's path isn't valid.",
+        "alreadyConnected": "You're already connected to {{name}}."
+      }
+    },
+    "signIn": {
+      "title": "Sign in to {{host}}",
+      "descriptionApi": "{{appName}} signs in to {{host}} for this library only. It learns your name and email for commits, and your role.",
+      "descriptionPlain": "This server has no sign-in page. Use an access token, or a deploy token with its user name.",
+      "descriptionSsh": "This is an SSH URL. Use your own SSH setup, or a key for this library.",
+      "browser": "Sign in with your browser",
+      "browserHint": "{{appName}} shows a short code and opens the sign-in page. Approve the code there.",
+      "clientId": "Client ID of the app registered on this server",
+      "clientIdHint": "Your admin registered {{appName}} on this server once. The invite link carries this ID; you can also type it.",
+      "codeTitle": "Enter this code in your browser",
+      "codeLabel": "Sign-in code",
+      "waiting": "Waiting for you to approve the code in your browser…",
+      "openAgain": "Open the sign-in page again",
+      "useToken": "Use an access token instead",
+      "useBrowser": "Sign in with the browser instead",
+      "token": "Access token",
+      "tokenHint": "A personal access token, or a deploy token for this library. It is kept in the system keychain.",
+      "username": "User name (for a deploy token)",
+      "signInWithToken": "Sign in with this token",
+      "sshAgent": "Use my SSH setup",
+      "sshAgentHint": "Your SSH agent and SSH config, as git in a terminal uses them.",
+      "sshKey": "Private key for this library",
+      "sshKeyHint": "A deploy key, for example. Paste the private key; it is kept in the system keychain.",
+      "useKey": "Use this key",
+      "identityTitle": "Your name and email for commits",
+      "identityHint": "This server doesn't say who you are. Commits you make in this library carry this name and email.",
+      "name": "Name",
+      "email": "Email",
+      "saveIdentity": "Continue",
+      "weakTitle": "This computer has no keychain for passwords",
+      "weakBody": "{{appName}} keeps your sign-in in the system keychain (libsecret or KWallet). There is none here, so it is kept with weaker protection: other programs that run as you could read it.",
+      "weakAccept": "Keep my sign-in with weaker protection",
+      "signedIn": "Signed in as {{login}}",
+      "signedInKey": "Signed in with a key or token"
+    },
+    "folder": {
+      "title": "Library folder",
+      "description": "The library is downloaded into this folder. It is an ordinary git folder: other git tools can use it too.",
+      "folderLabel": "Folder",
+      "choose": "Choose another folder…",
+      "checking": "Checking the folder…",
+      "ok": "This folder can be used.",
+      "download": "Download",
+      "problems": {
+        "location": {
+          "notAbsolute": "Choose a full path to a folder.",
+          "networkDrive": "This folder is on a network drive. Choose a folder on this computer's own disk.",
+          "readOnly": "{{appName}} can't write in this folder. Choose one you can write in.",
+          "notEmpty": "This folder isn't empty. Choose an empty or new folder.",
+          "notAFolder": "This is a file, not a folder.",
+          "tooLittleSpace": "There isn't enough free space here: the library needs {{needed}}, {{free}} is free.",
+          "insideToolFolder": "This folder is inside {{tool}}'s folder. Choose a folder outside every tool's folder.",
+          "insideLibrary": "This folder is inside the {{library}} library. Choose a folder outside it.",
+          "containsLibrary": "This folder holds the {{library}} library. Choose another folder.",
+          "cloudFolder": "{{service}} syncs this folder. Syncing a git folder this way can damage it. Choose a folder outside {{service}} if you can.",
+          "insideRepo": "This folder is inside the code repo {{repo}}. Choose a folder outside it."
+        }
+      }
+    },
+    "download": {
+      "title": "Downloading the library",
+      "progress": "Download progress",
+      "starting": "Connecting to {{host}}…",
+      "phase": "{{phase}}"
+    },
+    "prefix": {
+      "title": "Prefix",
+      "description": "Every company skill name starts with this prefix, for example acme-code-review. It separates your company's skills from personal ones in every tool. It can't easily be changed later.",
+      "label": "Prefix",
+      "placeholder": "acme",
+      "example": "Skills will be named {{prefix}}-code-review, {{prefix}}-release-notes, …",
+      "create": "Create the library"
+    },
+    "offers": {
+      "sameLibraryTitle": "This library is already on this device",
+      "sameLibrary": "It is connected as {{name}}, under another URL. The repo may have been renamed or moved. Change {{name}}'s URL to this one instead?",
+      "changeUrl": "Change {{name}}'s URL",
+      "alreadySetUpTitle": "Someone set up this repo first",
+      "alreadySetUp": "The repo holds a library already. Join it instead of creating one.",
+      "join": "Join this library"
+    },
+    "finish": {
+      "folder": "Library folder",
+      "prefix": "Prefix",
+      "role": "Your role",
+      "updateTitle": "Update {{appName}} to join this library",
+      "updateFormat": "This library uses a newer layout than {{appName}} knows. The download is kept: the setup continues after the update.",
+      "updateApp": "This library needs a newer version of {{appName}}. The download is kept: the setup continues after the update."
+    },
+    "localPrefix": {
+      "title": "Choose a local prefix",
+      "clashInstance": "This device already uses {{prefix}} for another library, {{name}}. Choose a local prefix for this one.",
+      "clashFolders": "Your own skills on this device already start with {{prefix}}-. Choose a local prefix for this library.",
+      "explain": "Only this device uses it. In git the skills keep {{prefix}}-, and nothing changes for anyone else.",
+      "label": "Local prefix",
+      "example": "On this device: {{example}}",
+      "use": "Use this prefix",
+      "useShorter": "Use {{prefix}}",
+      "tooLong_one": "{{count}} skill gets a name longer than 64 characters with this prefix. It won't be installed on this device:",
+      "tooLong_other": "{{count}} skills get names longer than 64 characters with this prefix. They won't be installed on this device:",
+      "shorter": "A shorter prefix that fits: {{prefix}}",
+      "problem": {
+        "instance": "{{name}} uses this prefix on this device.",
+        "folders": "Your own skills on this device already start with {{prefix}}-.",
+        "git-prefix": "This is the library's own prefix."
+      },
+      "folders": "Or keep {{prefix}} and decide for each of your folders:",
+      "move": "Move my folder",
+      "keep": "Keep it",
+      "newName": "New name for {{folder}}",
+      "keepNote": "A kept folder with exactly a company skill's name comes up again on the name check.",
+      "continue": "Continue without a local prefix"
+    },
+    "joinNamed": "Join {{name}}",
+    "invite": {
+      "invalid": "This invite link isn't valid. Ask your admin for a new one, or paste the library's git URL.",
+      "fromLink": "From an invite link. Check the host and the repository before you continue."
+    },
+    "githubApp": {
+      "title": "Install {{appName}} on {{repo}}",
+      "body": "On GitHub the app signs in as a GitHub App. Its token reaches only the repos the app is installed on, never your code repos. An owner of {{owner}} installs it once on {{repo}}. This also settles organizations that restrict third-party apps.",
+      "open": "Open the installation page",
+      "again": "Try again"
+    },
+    "wizard": {
+      "continue": "Continue",
+      "skip": "Skip",
+      "back": "Back",
+      "import": {
+        "title": "Bring in existing skills",
+        "description": "Bring skills from an old skills repo, a folder or a zip file. You review each skill in the editor before it is added. You can skip this.",
+        "open": "Import skills…",
+        "count_one": "{{count}} skill in the library",
+        "count_other": "{{count}} skills in the library",
+        "none": "No skills in the library yet."
+      },
+      "instructions": {
+        "title": "Instructions for every agent",
+        "description": "Write the instructions every agent reads, instructions/AGENTS.md. You can skip this and write them later.",
+        "open": "Write the instructions…",
+        "has": "instructions/AGENTS.md is written ({{size}}).",
+        "none": "No instructions yet."
+      },
+      "tags": {
+        "title": "Tags",
+        "description": "Tag skills for the code repos they belong to, for example backend. A tagged skill goes only into the repos that tick its tag.",
+        "skillTags": "Tags of {{skill}}",
+        "hint": "Separate tags with spaces.",
+        "save": "Save",
+        "noSkills": "Import skills first to tag them.",
+        "suggestTitle": "Tag suggestions for repos",
+        "suggestDescription": "library.yaml can suggest a tag for repos whose remote matches a pattern, for example backend → acme/backend-*.",
+        "suggestTag": "Tag",
+        "suggestPatterns": "Remote patterns",
+        "addSuggestion": "Add the suggestion",
+        "removeSuggestion": "Remove {{tag}}",
+        "repoOnlyDescription": "Skills with these tags are never installed everywhere by default.",
+        "repoOnlyLabel": "Repo-only tags",
+        "saveLibrary": "Save library.yaml",
+        "patternExample": "acme/backend-*"
+      },
+      "publish": {
+        "title": "Push the first version",
+        "description": "The app commits the library's files and pushes them to {{host}}. Then people can join.",
+        "changes_one": "{{count}} change to push.",
+        "changes_other": "{{count}} changes to push.",
+        "push": "Commit and push",
+        "message": "Add the first version",
+        "checks": "The commit needs a look first. Open the Changes screen.",
+        "openChanges": "Open Changes",
+        "rejected": "The host refused the push. Open the Changes screen to see why.",
+        "inviteTitle": "Invite link",
+        "inviteDescription": "Send this link to the people who join. It holds only the git URL: no password or token.",
+        "copy": "Copy invite link",
+        "copied": "The invite link is copied.",
+        "keys": "People who join with a read-only key instead of an account get the key separately, for example through a password manager. Create it in the repo's settings on the host."
+      },
+      "tools": {
+        "title": "Tools",
+        "found": "Found on this computer: {{tools}}. Enable them?",
+        "foundNone": "No tools were found on this computer. You can add a custom tool.",
+        "folder": "Links in {{folder}}",
+        "notFound": "not found",
+        "custom": "Add a custom tool",
+        "customTool": "custom tool",
+        "customName": "Name of a custom tool",
+        "others_one": "{{count}} other tool, not found on this computer",
+        "others_other": "{{count}} other tools, not found on this computer"
+      },
+      "repos": {
+        "title": "Code repos (recommended)",
+        "description": "Set up your code repos first. Skills tagged for a repo (for example backend) are then linked only there, instead of everywhere. You can also do this later.",
+        "addRepo": "Add repo folder",
+        "addRoot": "Add parent folder",
+        "macos": "On macOS, a folder inside Documents, Desktop or Downloads makes the system ask once whether {{appName}} may open it.",
+        "none": "No code repos yet.",
+        "suggestion": "{{repo}} looks like a {{tag}} repo. Tick {{tag}}?",
+        "tagsOf": "Tags for {{repo}}",
+        "noTags": "The library has no tags yet.",
+        "skip": "Skip for now",
+        "tick": "Tick {{tag}}"
+      },
+      "names": {
+        "title": "Name check",
+        "description": "These names are taken on this device by folders that aren't the app's. Choose what to do with each.",
+        "none": "No name is taken: every skill can be installed.",
+        "where": "{{path}} · {{tools}}",
+        "move": "Move my folder",
+        "newName": "New name for your folder",
+        "useName": "Move it",
+        "overwrite": "Overwrite",
+        "suppress": "Don't install it there",
+        "committed": "{{repo}} has its own {{skill}} in git. It won't be installed there.",
+        "movedTo": "Your folder moves to {{name}}.",
+        "overwritten": "Your folder goes to the app's trash, and the link takes its place.",
+        "suppressed": "{{skill}} won't be installed there.",
+        "change": "Change",
+        "open": "Not answered yet: {{skill}} isn't installed there until you choose."
+      },
+      "summary": {
+        "title": "Ready to set up {{name}}",
+        "nothingYet": "Nothing outside the library folder has changed yet.",
+        "skills_one": "{{count}} skill:",
+        "skills_other": "{{count}} skills:",
+        "everywhere": "{{count}} everywhere",
+        "inRepos": "{{count}} only in {{repos}}",
+        "viaTags": "(via tag {{tags}})",
+        "nowhere": "{{count}} in no repo yet (repo-only tags)",
+        "instructions": "Instructions added to: {{list}}",
+        "method": {
+          "import-file": "{{tool}} (own file)",
+          "owned-file": "{{tool}} (own file)",
+          "marked-block": "{{tool}} (a marked block in {{file}}; your text there stays untouched)",
+          "manual": "{{tool}} (you copy them by hand)",
+          "none": "{{tool}} (no instructions)"
+        },
+        "noInstructions": "Instructions: none of the enabled tools reads them.",
+        "notLinked": "{{name}}'s instructions: not linked, because {{other}}'s are. You can change this on the Instructions page.",
+        "kept": "{{skill}} won't be installed in {{tools}} (you chose to keep your own folder)",
+        "taken": "{{skill}} won't be installed in {{tools}} (the name is taken)",
+        "committed": "{{skill}} won't be installed in {{tools}} (a code repo has its own)",
+        "moved": "Your folder {{from}} moves to {{to}}",
+        "overwritten": "{{path}} goes to the app's trash",
+        "untouched": "Your own skills won't be touched.",
+        "tools": "Tools: {{tools}}",
+        "noTools": "No tools are enabled: nothing is linked yet.",
+        "finish": "Finish",
+        "noLibraryInstructions": "Instructions: the library has none yet."
+      }
+    }
+  },
+  "access": {
+    "lostTitle": "Access to this library is lost",
+    "revoked": "{{host}} doesn't accept the sign-in any more. It may have been revoked.",
+    "notFound": "The library's repo isn't there any more, or you can't reach it.",
+    "signInAgain": "The sign-in ran out and couldn't be renewed.",
+    "options": "Your library folder and its changes are kept. Choose what to do:",
+    "signInAgainButton": "Sign in again",
+    "changeUrlButton": "Change URL",
+    "removeButton": "Remove this library",
+    "changeUrlTitle": "Change the library's URL",
+    "changeUrlHint": "The repo was renamed or moved: paste its new URL. It is accepted only if it holds this library.",
+    "newUrl": "New git URL",
+    "saveUrl": "Change URL"
+  },
+  "remove": {
+    "title": "Remove {{name}} from this device?",
+    "body": "Everything {{appName}} made for this library on this device is removed. The library on the server isn't touched.",
+    "folderKept": "Your library folder is kept, unless you choose to move it to the trash:",
+    "deleteFolder": "Also move the library folder to the trash",
+    "unpushed": "The folder holds work that isn't pushed: {{commits}}, {{files}}. If you delete the folder, that work is lost.",
+    "commits_one": "{{count}} commit",
+    "commits_other": "{{count}} commits",
+    "files_one": "{{count}} changed file",
+    "files_other": "{{count}} changed files",
+    "confirm": "Remove",
+    "cancel": "Cancel",
+    "fromComputer": "Remove {{name}} from this computer"
+  },
+  "links": {
+    "nav": {
+      "label": "Library pages",
+      "skills": "Skills",
+      "attention": "Needs attention",
+      "activity": "Activity",
+      "tools": "Tools",
+      "count": "{{count}}",
+      "overview": "Overview",
+      "repos": "Repos",
+      "doctor": "Doctor",
+      "edit": "Edit",
+      "changes": "Changes"
+    },
+    "status": {
+      "linked": "Linked",
+      "pending": "Not checked yet",
+      "skipped": "Name taken",
+      "missing": "Link removed",
+      "diverged": "Changed copy",
+      "taken-over": "Another tool",
+      "deleted": "Deleted on this device",
+      "suppressed": "Not installed here",
+      "detached-by-user": "Left alone",
+      "duplicate": "Visible twice",
+      "copy-changed": "Edited copy",
+      "copied": "Copied"
+    },
+    "cancel": "Cancel",
+    "skills": {
+      "title": "Skills",
+      "body": "Each skill and the tools on this device that see it.",
+      "frozen": "This library uses a newer format, so links don't change until {{appName}} is updated.",
+      "paused": "A git operation is in progress in the library. Links change when it's done.",
+      "empty": "This library has no skills yet.",
+      "noTools": "No tools are enabled for this library yet.",
+      "chooseTools": "Choose tools",
+      "skill": "Skill",
+      "links": "Tools",
+      "loading": "Reading the library…",
+      "turnBackOn": "Turn back on",
+      "turnBackOnLabel": "Turn {{skill}} back on in {{tools}}",
+      "prefixWaiting": "The links wait for a local prefix. Choose one in Needs attention."
+    },
+    "attention": {
+      "title": "{{name}}: needs attention",
+      "empty": "Nothing needs attention. Every link is in place."
+    },
+    "warning": {
+      "skipped": {
+        "title": "{{skill}} was not installed in {{tools}}",
+        "body": "already exists and is not managed by {{appName}}."
+      },
+      "skippedLink": {
+        "title": "{{skill}} was not installed in {{tools}}",
+        "body": "is another program's link, not managed by {{appName}}."
+      },
+      "missing": {
+        "title": "{{skill}} is no longer installed in {{tools}}",
+        "body": "was removed. {{appName}} doesn't put it back on its own."
+      },
+      "diverged": {
+        "title": "{{skill}} in {{tools}} was changed and is no longer connected to the library",
+        "body": "is now a folder with changes of its own."
+      },
+      "taken-over": {
+        "title": "Another tool now controls {{skill}} in {{tools}}",
+        "body": "is now another program's link.",
+        "pointsTo": "It points to",
+        "outdated": "{{tools}} may be using an outdated copy."
+      },
+      "deleted": {
+        "title": "{{skill}}: deleted on this device",
+        "body": "Tools on this device no longer see {{skill}}: its files were deleted through the link."
+      },
+      "frozen": {
+        "title": "Links don't change until {{appName}} is updated",
+        "body": "This library now uses a newer format. Update {{appName}}, and its links follow the library again."
+      },
+      "skippedNoAccess": {
+        "title": "{{skill}} can't be changed in {{tools}}: the folder can't be written",
+        "body": "can't be written (no permission, a read-only or a full disk). {{appName}} tries again at every check. Fix the folder, or choose Try again."
+      },
+      "skippedCommitted": {
+        "title": "{{repo}} has its own {{skill}}, committed in the repo",
+        "body": "is a skill that {{repo}} commits. {{appName}} never changes the repo's own files."
+      },
+      "repo-missing": {
+        "title": "{{repo}} was not found",
+        "body": "is gone. Skills placed only there stay placed there. Locate the repo, or remove it."
+      },
+      "tag-gone": {
+        "title": "The tag {{tag}} no longer exists",
+        "body": "It is used for {{repos}}. Skills it placed there now follow the other rules. Use another tag, or remove the rule."
+      },
+      "duplicate": {
+        "title": "{{skill}} is available twice in {{tools}}",
+        "body": "is a link {{appName}} didn't make. With it, the skill is both global and in a repo, and Codex lists it twice."
+      },
+      "copy-changed": {
+        "title": "{{skill}} was edited in its copy for {{tools}}",
+        "body": "is a copy of the library's skill, and it was changed there."
+      },
+      "copy-conflict": {
+        "title": "{{skill}} changed in two places",
+        "body": "The library and the copy on this device both changed while {{appName}} was not running, or while git was busy."
+      },
+      "name-too-long": {
+        "title": "{{skill}} is not installed on this device",
+        "body": "With the local prefix its name, {{name}}, has more than 64 characters."
+      },
+      "wrong-prefix": {
+        "title": "{{skill}} is not installed on this device",
+        "body": "Its name does not start with {{prefix}}-, so it can't get the local prefix."
+      },
+      "library-missing": {
+        "title": "The {{library}} library folder is missing. Did you move it?",
+        "body": "Nothing changes in git, and the links wait until the folder is found. Find the folder where it is now, or download the library again."
+      },
+      "connections-lost": {
+        "title": "{{appName}} lost its records of {{library}} on this device",
+        "body": "The records of the links were damaged or deleted, and no backup could replace them. The links themselves are still there. Recover the records from the links: {{appName}} looks only at the links and where they point."
+      },
+      "relocation-unfinished": {
+        "title": "Moving the {{library}} library didn't finish",
+        "body": "The library is moved to"
+      },
+      "prefix-waiting": {
+        "title": "{{library}}'s prefix changed to {{to}}",
+        "body": "The prefix changed from {{from}} to {{to}}, and this device already uses {{to}}. The links keep their old names until you choose a local prefix for this library."
+      }
+    },
+    "actions": {
+      "moveMyFolder": "Move my folder",
+      "overwrite": "Overwrite",
+      "dontInstall": "Don't install it in {{tools}} on this device",
+      "reinstall": "Reinstall",
+      "tryAgain": "Try again",
+      "takeBack": "Take it back",
+      "leave": "Leave it",
+      "restore": "Restore"
+    },
+    "move": {
+      "title": "Move your folder {{skill}}",
+      "keepTitle": "Keep your version of {{skill}} as your own skill",
+      "body": "Your folder gets a new name, then the company's skill is linked under {{skill}}.",
+      "keepBody": "Your copy gets a name without the company prefix and stays yours. The company's version is linked again.",
+      "name": "New name",
+      "rewrite": "Also change the name: line in its SKILL.md, so tools don't see two skills with one name",
+      "change": "The change to its SKILL.md",
+      "confirm": "Move my folder",
+      "keepConfirm": "Keep my version"
+    },
+    "overwrite": {
+      "title": "Overwrite {{skill}} in {{tools}}?",
+      "body": "What's there goes to the trash, then the company's skill is linked. You can restore it from the activity log for 30 days."
+    },
+    "copyChanged": {
+      "libraryChanged": "The library changed too since this copy was made. If you bring the copy in, it replaces those changes in the library folder. Check them in Changes before you commit.",
+      "legend": "What to do with the edited copy of {{skill}}",
+      "bring-in": {
+        "label": "Bring this change into the library",
+        "body": "The copy's changes become changes in the library, ready to commit. The copy stays."
+      },
+      "replace": {
+        "label": "Replace it with the library's version",
+        "body": "The edited copy goes to the trash, and a new copy of the library's version is made."
+      },
+      "leave": {
+        "label": "Leave it alone on this device",
+        "body": "Library updates won't reach {{tools}} on this device until you turn it back on."
+      }
+    },
+    "diverged": {
+      "showDifferences": "Show differences",
+      "differences": "Files that differ from the library",
+      "noDifferences": "No file differs. The next check links it again.",
+      "change": {
+        "added": "Only in yours",
+        "removed": "Only in the library",
+        "changed": "Changed"
+      },
+      "legend": "What to do with your copy of {{skill}}",
+      "keep": {
+        "label": "Keep my version as my own skill",
+        "body": "Rename it without the prefix, change its name: line, and reinstall the company's version."
+      },
+      "replace": {
+        "label": "Replace it with the library's version",
+        "body": "Your copy goes to the trash, and the link comes back."
+      },
+      "bring-in": {
+        "label": "Bring my changes into the library",
+        "body": "Your changes become changes in the library, ready to commit. Then the link comes back."
+      },
+      "leave": {
+        "label": "Leave it alone on this device",
+        "body": "Library updates won't reach {{tools}} on this device until you turn it back on."
+      },
+      "apply": "Apply"
+    }
+  },
+  "activity": {
+    "title": "{{name}}: activity",
+    "empty": "Nothing happened in this library on this device yet.",
+    "listLabel": "Activity, newest first",
+    "restored": "Restored",
+    "restore": "Restore",
+    "restoreLabel": "Restore the folder of {{skill}} from the trash",
+    "kinds": {
+      "installed": "Installed {{skill}} for {{tools}}.",
+      "installedOverwrote": "Installed {{skill}} for {{tools}}. What was there went to the trash.",
+      "installedMoved": "Moved your folder to {{movedTo}} and installed {{skill}} for {{tools}}.",
+      "skipped": "Skipped {{skill}} for {{tools}}: the name is taken.",
+      "suppressed": "{{skill}} isn't installed in {{tools}} on this device any more, as you chose.",
+      "relinked": "Re-linked {{skill}} in {{tools}}.",
+      "relinkedStale": "Replaced an outdated copy of {{skill}} in {{tools}}.",
+      "taken-back": "Took {{skill}} back in {{tools}}. The other link went to the trash.",
+      "detached": "Left {{skill}} alone in {{tools}}, as you chose.",
+      "renamed": "{{from}} was renamed to {{to}}.",
+      "renamedBy": "{{from}} was renamed to {{to}} by {{author}}.",
+      "removed": "Removed the link to {{skill}} from {{tools}}.",
+      "restored": "Restored {{skill}} from git.",
+      "restored-from-trash": "Restored {{path}} from the trash.",
+      "brought-in": "Brought your changes to {{skill}} into the library.",
+      "tool-enabled": "Enabled {{tool}}.",
+      "tool-disabled": "Disabled {{tool}}.",
+      "instance-added": "Added this library.",
+      "instance-removed": "Removed this library.",
+      "installedRepo": "Installed {{skill}} into {{repos}} for {{tools}}.",
+      "removedRepo": "Removed the link to {{skill}} from {{repos}} for {{tools}}.",
+      "removedDuplicate": "Moved the extra link to {{skill}} in {{tools}} to the trash.",
+      "tagRuleOn": "Ticked the tag {{tag}} on {{repo}}.",
+      "tagRuleOff": "Unticked the tag {{tag}} on {{repo}}.",
+      "tagRuleRetag": "{{repo}} uses the tag {{tag}} instead of {{from}} now.",
+      "tag-rule-changed": "Changed a tag rule on {{repo}}.",
+      "repo-added": "Added the repo {{repo}}.",
+      "repo-removed": "Removed the repo {{repo}}.",
+      "repoRemovedRoot": "Removed the repo {{repo}} with the parent folder {{root}}.",
+      "worktree-linked": "Linked a worktree of {{repo}}: {{path}}.",
+      "placement-changed": "Changed where {{skill}} is available.",
+      "placement": {
+        "mode-global": "Made {{skill}} available everywhere.",
+        "mode-off": "Turned {{skill}} off on this device.",
+        "mode-default": "{{skill}} follows the tag rules again.",
+        "add-on": "Added {{skill}} to {{repo}}.",
+        "add-off": "Took {{skill}} out of {{repo}}.",
+        "exclude-on": "Excluded {{skill}} in {{repo}}.",
+        "exclude-off": "{{skill}} is no longer excluded in {{repo}}.",
+        "reset": "Reset the skills set to everywhere to the tag rules.",
+        "locate": "Found {{repo}} at {{path}}."
+      },
+      "instructions-linked": "Linked this library's instructions for {{tools}}.",
+      "instructions-unlinked": "Unlinked this library's instructions. Your own text stays.",
+      "broughtInInstructions": "Brought the change in {{file}} into the library’s instructions.",
+      "discarded": "Discarded the changes to {{skill}}.",
+      "localPrefixSet": "This device uses the local prefix {{to}} for this library.",
+      "localPrefixChanged": "Changed this device's local prefix from {{from}} to {{to}}.",
+      "localPrefixDropped": "This device uses the library's own prefix again.",
+      "written-back": "Your changes to {{skill}}, made in a tool, went into the library.",
+      "copyKeptLibrary": "Kept the library's version of {{skill}}. The changes on this device went to the trash.",
+      "copyKeptCopy": "Kept the changes to {{skill}} on this device. The library's version went to the trash.",
+      "library-moved": "Moved the library from {{from}} to {{to}}: {{files}} files, {{connections}} connections updated.",
+      "libraryFound": "Found the library at {{to}}: {{connections}} connections updated.",
+      "library-downloaded": "Downloaded the library again into {{path}}.",
+      "connections-recovered": "Recovered {{links}} connections from the links on disk.",
+      "database-restored": "Restored this library's records from the backup {{backup}}: they were missing.",
+      "databaseRestoredDamaged": "Restored this library's records from the backup {{backup}}: they were damaged.",
+      "modified-locally": "Changed {{skill}} on this device.",
+      "createdInEditor": "Created {{skill}} in the editor.",
+      "imported": "Imported {{skill}} from {{source}}.",
+      "importedLocal": "Imported {{skill}} from a folder or file on this device.",
+      "importedReplaced": "Moved your original of {{skill}} to the trash. Your tools now show the company skill.",
+      "restoredVersion": "Restored {{skill}} to the version \"{{subject}}\" ({{version}}). Commit and push it to share it.",
+      "committed": "Committed \"{{message}}\" ({{skills}}).",
+      "commit-undone": "Undid the commit \"{{message}}\". Its changes are still on this device.",
+      "merged": "Merged the incoming changes.",
+      "conflict-resolved": "Resolved a conflict in {{path}}.",
+      "merge-aborted": "Stopped the merge. The library is as it was before the pull.",
+      "push-rejected": "The server did not accept the push to {{branch}}.",
+      "branch-created": "Created the branch {{branch}}.",
+      "branch-switched": "Switched to the branch {{to}}.",
+      "branch-deleted": "Deleted the branch {{branch}}.",
+      "stashed": "Put changes aside: \"{{message}}\".",
+      "stash-applied": "Applied the changes put aside: \"{{message}}\".",
+      "stash-dropped": "Dropped the changes put aside: \"{{message}}\".",
+      "reverted": "Reverted \"{{subject}}\".",
+      "pushed_one": "Pushed 1 commit to {{branch}}.",
+      "pushed_other": "Pushed {{count}} commits to {{branch}}.",
+      "pulled_one": "Pulled 1 change by {{authors}}.",
+      "pulled_other": "Pulled {{count}} changes by {{authors}}.",
+      "signing-key-added": "Added the signing key {{key}} to your account.",
+      "request-opened": "Opened the change request \"{{title}}\" for {{branch}}.",
+      "request-updated": "Updated the change request {{id}}.",
+      "request-approved": "Approved the change request {{id}}.",
+      "request-declined": "Declined the change request {{id}}.",
+      "request-merged": "Merged the change request {{id}}.",
+      "request-withdrawn": "Withdrew the change request {{id}}.",
+      "prefixChanged": "{{author}} changed the prefix from {{from}} to {{to}}. {{skills}} skills got new names.",
+      "prefixCorrected": "{{author}} corrected the prefix to {{to}}.",
+      "prefixFollowed": "The library's prefix changed from {{from}} to {{to}}. This device follows it."
+    },
+    "filters": {
+      "label": "Filter the activity",
+      "kind": "Kind",
+      "allKinds": "All kinds",
+      "skill": "Skill",
+      "allSkills": "All skills",
+      "from": "From",
+      "to": "To",
+      "yesterday": "What changed since yesterday",
+      "clear": "Show everything",
+      "groups": {
+        "git": "Commits, pulls and pushes",
+        "links": "Links",
+        "placement": "Repos and placement",
+        "editor": "The editor",
+        "library": "Tools and the library",
+        "requests": "Change requests"
+      }
+    }
+  },
+  "tools": {
+    "title": "{{name}}: tools",
+    "foundOnDevice": "Found on this device: {{tools}}.",
+    "noneFound": "No known tool was found on this device.",
+    "listTitle": "Tools",
+    "listBody": "Company skills are linked into every tool you enable here. Each library enables its own tools.",
+    "columns": {
+      "tool": "Tool",
+      "found": "On this device",
+      "folder": "Its folder",
+      "enabled": "Enabled"
+    },
+    "custom": "Added by you",
+    "copyTarget": "Copy target",
+    "found": "Found",
+    "notFound": "Not found",
+    "movedByEnv": "Moved by {{variable}}",
+    "changedByYou": "Changed by you",
+    "changeFolder": "Change folder…",
+    "changeFolderLabel": "Change the folder {{tool}} uses",
+    "resetFolder": "Use the default",
+    "resetFolderLabel": "Use the default folder for {{tool}}",
+    "removeCustom": "Remove",
+    "removeCustomLabel": "Remove the custom tool {{tool}}",
+    "enableLabel": "Enable {{tool}}",
+    "apply": "Apply changes",
+    "undo": "Undo",
+    "foldersTitle": "Where the links go",
+    "foldersBody": "The fewest folders that reach every enabled tool. A shared folder serves every tool that reads it.",
+    "servesTools": "Read by {{tools}}",
+    "duplicateListsBoth": "{{tool}} lists a skill twice when it sees it in two folders, and it reads two of these.",
+    "duplicateUnknown": "{{tool}} may list company skills twice: it reads two of these folders, and how it handles that isn't verified yet.",
+    "customTitle": "Custom tools",
+    "customBody": "Any other agent: give it a name and choose the folder it reads skills from. Custom tools belong to this device.",
+    "customName": "Name",
+    "addCustom": "Choose its folder and add it",
+    "copyTitle": "Copy targets",
+    "copyBody": "For places links can't reach: WSL, a folder mounted into a container or VM, or a sandboxed app. {{appName}} copies the skills there, and refreshes the copies when the library changes.",
+    "copyName": "Name, for example Ubuntu in WSL",
+    "addCopy": "Choose its folder and add the copy target",
+    "copyHint": "Choose the folder the agent reads skills from, as this computer sees it. For WSL, that is a folder under \\\\wsl.localhost. An edit made in a copy is found at the next check, and you can bring it into the library.",
+    "copiesHere": "Gets copies, not links",
+    "confirm": {
+      "title": "Apply these changes?",
+      "body": "This is what changes in the tool folders.",
+      "noChanges": "No link changes.",
+      "added_one": "1 link added",
+      "added_other": "{{count}} links added",
+      "removed_one": "1 link removed",
+      "removed_other": "{{count}} links removed",
+      "copiesAdded_one": "1 copy added",
+      "copiesAdded_other": "{{count}} copies added",
+      "copiesRemoved_one": "1 copy removed",
+      "copiesRemoved_other": "{{count}} copies removed",
+      "warnings_one": "1 name is taken",
+      "warnings_other": "{{count}} names are taken",
+      "kept": "Links stay for {{tool}}: {{readers}} still reads",
+      "apply": "Apply"
+    },
+    "customInstructions": "Instructions (optional)",
+    "customInstructionsNone": "No instructions",
+    "customInstructionsBlock": "A block in a file",
+    "customInstructionsFolder": "A file in a folder",
+    "customInstructionsPath": "File or folder for the instructions"
+  },
+  "notifications": {
+    "warning": {
+      "skipped": {
+        "title": "{{skill}} was not installed in {{tools}}",
+        "body": "The name is taken by a folder {{appName}} doesn't manage. Open {{appName}} to decide."
+      },
+      "missing": {
+        "title": "{{skill}} is no longer installed in {{tools}}",
+        "body": "Its link was removed. Open {{appName}} to reinstall it."
+      },
+      "diverged": {
+        "title": "{{skill}} in {{tools}} was changed",
+        "body": "It is no longer connected to the library. Open {{appName}} to decide."
+      },
+      "taken-over": {
+        "title": "Another tool now controls {{skill}} in {{tools}}",
+        "body": "{{tools}} may be using an outdated copy."
+      },
+      "deleted": {
+        "title": "{{skill}} was deleted on this device",
+        "body": "Tools no longer see it. Open {{appName}} to restore it."
+      },
+      "duplicate": {
+        "title": "{{skill}} is available twice in {{tools}}",
+        "body": "A link to it is both global and in a repo. Open {{appName}} to keep one."
+      }
+    },
+    "renamed": {
+      "title": "{{from}} was renamed to {{to}}",
+      "body": "Use /{{to}} from now on.",
+      "bodyBy": "{{author}} renamed it. Use /{{to}} from now on."
+    },
+    "removed": {
+      "title": "{{skill}} was removed from the library",
+      "body": "Its links are gone from this device."
+    },
+    "moved": {
+      "title_one": "A skill moved after a git change",
+      "title_other": "{{count}} skills moved after a git change",
+      "line": "{{skill}}: from {{from}} to {{to}}",
+      "everywhere": "everywhere",
+      "nowhere": "nowhere"
+    },
+    "repoMissing": {
+      "title": "{{repo}} was not found",
+      "body": "{{path}} is gone. Open {{appName}} to locate it or remove it."
+    },
+    "tagGone": {
+      "title": "The tag {{tag}} no longer exists",
+      "body": "It is used for {{repos}}. Open {{appName}} to use another tag or remove the rule."
+    },
+    "instructions": {
+      "edited": {
+        "title": "The company instructions for {{tools}} were changed",
+        "body": "Someone changed them in {{file}}. Open {{appName}} to bring the change in or discard it."
+      },
+      "damaged": {
+        "title": "A block of company instructions for {{tools}} is damaged",
+        "body": "A marker in {{file}} is missing. Fix the markers there by hand."
+      }
+    },
+    "bothChanged": {
+      "title": "{{skill}} changed in two places",
+      "body": "The library and its copy on this device both changed. Open {{appName}} to choose which to keep."
+    },
+    "nameTooLong": {
+      "title": "{{skill}} is not installed on this device",
+      "body": "With this device's local prefix its name has more than 64 characters. Open {{appName}} to choose a shorter local prefix."
+    },
+    "wrongPrefix": {
+      "title": "{{skill}} is not installed on this device",
+      "body": "Its name does not start with the library's prefix, so it can't get this device's local prefix."
+    },
+    "libraryMissing": {
+      "title": "A library folder is missing",
+      "body": "Open {{appName}} to find the folder, or download the library again."
+    },
+    "incoming": {
+      "title": "↓{{count}} from {{library}}",
+      "body": "{{authors}} changed {{skills}}.",
+      "someone": "Someone",
+      "bodyNoSkills_one": "{{authors}} pushed 1 change.",
+      "bodyNoSkills_other": "{{authors}} pushed {{count}} changes."
+    },
+    "external": {
+      "title": "{{library}} changed outside the app",
+      "commits_one": "1 commit by {{authors}}",
+      "commits_other": "{{count}} commits by {{authors}}",
+      "added": "New: {{skill}}"
+    },
+    "prefix": {
+      "waiting": {
+        "title": "{{library}}'s prefix changed to {{to}}",
+        "body": "This device already uses {{to}}. Choose a local prefix in Needs attention. Until then the links keep the old names."
+      },
+      "changed": {
+        "title": "{{library}}'s prefix is now {{to}}",
+        "body": "The skills are renamed from {{from}}-… to {{to}}-…. Use the new commands, for example /{{to}}-… instead of /{{from}}-…."
+      },
+      "dropOffered": {
+        "title": "{{library}} can use {{to}} again on this device",
+        "body": "The new prefix {{to}} is free here. On the library's page you can stop using the local prefix {{local}}."
+      }
+    }
+  },
+  "placement": {
+    "inRepo": "{{tools}} in {{repo}}",
+    "actions": {
+      "dontPlace": "Don't place it in this repo",
+      "keepRepo": "Keep repo only",
+      "keepGlobal": "Keep global only",
+      "otherTag": "Another tag",
+      "chooseTag": "Choose a tag",
+      "useTag": "Use '{{tag}}' instead",
+      "removeRule": "Remove the rule",
+      "useAnother": "Use another tag"
+    },
+    "moves": {
+      "off": "{{skill}}: turned off, linked nowhere.",
+      "excluded": "{{skill}}: no longer linked anywhere, because {{repos}} excludes it.",
+      "repoOnly": "{{skill}}: linked nowhere until a repo uses its tag.",
+      "everywhere": "{{skill}}: available everywhere.",
+      "everywhereFrom": "{{skill}}: available everywhere, no longer in {{repos}} only.",
+      "everywhereByChoice": "{{skill}}: available everywhere, as you chose.",
+      "everywhereByChoiceFrom": "{{skill}}: available everywhere, as you chose. No longer in {{repos}} only.",
+      "reposOnly": "{{skill}}: available in {{repos}} only, no longer everywhere.",
+      "added": "{{skill}}: available in {{repos}}.",
+      "removedStill": "{{skill}}: removed from {{removed}}, still in {{kept}}.",
+      "addedToo": "{{skill}}: also available in {{added}}.",
+      "moved": "{{skill}}: in {{to}} now, no longer in {{from}}."
+    },
+    "where": {
+      "everywhere": "Everywhere",
+      "repos": "{{repos}}",
+      "nowhere": "Nowhere"
+    },
+    "confirm": {
+      "noMoves": "No skill changes where it is available.",
+      "movesLabel": "What changes",
+      "created_one": "{{count}} link is made",
+      "created_other": "{{count}} links are made",
+      "removed_one": "{{count}} link goes",
+      "removed_other": "{{count}} links go",
+      "apply": "Apply"
+    },
+    "removal": {
+      "title": "These skills are in no repo after this",
+      "body": "A skill in no repo is available everywhere. Turn off a skill that you don't want everywhere.",
+      "everywhere": "Available everywhere",
+      "turnOff": "Turn it off"
+    },
+    "cell": {
+      "label": "{{skill}} in {{repo}}: {{state}}",
+      "globalLabel": "{{skill}}, global: {{state}}",
+      "lastRepoTitle": "{{skill}} is no longer in any repo",
+      "lastRepoBody": "No tag rule places {{skill}} in a repo. Make it available everywhere, or turn it off on this device.",
+      "everywhere": "Make it available everywhere",
+      "turnOff": "Turn it off",
+      "removeTitle": "Remove {{skill}} from {{repo}}?",
+      "removeViaBody": "{{repo}} gets it through the tag {{tags}}. It stays excluded there until you include it again.",
+      "remove": "Remove from {{repo}}",
+      "includeTitle": "Include {{skill}} in {{repo}} again?",
+      "include": "Include it",
+      "everywhereTitle": "{{skill}} is available everywhere",
+      "everywhereBody": "A skill that is available everywhere is also visible in {{repo}}. Make it available in specific repos instead?",
+      "moveOnly": "Move to {{repo}} only",
+      "turnOnTitle": "{{skill}} is turned off",
+      "turnOnHere": "Turn it on in {{repo}}",
+      "turnOn": "Turn it on",
+      "moveTitle": "Make {{skill}} available only in {{repo}}?",
+      "moveBody": "{{skill}} is currently available everywhere. Its global links go, and links in {{repo}} come.",
+      "addTitle": "Add {{skill}} to {{repo}}?",
+      "add": "Add to {{repo}}",
+      "globalOffTitle": "Turn {{skill}} off on this device?",
+      "byChoiceTitle": "{{skill}} is available everywhere, as you chose",
+      "byChoiceBody": "Hand it back to the tag rules, or turn it off on this device.",
+      "useRules": "Use the tag rules",
+      "makeEverywhereTitle": "Make {{skill}} available everywhere?",
+      "makeEverywhereBody": "Its links in repos go, and global links come. Tag rules then add no repo links for it.",
+      "makeEverywhere": "Make it available everywhere"
+    },
+    "how": {
+      "via": "via {{tags}}",
+      "added": "added individually",
+      "excluded": "excluded by you"
+    },
+    "problem": {
+      "committed": "Committed in the repo",
+      "status": "{{status}} ({{tools}})"
+    },
+    "table": {
+      "label": "Skills and where they are available",
+      "select": "Select",
+      "skill": "Skill",
+      "tags": "Tags",
+      "global": "Global",
+      "selectSkill": "Select {{skill}}"
+    },
+    "repo": {
+      "notFound": "not found",
+      "missingTitle": "{{repo}} was not found",
+      "missingBody": "The folder is gone. Skills placed only there stay placed there. Locate the repo where it is now, or remove it.",
+      "locate": "Locate…",
+      "remove": "Remove repo",
+      "worktreesLabel": "Worktrees",
+      "worktreesTitle": "Worktrees: they get the same links",
+      "tags": "Tags",
+      "tagsBody": "A ticked tag is a lasting rule: skills with it are linked here, also new ones.",
+      "tagGone": "no longer exists",
+      "tagSkills_one": "→ {{count}} skill",
+      "tagSkills_other": "→ {{count}} skills",
+      "skills": "Skills",
+      "tickTitle": "Use the tag {{tag}} on {{repo}}?",
+      "untickTitle": "Stop using the tag {{tag}} on {{repo}}?",
+      "removeTitle": "Remove {{repo}}?",
+      "removeBody": "Its tag rules, additions and exclusions go, and so do the links {{appName}} made there. The repo's own files stay.",
+      "gone": "This repo is no longer added.",
+      "rules": "Tags: {{tags}}",
+      "noRules": "No tags ticked",
+      "placed_one": "{{count}} skill",
+      "placed_other": "{{count}} skills",
+      "worktrees_one": "{{count}} worktree",
+      "worktrees_other": "{{count}} worktrees"
+    },
+    "global": {
+      "placed": "available everywhere (no repo uses it)",
+      "by-choice": "available everywhere, as you chose",
+      "off": "turned off",
+      "repos": "in repos only",
+      "excluded": "linked nowhere: excluded",
+      "repo-only": "linked nowhere: its tag is for repos only"
+    },
+    "cellText": {
+      "global": "● Everywhere",
+      "byChoice": "● Everywhere (your choice)",
+      "off": "(off)",
+      "excludedIn": "○ excluded in {{repos}}",
+      "repoOnly": "repos only",
+      "placed": "●",
+      "excluded": "○ excluded",
+      "viaGlobal": "● via global"
+    },
+    "state": {
+      "placed": "placed {{how}}",
+      "excluded": "excluded ({{how}})",
+      "via-global": "via global ({{how}})",
+      "off": "turned off",
+      "none": "not placed"
+    },
+    "group": {
+      "count_one": "{{count}} skill",
+      "count_other": "{{count}} skills",
+      "tickedOn": "Ticked on {{repos}}",
+      "notTicked": "Not ticked on any repo"
+    },
+    "overview": {
+      "title": "{{name}}: overview",
+      "body": "Where each skill is available on this device: globally, or in the code repos you work in.",
+      "noReposTitle": "Add the repos you work in",
+      "noReposBody": "Then skills can be available only where they are needed. Until then every skill is available everywhere.",
+      "controls": "Views and filters",
+      "noRows": "No skill matches the filters."
+    },
+    "repos": {
+      "addRepo": "Add repo folder…",
+      "addRoot": "Add parent folder…",
+      "title": "{{name}}: repos",
+      "body": "The code repos on this device. In a parent folder, {{appName}} looks one level down for repos. It never searches the disk on its own.",
+      "rootsLabel": "Parent folders",
+      "roots": "Parent folders",
+      "removeRoot": "Remove",
+      "removeRootLabel": "Remove the parent folder {{path}}",
+      "removeRootTitle": "Remove the parent folder {{path}}?",
+      "removeRootBody": "{{appName}} stops looking in it. The repos found in it leave the list, with their tags and the links {{appName}} made there. Their own files stay. Repos that you added yourself stay too.",
+      "keepTitle": "Repos found in it",
+      "keepBody": "A repo that you keep stays with its tags and links, as if you had added it yourself.",
+      "keep": "Keep {{repo}}",
+      "removeRootConfirm": "Remove parent folder",
+      "empty": "No repo is added yet."
+    },
+    "view": {
+      "label": "View",
+      "skills": "Skills",
+      "repos": "By repo",
+      "tags": "By tag"
+    },
+    "filter": {
+      "tag": "Tag",
+      "repo": "Repo",
+      "all": "All",
+      "problems": "Only problems",
+      "off": "Only off"
+    },
+    "reset": {
+      "button": "Reset to tag rules",
+      "title": "Reset to tag rules?",
+      "body": "Skills you set to everywhere follow the tag rules again. Skills you turned off stay off.",
+      "dropChoices": "Also drop my exclusions and individual additions"
+    },
+    "bulk": {
+      "label": "Selected skills",
+      "selected_one": "{{count}} selected",
+      "selected_other": "{{count}} selected",
+      "repo": "Repo for the selected skills",
+      "chooseRepo": "Choose a repo",
+      "place": "Place in repo",
+      "placeTitle_one": "Place {{count}} skill in {{repo}}?",
+      "placeTitle_other": "Place {{count}} skills in {{repo}}?",
+      "exclude": "Exclude from repo",
+      "excludeTitle_one": "Exclude {{count}} skill from {{repo}}?",
+      "excludeTitle_other": "Exclude {{count}} skills from {{repo}}?",
+      "excludeNoneTitle": "None of the selected skills can be excluded from {{repo}}",
+      "leftOut_one": "{{skills}} is available everywhere, so it can't be excluded from one repo. It's left out.",
+      "leftOut_other": "{{skills}} are available everywhere, so they can't be excluded from one repo. They're left out.",
+      "off": "Turn off",
+      "offTitle_one": "Turn {{count}} skill off on this device?",
+      "offTitle_other": "Turn {{count}} skills off on this device?"
+    },
+    "suggest": {
+      "text": "{{repo}} looks like a {{tag}} repo. Use the {{tag}} tag? It has {{count}} skills.",
+      "use": "Use {{tag}}",
+      "dismiss": "No, thanks"
+    }
+  },
+  "instructions": {
+    "title": "Instructions on this computer",
+    "intro": "Each company’s instructions are linked on this computer or not. Linked instructions apply in every session of the tools below. Your own text in these files stays as it is.",
+    "none": "No libraries on this computer yet.",
+    "linked": "Linked",
+    "notLinked": "Not linked",
+    "link": "Link",
+    "unlink": "Unlink",
+    "linkLabel": "Link the instructions of {{name}}",
+    "unlinkLabel": "Unlink the instructions of {{name}}",
+    "noTools": "No enabled tool gets instructions from {{appName}}.",
+    "noInstructions": "This library has no instructions/AGENTS.md.",
+    "toolsFor": "Tools: {{tools}}",
+    "detailsLabel": "Instructions of {{name}} per tool",
+    "columns": {
+      "tool": "Tool",
+      "how": "How",
+      "state": "State",
+      "room": "Room left"
+    },
+    "how": {
+      "import-file": "A file of {{appName}}’s that imports the library’s file",
+      "owned-file": "A copy in a file of {{appName}}’s",
+      "marked-block": "A block in the tool’s own file",
+      "manual": "Copy by hand: the tool keeps its rules in its settings",
+      "none": "Skills only: {{appName}} can’t reach this tool’s instructions",
+      "config-entry": "An entry in its config file that points at a copy of {{appName}}’s",
+      "owned-file-import": "A copy in a file of {{appName}}’s, imported by a block in the tool’s own file"
+    },
+    "state": {
+      "linked": "Linked",
+      "edited": "Changed outside {{appName}}",
+      "damaged": "Block damaged",
+      "pending": "Waiting for the next check",
+      "manual": "By hand",
+      "none": "Skills only",
+      "off": "Not linked"
+    },
+    "room": "{{left}} of {{limit}} {{unit}} left",
+    "roomOver": "{{over}} {{unit}} over the limit of {{limit}}",
+    "units": {
+      "bytes": "bytes",
+      "characters": "characters"
+    },
+    "roomRepo": "A repo’s own AGENTS.md uses more of the same limit.",
+    "paused": "A git operation in the library is not finished. The instructions don’t change until it is.",
+    "frozen": "This library needs a newer version of {{appName}}. The instructions don’t change until then.",
+    "waitingTitle": "Changes to decide about",
+    "waitingEdited": "The company’s text in {{file}} was changed.",
+    "waitingDamaged": "A marker of the company’s block in {{file}} is missing. Fix the markers there by hand, then check again.",
+    "review": "Review the change",
+    "reviewLabel": "Review the change in {{file}}",
+    "checkAgain": "Check again",
+    "cursorTitle": "Cursor keeps its rules in its settings",
+    "cursorLinked": "Paste this text into Cursor’s settings under Rules: User Rules.",
+    "cursorUnlinked": "If you pasted the instructions of {{name}} into Cursor, remove them there by hand.",
+    "copy": "Copy",
+    "copied": "Copied",
+    "sessions": "New sessions use the change. A session that is already running may keep what it read when it started.",
+    "warning": {
+      "title": "Link the instructions of {{name}} too?",
+      "body": "The instructions of {{linked}} are already linked. If you link the instructions of {{name}} too, the rules of each company apply in every session on this computer, also in each other’s repos, and they may contradict each other.",
+      "anyway": "Link anyway",
+      "switch": "Unlink {{linked}} and link {{name}}"
+    },
+    "change": {
+      "title": "The instructions in {{file}} were changed",
+      "body": "Someone changed the company’s text here, maybe an agent. Bring this change into the library, or discard it?",
+      "edited": "The changed text",
+      "library": "The library’s text",
+      "bringIn": "Bring this change in",
+      "discard": "Discard it",
+      "importOnly": "This file only points at the library’s text. Discard the change to make it point there again.",
+      "bringInNote": "The library’s file changes on this computer. Commit and push it to share the change."
+    }
+  },
+  "doctor": {
+    "title": "Doctor: {{name}}",
+    "intro": "What each enabled tool gets from this library on this computer.",
+    "diagnostics": "A problem this page doesn't explain? Export the diagnostics for support.",
+    "healthy": "No problems found.",
+    "warnings_one": "1 thing to check.",
+    "warnings_other": "{{count}} things to check.",
+    "noTools": "No tool is enabled for this library. Enable tools on the Tools page.",
+    "toolsTitle": "Tools",
+    "toolLabel": "{{tool}} in the Doctor",
+    "folders": "Link folders",
+    "links_one": "1 link",
+    "links_other": "{{count}} links",
+    "readable": "Every SKILL.md can be read through its link.",
+    "unreadable": "Can’t be read through the link: {{skills}}",
+    "copies_one": "1 copy",
+    "copies_other": "{{count}} copies",
+    "readableCopy": "Every SKILL.md can be read in its copy. The copies follow the library at each check.",
+    "unreadableCopy": "Can’t be read in the copy: {{skills}}",
+    "copyChanged": "Edited in the copy: {{skills}}. Bring the change into the library from Needs attention.",
+    "noFolder": "{{tool}} reads no folder that {{appName}} links into.",
+    "duplicateListsBoth": "Sees each company skill in two folders and may list it twice.",
+    "duplicateUnknown": "Sees each company skill in two folders. It may list company skills twice: not verified yet.",
+    "nested": "May list a skill twice in {{inner}}, which is inside {{outer}}.",
+    "instructions": "Instructions: {{state}}",
+    "version": "Version",
+    "versionRunning": "Checking the version…",
+    "versionInstalled": "You have {{version}}.",
+    "versionVerified": "Verified with {{tool}} {{verified}}; you have {{version}}.",
+    "versionSame": "Verified with {{tool}} {{verified}}.",
+    "notVerified": "Not verified with {{appName}} yet.",
+    "versionNotFound": "Its command was not found on this computer.",
+    "versionFailed": "Its version command failed.",
+    "versionNone": "No version command is known for it.",
+    "list": "List its skills",
+    "listLabel": "List the skills {{tool}} loaded",
+    "listResult": "{{tool}} lists {{count}} company skills.",
+    "listMissing": "Linked but not in its list: {{skills}}",
+    "listAll": "It lists every linked company skill.",
+    "listFailed": "Its list command did not run.",
+    "namesTitle": "Skills with invalid names",
+    "namesBody": "These may not load in {{tools}}.",
+    "names": {
+      "skillName.empty": "no name",
+      "skillName.tooLong": "longer than 64 characters",
+      "skillName.characters": "only lowercase letters, digits and hyphens are allowed",
+      "skillName.hyphens": "a hyphen at the start or end, or two together",
+      "skillName.reserved": "contains “claude” or “anthropic”",
+      "skillName.prefix": "doesn’t start with the prefix",
+      "name.folder": "the name differs from the folder, so it isn’t linked",
+      "name.missing": "SKILL.md has no name"
+    },
+    "nameLine": "{{folder}}: {{problems}}",
+    "reachTitle": "Where company content doesn’t reach",
+    "reachCloud": "Cloud agents, which run on the vendor’s servers: Claude Code on the web, Codex cloud tasks, Copilot coding agent, Cursor background agents.",
+    "reachCowork": "Claude Cowork sessions, which don’t load personal skills and skip imports from outside the session’s folder.",
+    "reachContainers": "Devcontainers, VMs and WSL, unless you add a copy target for them on the Tools page.",
+    "reachContainersCopies": "Devcontainers, VMs and WSL that have no copy target on the Tools page.",
+    "reachSsh": "SSH remotes, where the agent runs on another machine.",
+    "reachManual": "Instructions by hand only: {{tools}}.",
+    "reachSkillsOnly": "Skills only, no instructions: {{tools}}.",
+    "reachUncovered": "No skills: {{tools}} read no folder {{appName}} links into.",
+    "reachOptions": "For these, commit skills into the code repo, or use the vendor’s own organization features.",
+    "copiesTitle": "Reached with copies",
+    "copiesReach": "{{tool}} gets copies in"
+  },
+  "localPrefix": {
+    "title": "Local prefix",
+    "body": "On this device the skills of this library start with {{local}}-. In git they start with {{git}}-.",
+    "why": "Another library on this device, or your own skills, use {{git}}.",
+    "free": "{{git}} is free on this device now. You can use the library's own prefix again.",
+    "change": "Change",
+    "drop": "Use {{git}} again",
+    "skipped": "Not installed on this device",
+    "skippedTooLong": "{{skill}}: the name is longer than 64 characters",
+    "skippedWrongPrefix": "{{skill}}: the name does not start with {{git}}-",
+    "changeTitle": "Change the local prefix",
+    "changeBody": "The links, copies and instruction files on this device get the new names. Nothing changes in git.",
+    "apply": "Change the prefix",
+    "dropTitle": "Use {{git}} again",
+    "dropBody": "The links get the library's own names again and point at the library. The copies on this device are deleted. Nothing changes in git.",
+    "dropConfirm": "Use {{git}}",
+    "cancel": "Cancel",
+    "offerTitle": "Use {{git}} again?",
+    "offerBody": "The library that used {{git}} on this device is removed. This library used the local prefix {{local}} only because of it, and can use its own prefix again.",
+    "keep": "Keep {{local}}"
+  },
+  "projection": {
+    "showDifferences": "Show the differences and decide",
+    "title": "{{skill}} changed in two places",
+    "body": "Choose which version to keep. The other one goes to the app's trash for 30 days.",
+    "differences": "Differences",
+    "noText": "(not text)",
+    "missing": "(not there)",
+    "library": "In the library",
+    "copy": "On this device",
+    "keepLibrary": "Keep the library's version",
+    "keepCopy": "Keep the changes on this device",
+    "change": {
+      "added": "Only on this device",
+      "removed": "Only in the library",
+      "changed": "Changed on both sides"
+    },
+    "fixPrefix": "Change the local prefix"
+  },
+  "relocation": {
+    "card": "Library folder",
+    "change": "Change location…",
+    "title": "Move the {{name}} library",
+    "body": "The links keep their names and places: only the place they point at changes. Agents that run now keep working.",
+    "now": "Now in",
+    "newLocation": "New location",
+    "choose": "Choose…",
+    "sameDisk": "The folder is on the same disk: it moves in one step.",
+    "otherDisk": "The folder is on another disk: it is copied and checked, then the old folder goes to the trash.",
+    "move": "Move library",
+    "cancel": "Cancel",
+    "close": "Close",
+    "moving": "Moving your library… (step {{step}} of {{total}})",
+    "blocked": "Windows can't move the folder: a program has a file in it open. Close the program and try again, or move the library by copying it.",
+    "retry": "Try again",
+    "copyInstead": "Move it by copying",
+    "summary": {
+      "moved": "Library moved to",
+      "found": "Library found at",
+      "files_one": "{{count}} file",
+      "files_other": "{{count}} files",
+      "connections_one": "{{count}} connection updated",
+      "connections_other": "{{count}} connections updated",
+      "connectionsBy_one": "{{count}} connection updated ({{groups}})",
+      "connectionsBy_other": "{{count}} connections updated ({{groups}})",
+      "group": "{{tools}} ×{{count}}",
+      "noTool": "no tool",
+      "skipped_one": "{{count}} skipped",
+      "skipped_other": "{{count}} skipped",
+      "carried_one": "{{count}} file changed in the old folder during the copy. The change came over.",
+      "carried_other": "{{count}} files changed in the old folder during the copy. The changes came over.",
+      "keptBoth_one": "{{files}} changed in both places during the copy. The new place keeps its version; the old version is in the trash for 7 days.",
+      "keptBoth_other": "{{files}} changed in both places during the copy. The new place keeps its versions; the old versions are in the trash for 7 days.",
+      "movedTitle": "{{name}} is moved",
+      "foundTitle": "{{name}} is found"
+    },
+    "problems": {
+      "itself": "This folder is the library or is inside it. Choose a folder outside the library.",
+      "same": "The library is in this folder now. Choose another place.",
+      "gitRunning": "A git command is running in the library. Try again when it ends.",
+      "gitUnfinished": "A merge or rebase in the library is not finished. Finish it or stop it, then try again."
+    }
+  },
+  "missing": {
+    "locate": "Locate folder…",
+    "download": "Download again",
+    "locateTitle": "Use this folder?",
+    "useFolder": "Use this folder",
+    "locateOk": "This folder holds the library, with the same remote. The links will point here.",
+    "problems": {
+      "notALibrary": "This folder holds no library.",
+      "otherLibrary": "This folder holds another library.",
+      "otherRemote": "This folder's git remote is {{remote}}, not the library's URL.",
+      "notMissing": "The library folder is not missing any more."
+    },
+    "downloadTitle": "Download {{name}} again?",
+    "downloadInto": "The library is downloaded again into",
+    "unpushed": "Commits that weren't pushed, and changes that weren't committed in the moved folder, aren't in the new download. If the moved folder holds such work, locate it instead."
+  },
+  "recovery": {
+    "button": "Recover connections",
+    "title": "Recover the connections of {{name}}",
+    "body": "{{appName}} looks at the links in every tool's folder, and at where they point. Links inside code repos can't be found that way: add your repo folders again, so the links in them are found too.",
+    "repos": "Repo folders",
+    "noRepos": "No repo folders. Add the ones that had links of this library.",
+    "removeRepo": "Remove this folder from the list",
+    "addRepo": "Add a repo folder…",
+    "recover": "Recover",
+    "done_one": "{{count}} link was found again, for {{tools}}.",
+    "done_other": "{{count}} links were found again, for {{tools}}.",
+    "none": "No links of this library were found.",
+    "inRepo": "{{repo}}: {{skills}} placed there again.",
+    "inRepoNone": "{{repo}}: no links of this library were found there.",
+    "notRepos": "These folders are not git repos: {{folders}}.",
+    "tagsByHand": "Tick the tag rules on your repos again by hand."
+  },
+  "editor": {
+    "title": "Edit {{name}}",
+    "home": "Choose the instructions or a skill on the left, or create a new skill.",
+    "loading": "Loading…",
+    "cancel": "Cancel",
+    "ok": "OK",
+    "bodyLabel": "Text of {{skill}}",
+    "sourceLabel": "SKILL.md of {{skill}}",
+    "fileLabel": "{{file}}",
+    "list": {
+      "label": "Instructions and skills",
+      "newSkill": "New skill",
+      "instructions": "Instructions",
+      "instructionsTitle": "Company instructions",
+      "skills": "Skills",
+      "empty": "No skills yet.",
+      "errors_one": "{{count}} error",
+      "errors_other": "{{count}} errors",
+      "warnings_one": "{{count}} warning",
+      "warnings_other": "{{count}} warnings",
+      "import": "Import skills…"
+    },
+    "tabs": {
+      "label": "Skill",
+      "write": "Write",
+      "files": "Files",
+      "checks": "Checks",
+      "checksCount": "Checks ({{count}})",
+      "history": "History"
+    },
+    "mode": {
+      "label": "Editor mode",
+      "rich": "Rich",
+      "source": "Source"
+    },
+    "save": {
+      "saved": "All changes are saved on this device.",
+      "editing": "Unsaved changes",
+      "saving": "Saving…",
+      "conflict": "The file changed on disk.",
+      "error": "The changes could not be saved."
+    },
+    "conflict": {
+      "title": "{{file}} changed on disk",
+      "body": "Another program or a git command changed this file while you had unsaved changes. Which version do you want to keep?",
+      "keepMine": "Keep my changes",
+      "useDisk": "Use the version on disk",
+      "current": "Accept current ({{who}})",
+      "incoming": "Accept incoming ({{who}})",
+      "both": "Accept both",
+      "toolbar": "Conflict {{index}} of {{count}}",
+      "locked": "This file has conflict markers. It opens in source mode until every conflict is resolved, because rich mode would change the markers."
+    },
+    "header": {
+      "label": "Skill details",
+      "name": "Name",
+      "nameHint": "{{prefix}} is fixed. Type the rest, then press Enter to rename the skill.",
+      "description": "Description",
+      "count": "{{count}} of {{max}} characters",
+      "descriptionHint": "Say when to use it, e.g. \"Use when reviewing a merge request.\"",
+      "tags": "Tags",
+      "addTag": "Add a tag",
+      "add": "Add",
+      "removeTag": "Remove the tag {{tag}}",
+      "advanced": "Advanced fields",
+      "license": "License",
+      "compatibility": "Compatibility",
+      "allowedTools": "Allowed tools",
+      "unreadable": "The header of this file can't be read, so the form isn't shown. Fix the header in source mode."
+    },
+    "rich": {
+      "placeholder": "Write the skill here. Type / for headings, lists, tables and more.",
+      "text": "Text",
+      "heading": "Heading {{level}}",
+      "quote": "Quote",
+      "divider": "Divider",
+      "lists": "Lists",
+      "bulletList": "Bulleted list",
+      "orderedList": "Numbered list",
+      "taskList": "Checklist",
+      "advanced": "More",
+      "codeBlock": "Code",
+      "table": "Table"
+    },
+    "checks": {
+      "title": "Checks",
+      "body": "What the app checks in this skill: the Agent Skills rules, the prefix, size limits, links to files, and paths.",
+      "none": "No problems found.",
+      "issues": "Problems",
+      "error": "Error:",
+      "warning": "Warning:",
+      "size_one": "{{count}} file, {{size}} in total.",
+      "size_other": "{{count}} files, {{size}} in total."
+    },
+    "agent": {
+      "title": "What the agent sees",
+      "intro": "For each tool you use, what it reads through its link: the name and description it loads at the start, and the text it reads when the skill is used.",
+      "loading": "Loading…",
+      "noTools": "No tools are enabled for this library.",
+      "through": "Read through {{path}}",
+      "name": "Name",
+      "description": "Description",
+      "size": "Size",
+      "body": "Text the agent reads",
+      "missing": "(missing)",
+      "notPlaced": "{{tool}} doesn't get this skill on this device.",
+      "notLinked": "{{tool}} can't read this skill now:"
+    },
+    "files": {
+      "title": "Files",
+      "body": "The skill's files. Drop files into assets/ or references/, or choose them.",
+      "list": "Files of {{skill}}",
+      "dropInto": "Add files to {{folder}}/",
+      "drop": "Drop files into {{folder}}/",
+      "pick": "Choose a file for {{folder}}/…",
+      "added": "{{path}} was added.",
+      "preview": "Preview",
+      "imageAlt": "Preview of {{name}}",
+      "binary": "A binary file of {{size}}. It can't be shown here.",
+      "replace": "Replace…",
+      "delete": "Delete",
+      "largeTitle": "{{name}} is a large file",
+      "largeBody": "This file is {{size}}. Large files slow down every pull for everyone. Add it anyway?",
+      "addAnyway": "Add anyway",
+      "tooLargeTitle": "{{name}} is too large",
+      "tooLargeBody": "This file is {{size}}. Files larger than 50 MB can't be added to a skill."
+    },
+    "history": {
+      "title": "History",
+      "body": "Past versions of {{name}}, from git.",
+      "none": "No past versions yet. Versions appear after the changes are committed.",
+      "versions": "Versions",
+      "differences": "Differences from the current version",
+      "compare": "\"{{subject}}\" compared with the current version",
+      "notThere": "{{file}} wasn't there in this version.",
+      "restore": "Restore this version",
+      "confirmTitle": "Restore this version?",
+      "confirmBody": "The files become as they were in \"{{subject}}\". The change is \"Modified on this device\" until you commit and push it.",
+      "restored": "The version is restored. Commit and push it to share it."
+    },
+    "instructions": {
+      "title": "Company instructions",
+      "body": "The instructions every agent of the company gets (AGENTS.md). Changes are saved on this device; commit and push them to share them.",
+      "label": "Company instructions",
+      "load": "Load from file…",
+      "loaded": "The text of {{file}} is loaded. Check it before you commit it.",
+      "checks": "The size of the instructions, and how much room each tool that limits them has left.",
+      "limits": "Size limits of the tools"
+    },
+    "wizard": {
+      "title": "New skill",
+      "body": "Choose a template, a name and when agents use the skill.",
+      "template": "Template",
+      "tags": "Tags",
+      "tagsHint": "Words separated by spaces, e.g. backend database.",
+      "create": "Create skill",
+      "nameHint": "{{prefix}} is fixed. Type the rest of the name."
+    },
+    "templates": {
+      "blank": {
+        "title": "Blank",
+        "body": "A heading and nothing else."
+      },
+      "how-to": {
+        "title": "How-to",
+        "body": "When to use it, the steps, and examples."
+      },
+      "checklist": {
+        "title": "Checklist",
+        "body": "Items to check before finishing."
+      },
+      "reference": {
+        "title": "Reference skill",
+        "body": "Documents in references/, e.g. an architecture overview."
+      }
+    },
+    "backToSetup": "Back to the setup"
+  },
+  "sync": {
+    "cancel": "Cancel",
+    "close": "Close",
+    "nav": {
+      "label": "Git pages",
+      "changes": "Changes",
+      "history": "History",
+      "branches": "Branches",
+      "stashes": "Stashes"
+    },
+    "bar": {
+      "detached": "No branch",
+      "incoming_one": "↓1 incoming",
+      "incoming_other": "↓{{count}} incoming",
+      "toPush_one": "↑1 to push",
+      "toPush_other": "↑{{count}} to push",
+      "fetch": "Fetch",
+      "pull": "Pull…",
+      "push": "Push",
+      "checking": "Checking for changes…",
+      "checked": "Last checked",
+      "offline": "Offline, last checked",
+      "offlineNever": "Offline",
+      "notChecked": "Not checked yet",
+      "blocked": {
+        "offline": "You are offline. Pull and Push start again when the network is back.",
+        "update": "Update {{appName}} to continue.",
+        "merging": "Resolve the conflicts first.",
+        "noRemote": "This library has no server to sync with."
+      }
+    },
+    "banner": {
+      "resolve": "Resolve",
+      "stopped": {
+        "merging": "Pull stopped: conflicts in {{skills}}",
+        "rebasing": "Pull stopped: conflicts in {{skills}}",
+        "reverting": "Revert stopped: conflicts in {{skills}}",
+        "cherryPicking": "Stopped: conflicts in {{skills}}",
+        "stash": "Your changes put aside have conflicts in {{skills}}"
+      },
+      "stoppedFiles": {
+        "merging": "Stopped: {{count}} files have conflicts",
+        "rebasing": "Stopped: {{count}} files have conflicts",
+        "reverting": "Stopped: {{count}} files have conflicts",
+        "cherryPicking": "Stopped: {{count}} files have conflicts",
+        "stash": "Stopped: {{count}} files have conflicts"
+      },
+      "ready": {
+        "merging": "All conflicts are resolved. Commit the merge to finish the pull.",
+        "rebasing": "All conflicts are resolved. Continue to finish the pull.",
+        "reverting": "All conflicts are resolved. Continue to finish the revert.",
+        "cherryPicking": "All conflicts are resolved. Continue to finish.",
+        "stash": "All conflicts are resolved."
+      },
+      "abort": {
+        "merging": "Abort merge",
+        "rebasing": "Abort pull",
+        "reverting": "Abort revert",
+        "cherryPicking": "Abort",
+        "stash": "Abort"
+      }
+    },
+    "changes": {
+      "title": "{{name}}: changes",
+      "modified": "Modified on this device",
+      "modifiedBody": "Changes that are not committed yet. Choose what to commit.",
+      "none": "Nothing changed on this device.",
+      "listLabel": "Changes by skill",
+      "groups": {
+        "instructions": "Instructions",
+        "library": "Library files",
+        "skill": "Skill"
+      },
+      "kinds": {
+        "added": "New",
+        "modified": "Changed",
+        "deleted": "Deleted",
+        "renamed": "Renamed",
+        "typeChanged": "Changed type",
+        "untracked": "New",
+        "conflicted": "Conflict"
+      },
+      "deletedSkill": "Deleted",
+      "discard": "Discard",
+      "discardLabel": "Discard the changes to {{name}}",
+      "discardTitle": "Discard the changes to {{name}}?",
+      "discardBody": "The files go back to the last commit. New files are deleted. You cannot undo this.",
+      "diffLabel": "Differences in {{path}}",
+      "binary": "This file is not text. Its differences cannot be shown.",
+      "message": "Commit message",
+      "messagePlaceholder": "What did you change, and why?",
+      "commit": "Commit",
+      "commitAndPush": "Commit and push",
+      "notPushed": "Not pushed yet",
+      "notPushedBody": "Commits on this device that the server does not have yet.",
+      "allPushed": "Everything is pushed.",
+      "undo": "Undo last commit",
+      "conflicted": "Resolve the conflicts before you commit."
+    },
+    "checks": {
+      "title": "Check before you commit",
+      "deleteTitle_one": "Delete {{skill}} from the library?",
+      "deleteTitle_other": "Delete {{count}} skills from the library?",
+      "body": "Read these items before the commit continues.",
+      "deletions": "Deletions",
+      "deletion": "Delete {{skill}} from the library? Once pushed, it is gone for everyone at {{library}}.",
+      "deleteAnyway": "Delete and commit",
+      "commitAnyway": "Commit anyway",
+      "large": "Large files",
+      "size": "({{mb}} MB). Large files slow down every pull for everyone.",
+      "problems": "Problems",
+      "problem": "{{skill}} has a problem in {{path}}. See Checks in the editor."
+    },
+    "identity": {
+      "title": "Who makes these commits?",
+      "body": "The server of {{library}} did not give a name and email. They are written in every commit you make. You give them only once.",
+      "name": "Name",
+      "email": "Email",
+      "save": "Save"
+    },
+    "secrets": {
+      "listLabel": "Secrets found",
+      "line": ", line {{line}}: {{kind}}",
+      "commitTitle": "A secret is in the files",
+      "commitBody": "A token or key may be in these files. Remove it, or commit anyway if it is only an example.",
+      "pushTitle": "A secret is in the commits to push",
+      "pushBody": "A token or key may be in these commits. Nothing was sent. Remove it, or push anyway if it is only an example.",
+      "stop": "Stop",
+      "pushAnyway": "Push anyway",
+      "rules": {
+        "private-key": "a private key",
+        "aws-access-token": "an AWS access key",
+        "github-pat": "a GitHub token",
+        "github-fine-grained-pat": "a GitHub token",
+        "github-oauth": "a GitHub token",
+        "github-app-token": "a GitHub token",
+        "github-refresh-token": "a GitHub token",
+        "gitlab-pat": "a GitLab token",
+        "gitlab-deploy-token": "a GitLab deploy token",
+        "slack-bot-token": "a Slack token",
+        "slack-user-token": "a Slack token",
+        "slack-webhook-url": "a Slack webhook address",
+        "stripe-access-token": "a Stripe key",
+        "gcp-api-key": "a Google API key",
+        "openai-api-key": "an OpenAI key",
+        "anthropic-api-key": "an Anthropic key",
+        "npm-access-token": "an npm token",
+        "pypi-upload-token": "a PyPI token",
+        "huggingface-access-token": "a Hugging Face token",
+        "sendgrid-api-token": "a SendGrid key",
+        "jwt": "a JSON web token"
+      }
+    },
+    "rejected": {
+      "serverSaid": "What the server said",
+      "movedOn": {
+        "title": "{{library}} has new changes. Pull first.",
+        "body": "Someone pushed to {{branch}} after your last pull. Pull their changes, then push again. Your commits wait on this device."
+      },
+      "notAllowed": {
+        "title": "You can't push to {{branch}} directly.",
+        "body": "The server protects {{branch}}. Your commits wait on this device. Put them on a new branch and open a change request."
+      },
+      "other": {
+        "title": "The server did not accept the push.",
+        "body": "Your commits wait on this device. Read what the server said, and try again."
+      },
+      "unsigned": {
+        "title": "{{library}} accepts only signed commits.",
+        "body": "The server refused commits that are not signed. Your commits wait on this device. Sign them and push again."
+      }
+    },
+    "incoming": {
+      "title": "{{name}}: incoming changes",
+      "nothing": "Nothing new to pull.",
+      "commits_one": "1 change from {{library}}",
+      "commits_other": "{{count}} changes from {{library}}",
+      "commitsBody": "Who changed what. Changes to scripts and to allowed tools are marked: they can let a skill run commands.",
+      "commitsLabel": "Incoming commits",
+      "skills": "What the pull does",
+      "skillsBody": "Where each skill is available after the pull.",
+      "everywhere": "available everywhere",
+      "nowhere": "not linked on this device",
+      "newSkill": "New: {{skill}} → {{where}}.",
+      "renamedMoves": "{{from}} becomes {{skill}} → {{where}}.",
+      "moves": "{{skill}}: {{from}} → {{where}}.",
+      "renamed": "{{from}} becomes {{to}}.",
+      "removed": "{{skill}} is removed.",
+      "modified": "{{skill}} changes.",
+      "linkChanges_one": "1 link changes on this device.",
+      "linkChanges_other": "{{count}} links change on this device.",
+      "questions": "Questions",
+      "tagGone": "The tag {{tag}} no longer exists. It is used for {{repos}}.",
+      "useTag": "Use '{{tag}}' instead",
+      "removeRule": "Remove the rule",
+      "becomesGlobal": "{{skill}} is no longer in {{repos}}. It becomes available everywhere.",
+      "change": "Where {{skill}} goes",
+      "keepEverywhere": "Available everywhere",
+      "onlyIn": "Only in {{repo}}",
+      "turnOff": "Turn it off",
+      "conflicts": "Conflicts",
+      "conflictsBody": "The same lines changed here and on the server. The pull stops at these files, and you resolve them.",
+      "local": "Your changes block the pull",
+      "localBody": "You changed files that the pull changes too. Commit your changes first, or put them aside, pull and apply them again.",
+      "localRebase": "A pull with rebase needs a clean folder. Commit your changes first, or put them aside, pull and apply them again.",
+      "commitFirst": "Commit them first",
+      "stashPull": "Stash, pull and re-apply",
+      "pull_one": "Pull 1 change",
+      "pull_other": "Pull {{count}} changes",
+      "pulled_one": "Pulled 1 change.",
+      "pulled_other": "Pulled {{count}} changes.",
+      "inRepos": "linked into {{repos}}",
+      "prefix": {
+        "title": "The prefix changes from {{from}} to {{to}}",
+        "body_one": "1 skill gets a new name. Your choices for it move with it.",
+        "body_other": "{{count}} skills get new names. Your choices for them move with them.",
+        "dropOffered": "After the pull, {{to}} is free on this device. On the library's page you can then stop using the local prefix {{local}}.",
+        "keepLocal": "This device keeps the local prefix {{local}}."
+      }
+    },
+    "conflicts": {
+      "title": "{{name}}: conflicts",
+      "none": "There are no conflicts.",
+      "files": "Files with conflicts",
+      "kinds": {
+        "bothModified": "Changed on both sides",
+        "bothAdded": "Added on both sides",
+        "bothDeleted": "Deleted on both sides",
+        "addedByUs": "Added on this side",
+        "addedByThem": "Added on the other side",
+        "deletedByUs": "Deleted here, changed there",
+        "deletedByThem": "Changed here, deleted there"
+      },
+      "heading": {
+        "merging": "The pull stopped on conflicts",
+        "rebasing": "The pull stopped on conflicts",
+        "reverting": "The revert stopped on conflicts",
+        "cherryPicking": "Stopped on conflicts",
+        "stash": "Your changes put aside have conflicts"
+      },
+      "sides": "Current: {{current}}. Incoming: {{incoming}}.",
+      "textHelp": "Choose a side for each conflict, or edit the text. Then mark the file as resolved.",
+      "editorLabel": "Conflicts in {{path}}",
+      "showThreeWay": "Compare with the base",
+      "threeWay": "The three versions",
+      "base": "Base",
+      "currentSide": "Current ({{who}})",
+      "incomingSide": "Incoming ({{who}})",
+      "noVersion": "Not on this side.",
+      "markResolved": "Mark as resolved",
+      "noMarkers": "No conflict markers are left.",
+      "binaryHelp": "This file is not text. Keep one of the two versions.",
+      "keepMine": "Keep mine ({{who}})",
+      "useTheirs": "Use theirs ({{who}})",
+      "deletedByThem": "The file changed on the current side ({{current}}) and was deleted on the incoming side ({{incoming}}).",
+      "deletedByUs": "The file was deleted on the current side ({{current}}) and changed on the incoming side ({{incoming}}).",
+      "keepIt": "Keep it",
+      "deleteIt": "Delete it",
+      "allResolved": "Every file is resolved.",
+      "stashDone": "Every file is resolved. Your changes put aside are still listed under Stashes.",
+      "finish": {
+        "merging": "Commit merge",
+        "rebasing": "Continue",
+        "reverting": "Continue",
+        "cherryPicking": "Continue"
+      }
+    },
+    "who": {
+      "you": "yours",
+      "person": "{{name}}'s",
+      "stash": "your changes put aside",
+      "revert": "the revert"
+    },
+    "flags": {
+      "scripts": "Scripts changed",
+      "allowedTools": "Allowed tools changed"
+    },
+    "history": {
+      "title": "{{name}}: history",
+      "filter": "Show",
+      "allSkills": "The whole library",
+      "listLabel": "Commits, newest first",
+      "none": "No commits.",
+      "notPushed": "Not pushed yet",
+      "commitLabel": "Commit: {{subject}}",
+      "more": "Show more",
+      "kinds": {
+        "added": "New",
+        "modified": "Changed",
+        "deleted": "Deleted",
+        "renamed": "Renamed",
+        "copied": "Copied",
+        "typeChanged": "Changed type"
+      },
+      "revert": "Revert this commit",
+      "revertTitle": "Revert \"{{subject}}\"?",
+      "revertBody": "A new commit undoes its changes. Push it so that every device gets the fix."
+    },
+    "branches": {
+      "pageTitle": "{{name}}: branches",
+      "title": "Branches",
+      "body": "Tools always see the branch that is checked out.",
+      "listLabel": "Branches",
+      "company": "(company branch)",
+      "onServer": "(on the server)",
+      "current": "Checked out",
+      "switch": "Switch",
+      "merge": "Merge",
+      "mergeLabel": "Merge {{name}} into {{current}}",
+      "mergeCompany": "Merge {{branch}} from the server into this branch",
+      "deleteLabel": "Delete the branch {{name}}",
+      "newName": "New branch",
+      "placeholder": "For example: john/review-tone",
+      "create": "Create and switch",
+      "toolsSee": "When you switch, tools load the skills of that branch until you switch back.",
+      "blockedTitle": "Your changes block the switch to {{name}}",
+      "blockedBody": "You changed files that are different on the other branch. Commit your changes first, or put them aside, switch and apply them again.",
+      "stashSwitch": "Stash, switch and re-apply",
+      "deleteTitle": "Delete the branch {{name}}?",
+      "deleteBody": "Commits that are only on this branch are lost.",
+      "delete": "Delete"
+    },
+    "stashes": {
+      "title": "{{name}}: stashes",
+      "heading": "Changes put aside",
+      "body": "Put changes aside to get a clean folder, and apply them again later.",
+      "message": "Name",
+      "stash": "Put aside",
+      "none": "Nothing is put aside.",
+      "dropAfter": "Drop after applying",
+      "listLabel": "Changes put aside",
+      "apply": "Apply",
+      "dropLabel": "Drop \"{{message}}\"",
+      "blocked": "These files have changes that block it: {{files}}. Commit or discard them first."
+    },
+    "settings": {
+      "title": "Sync settings",
+      "fetchTimer": "Check the server every 3 minutes",
+      "fetchTimerHelp": "Turn this off when your SSH key asks for a touch at every use. The app then checks at start, when its window gets the focus, and when you click Fetch.",
+      "pullMode": "Pull with",
+      "merge": "Merge (the default)",
+      "rebase": "Rebase: your commits go on top of the incoming ones"
+    }
+  },
+  "review": {
+    "hosts": {
+      "github": "GitHub",
+      "gitlab": "GitLab",
+      "plain": "the git server"
+    },
+    "role": "{{role}} on {{host}}",
+    "localOnly": "Local only, not backed up. Your role lets you read this library, but not push to it.",
+    "memberGuide": "You can't push to {{branch}}. Commit to a new branch and open a change request.",
+    "blocked": {
+      "viewer": "Local only: your role doesn't let you push to this library.",
+      "member": "You can't push to {{branch}}. Commit to a new branch and open a change request."
+    },
+    "commitToBranch": "Commit to a new branch",
+    "branchDialog": {
+      "title": "Commit to a new branch",
+      "body": "The branch starts where you are now and takes all your uncommitted changes along. Only the chosen changes are committed.",
+      "name": "Branch name",
+      "commit": "Commit"
+    },
+    "pushAndOpen": "Push and open change request",
+    "opened": {
+      "page": "{{branch}} is on the server. The page to open the change request opened in your browser.",
+      "noPage": "{{branch}} is on the server. This server has no page for change requests: ask a reviewer to merge it into {{base}}.",
+      "openAgain": "Open the page again"
+    },
+    "moveDialog": {
+      "title": "Move my commits to a new branch",
+      "body": "Your commits move to the new branch, and {{branch}} goes back to the company's version. Uncommitted changes stay.",
+      "confirm": "Move and continue"
+    },
+    "move": "Move my commits to a new branch and open a change request",
+    "signing": {
+      "title": "Sign your commits",
+      "body": "{{library}} accepts only signed commits. Choose the SSH key that signs them. You choose it once.",
+      "chooseFile": "Use one of my SSH keys…",
+      "chooseFileHelp": "Pick the public key file, for example id_ed25519.pub in your .ssh folder. {{appName}} reads only that file.",
+      "create": "Create a new key for me",
+      "createHelp": "{{appName}} creates a key only for signing and keeps it in this computer's keychain.",
+      "current": "Commits are signed with {{key}}.",
+      "registerTitle": "Add the key to your {{host}} account",
+      "registerBody": "{{host}} shows a signature as verified only when the key is added to your account as a signing key.",
+      "register": "Add it as a signing key",
+      "registered": "The key is added to your {{host}} account.",
+      "manual": "Add this public key to your account on the server as a signing key. Ask your admin how, if you're not sure.",
+      "publicKey": "Public key",
+      "done": "Done",
+      "signAndPush": "Sign my unpushed commits and push again"
+    }
+  },
+  "imports": {
+    "title": "Import existing skills",
+    "body": "Bring skills from an old skills repo, a folder or a zip into the library. You review each skill before it is added.",
+    "reading": "Reading the source…",
+    "sources": {
+      "repo": {
+        "title": "From a skills repo",
+        "body": "A git URL you can read: a Claude plugin marketplace, a skills repo, a dotagents project or a code repo. The old repo does not change.",
+        "url": "Repo URL",
+        "read": "Read the repo",
+        "placeholder": "https://github.com/acme/old-skills"
+      },
+      "folder": {
+        "title": "From a folder",
+        "body": "A local clone of a repo, or a folder that holds skills.",
+        "choose": "Choose a folder…"
+      },
+      "skill": {
+        "title": "Add existing skill",
+        "body": "One skill folder, for example ~/.claude/skills/code-review. The app reads only that folder.",
+        "choose": "Add existing skill…"
+      },
+      "archive": {
+        "title": "From a zip file",
+        "body": "A .zip or .skill file, for example from Claude's admin console.",
+        "choose": "Choose a file…"
+      },
+      "reviewRule": "Every skill opens in the editor before you can add it.",
+      "untouched": "The source stays as it is: the app only reads it."
+    },
+    "cannotRead": {
+      "title": "The app can't read this repo",
+      "body": "Your sign-in for this library can't read {{repo}}. Import a local clone of the repo instead.",
+      "github": "On GitHub, the app can read only the repos that it is installed on.",
+      "chooseClone": "Choose a local clone…"
+    },
+    "archive": {
+      "refused": "The app refused this archive.",
+      "absolutePath": "An entry has an absolute path: {{path}}",
+      "parentPath": "An entry goes outside the archive's folder: {{path}}",
+      "badName": "An entry has a name that a file system can't keep: {{path}}",
+      "link": "An entry is a symbolic link: {{path}}",
+      "encrypted": "An entry is encrypted: {{path}}",
+      "unsupported": "An entry uses a compression that the app can't read: {{path}}",
+      "duplicate": "Two entries have the same path: {{path}}",
+      "fileTooLarge": "A file is larger than 50 MB: {{path}}",
+      "tooLarge": "The archive unpacks to more than 200 MB.",
+      "tooManyEntries": "The archive has too many entries."
+    },
+    "table": {
+      "title_one": "{{count}} skill found",
+      "title_other": "{{count}} skills found",
+      "from": {
+        "url": "In the repo",
+        "folder": "In the folder",
+        "archive": "In the file"
+      },
+      "none": "No skills were found in the known layouts: the repo root, skills/, .agents/skills/, .claude/skills/ and plugins/*/skills/.",
+      "add": "Add",
+      "select": "Add {{name}}",
+      "foundAt": "Found at",
+      "becomes": "Becomes",
+      "notes": "Notes",
+      "review": "Review",
+      "theSource": "(the selected source)",
+      "reviewed": "Reviewed",
+      "open": "Review {{name}}",
+      "openFirst": "Review",
+      "openAgain": "Open again",
+      "addCount_one": "Add {{count}} skill",
+      "addCount_other": "Add {{count}} skills",
+      "cancel": "Cancel import"
+    },
+    "notes": {
+      "none": "No notes",
+      "scripts": "has scripts/",
+      "allowedTools": "has allowed-tools",
+      "fixed": "name fixed to match the standard",
+      "clash": {
+        "library": "name already in the library",
+        "import": "same name as another skill found here"
+      }
+    },
+    "gate": {
+      "nothing": "Select the skills to add.",
+      "waiting_one": "Review {{count}} more skill before you add.",
+      "waiting_other": "Review {{count}} more skills before you add.",
+      "ready": "All selected skills are reviewed."
+    },
+    "notImported": {
+      "title": "Not imported",
+      "body": "The app imports skills only. These stay in the source:",
+      "command": "Plugin command",
+      "agent": "Sub-agent",
+      "hook": "Hook",
+      "mcp": "MCP server config"
+    },
+    "review": {
+      "back": "Back to the found skills",
+      "title": "Review: {{name}}",
+      "foundAt": "Found at {{path}}",
+      "foundSource": "The selected source is this skill.",
+      "name": "Name in the library",
+      "rename": "Change name",
+      "oldName": "Its old name: {{name}}",
+      "flags": {
+        "title": "Look at these first",
+        "none": "No scripts, no allowed-tools and no links in this skill.",
+        "scripts_one": "Runs {{count}} script",
+        "scripts_other": "Runs {{count}} scripts",
+        "scriptsBody": "An agent can run the files in scripts/ when it uses the skill.",
+        "allowedTools": "Uses tools without asking",
+        "allowedToolsBody": "allowed-tools lets the skill use these tools while it runs, without asking you.",
+        "link": "{{path}} is a link",
+        "linkBody": "It is copied as a link. The app never follows it.",
+        "linkTarget": "It points to",
+        "allowedToolsValue": "allowed-tools: {{value}}"
+      },
+      "problems": {
+        "title": "Problems",
+        "none": "No problems."
+      },
+      "mentions": {
+        "title": "Mentions of the old names",
+        "none": "The text doesn't mention the old names.",
+        "body": "Change these by hand where they mean the skill's new name.",
+        "where": "{{file}}, line {{line}}: {{name}}"
+      },
+      "changes": "What the import changes",
+      "changesBody": "SKILL.md in the source, and as it will be added.",
+      "changesLabel": "SKILL.md before and after the import",
+      "editor": "SKILL.md as it will be added",
+      "editorLabel": "SKILL.md of the skill to add",
+      "files": "Files",
+      "flagged": "Look at this file",
+      "isLink": "(link)"
+    },
+    "report": {
+      "title_one": "{{count}} skill added",
+      "title_other": "{{count}} skills added",
+      "body": "They are changes on this device that are not committed yet. Commit them together on the Changes page.",
+      "added": "Added",
+      "from": "from {{path}}",
+      "nothingLeft": "Everything in the source was a skill.",
+      "toChanges": "Go to Changes",
+      "more": "Import more"
+    },
+    "replace": {
+      "title": "Replace your originals",
+      "question": "Replace your original {{original}} with the company skill {{skill}}? Otherwise your tools will show both.",
+      "replace": "Replace",
+      "keep": "Keep both"
+    }
+  },
+  "prefix": {
+    "title": "Prefix",
+    "unlocked": "Not locked yet. No skill was pushed to the company branch, so the prefix can still be corrected.",
+    "locked": "Locked. Skills were pushed with this prefix. A change renames every skill, so only an Admin can make it.",
+    "correct": "Correct the prefix…",
+    "change": "Change the prefix…",
+    "refusal": {
+      "push-needed": "Only someone who can push to the company branch can correct the prefix."
+    },
+    "waiting": "The prefix changed from {{from}} to {{to}}, and this device already uses {{to}}. Choose a local prefix in Needs attention.",
+    "clash": {
+      "instance": "This device already uses {{prefix}} for {{name}}. Choose a local prefix for this library on this device. Git keeps {{prefix}}.",
+      "folders": "Your own folders on this device already start with {{prefix}}-. Choose a local prefix for this library on this device. Git keeps {{prefix}}."
+    },
+    "dialog": {
+      "correctTitle": "Correct the prefix",
+      "correctBody": "One commit changes the prefix line in library.yaml. The app pushes it at once, and the other devices get it with their next pull.",
+      "changeTitle": "Change the prefix",
+      "changeBody": "One commit renames every skill folder and every name: line from {{prefix}}-… to the new prefix. The app pushes it at once. Everyone gets the change with their next pull.",
+      "label": "New prefix",
+      "help": "Skill names will start with {{example}}",
+      "same": "The library uses {{prefix}} already.",
+      "count_one": "1 skill will be renamed from {{from}}-… to {{to}}-…, so everyone's commands change (/{{example}} → /{{renamed}}).",
+      "count_other": "All {{count}} skills will be renamed from {{from}}-… to {{to}}-…, so everyone's commands change (/{{example}} → /{{renamed}}).",
+      "untouched": "These skills don't start with {{from}}- and keep their names:",
+      "renameProblem": {
+        "tooLong": "{{skill}} would be {{name}}, which is longer than 64 characters. Choose a shorter prefix.",
+        "invalid": "{{skill}} would be {{name}}, which is not a valid skill name.",
+        "taken": "{{skill}} would be {{name}}, but another skill has that name."
+      },
+      "mentions_one": "1 text names a skill. The change doesn't rewrite texts. Fix it yourself after the change:",
+      "mentions_other": "{{count}} texts name skills. The change doesn't rewrite texts. Fix them yourself after the change:",
+      "mentionsLabel": "Mentions of skill names",
+      "mentionAt": "{{path}}, line {{line}}: {{name}}",
+      "requests_one": "1 branch on the server is not in the company branch yet, for example an open change request. It uses the old names. Its author merges the company branch into it on the Branches page, and renames new skills before the merge:",
+      "requests_other": "{{count}} branches on the server are not in the company branch yet, for example open change requests. They use the old names. Their authors merge the company branch into them on the Branches page, and rename new skills before the merge:",
+      "requestsLabel": "Branches not in the company branch",
+      "request": "{{branch}}: {{title}} ({{author}})",
+      "blockers": {
+        "changes": "This device has uncommitted changes. Commit or discard them first.",
+        "branch": "Another branch is checked out. Switch to the company branch first.",
+        "incoming": "The company branch has new changes. Pull first.",
+        "toPush": "This device has commits that are not pushed yet. Push them first.",
+        "operation": "A merge, rebase or revert is not finished. Finish it first."
+      },
+      "cancel": "Cancel",
+      "applyCorrect": "Correct and push",
+      "applyChange": "Rename and push"
+    },
+    "adopt": {
+      "title": "Choose a local prefix",
+      "body": "This device already uses {{to}}. The library's skills get a local prefix on this device. Git keeps {{to}}, and nothing changes for anyone else.",
+      "apply": "Use this local prefix",
+      "choose": "Choose a local prefix…"
+    }
+  },
+  "statusView": {
+    "why": "This desktop shows no tray icons, so this small window stays open instead. Closing it minimizes it.",
+    "libraries": "Libraries",
+    "attention_one": "1 warning needs attention",
+    "attention_other": "{{count}} warnings need attention"
+  },
+  "folderAccess": {
+    "title": "macOS will ask about your {{folder}} folder",
+    "body": "{{appName}} reads this repo again at every start, to keep its links up to date. macOS asks you once whether {{appName}} may read files in your {{folder}} folder.",
+    "choose": "When macOS asks, choose Allow. If you don't allow it, {{appName}} can't check the links in repos in this folder.",
+    "continue": "Continue",
+    "cancel": "Cancel",
+    "folder": {
+      "Desktop": "Desktop",
+      "Documents": "Documents",
+      "Downloads": "Downloads"
+    }
+  },
+  "updates": {
+    "title": "Updates",
+    "body": "{{appName}} checks for a newer version once a day, and tells you. You download and install it from its release page.",
+    "unsupported": "This build of {{appName}} doesn't check for newer versions. The tool catalog is still kept current.",
+    "notChecked": "Not checked yet.",
+    "checking": "Checking for updates…",
+    "upToDate": "{{appName}} is up to date.",
+    "available": "Version {{version}} of {{appName}} is available.",
+    "lastChecked": "Last checked",
+    "checkNow": "Check now",
+    "download": "Download",
+    "later": "Later",
+    "catalogBundled": "Tool catalog: the one this version came with.",
+    "catalogRefreshed": "Tool catalog: refreshed",
+    "catalogRejected": {
+      "unreadable": "The last downloaded tool catalog was not used: it couldn't be read.",
+      "unknownKey": "The last downloaded tool catalog was not used: an unknown key signed it.",
+      "badSignature": "The last downloaded tool catalog was not used: its signature didn't check out.",
+      "invalid": "The last downloaded tool catalog was not used: its contents aren't valid.",
+      "newerSchema": "The last downloaded tool catalog needs a newer version of the app.",
+      "failed": "The tool catalog couldn't be downloaded. It tries again tomorrow."
+    }
+  }
+}

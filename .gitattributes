@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.png binary
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# The fixture corpus keeps its exact bytes: CRLF files, a byte order mark, missing final newlines.
+packages/testkit/corpus/** -text
+
+# The license texts of other projects keep their exact bytes (apps/desktop/legal/README.md).
+apps/desktop/legal/** -text

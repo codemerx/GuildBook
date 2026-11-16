@@ -1,0 +1,95 @@
+.DS_Store
+node_modules/
+
+# Build output, packaged apps, caches, logs and test artifacts
+out/
+release/
+.cache/
+artifacts/
+coverage/
+reports/
+test-results/
+.stryker-tmp/
+storybook-static/
+*.tsbuildinfo
+*.log
+
+# Secrets: the keys and certificates of the release must never enter the repository
+.env
+.env.*
+*.p12
+*.p8
+*.pem
+*.pfx
+*.key
+
+# Local state of tools and editors
+.claude/
+.idea/
+.vscode/
+
+# The documents stay on the computer of the owner and are not committed: the plan, the implementation plan, the testing
+# plan, the decision records, the step reports, the research notes, the guides and the development notes. Only the
+# pictures and GIFs that the README shows are public.
+/docs/*
+!/docs/media/
+
+# The feature videos are made by `pnpm videos` (artifacts/videos) and are not committed
+docs/media/videos/
+
+# The test cases stay on the computer of the owner and are not committed: the folder tests/, the files *.test.ts and
+# *.test.tsx, and the golden files of the tests.
+/tests/
+*.test.ts
+*.test.tsx
+__golden__/
+
+# What only the test cases use stays private too: the test runners and their configuration, the helpers for tests, and the
+# parts of the test kit (packages/testkit) that no public code imports. `pnpm dev` needs only the worlds, the fixture
+# corpus, the test root, the recording proxy and the fake host server.
+/vitest.config.ts
+/vitest.mutation.config.ts
+/stryker.config.json
+/scripts/e2e.ts
+/scripts/perf.ts
+/scripts/tour.ts
+/scripts/videos.ts
+/scripts/video/
+/scripts/mutation.ts
+/scripts/mutation-inputs.ts
+/scripts/mutation-settings.ts
+/scripts/spec-coverage.ts
+/scripts/verify-step.ts
+/scripts/verify-stages.ts
+/scripts/packaging.ts
+/scripts/packaging-in-container.sh
+/scripts/packaging-in-docker.sh
+/scripts/linux-in-container.sh
+/scripts/linux-in-docker.sh
+/scripts/release-rehearsal.ts
+/.github/workflows/step-run.yml
+/apps/desktop/src/main/testing/
+/apps/desktop/src/renderer/test/
+/apps/desktop/src/renderer/features/placement/placement.fixtures.ts
+/packages/editor/src/test-dom.ts
+/packages/testkit/src/index.ts
+/packages/testkit/src/contract/
+/packages/testkit/src/e2e/
+/packages/testkit/src/catalog/
+/packages/testkit/src/rpc/
+/packages/testkit/src/samples/
+/packages/testkit/src/fakes/*
+!/packages/testkit/src/fakes/memory-fs.ts
+/packages/testkit/src/harness/index.ts
+/packages/testkit/src/harness/devices.ts
+/packages/testkit/src/harness/temp.ts
+/packages/testkit/src/hosts/index.ts
+/packages/testkit/src/hosts/gitea.ts
+/packages/testkit/src/hosts/sshd.ts
+/packages/testkit/src/hosts/release-host.ts
+/packages/testkit/corpus/skills/generated/
+
+# The live suite (ADR 0033) belongs to its owner: it needs the owner's token, the owner's test repository and the real tool
+# folder of the owner's computer, and its scenarios are in tests/live. So its harness and its runner stay private too.
+/packages/testkit/src/live/
+/scripts/live.ts

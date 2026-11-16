@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["es2024", "dom"],
+    "types": [],
+    "rootDir": ".",
+    "outDir": "../../.cache/tsc/desktop-preload",
+    "tsBuildInfoFile": "../../.cache/tsc/desktop-preload.tsbuildinfo"
+  },
+  "include": ["src/preload", "src/shared/ports-protocol.ts", "src/build-flags.d.ts"]
+}

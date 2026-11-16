@@ -1,0 +1,44 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["es2024", "dom", "dom.iterable"],
+    "types": ["node", "vite/client"],
+    "jsx": "react-jsx",
+    "rootDir": ".",
+    "outDir": "../../.cache/tsc/desktop-test",
+    "tsBuildInfoFile": "../../.cache/tsc/desktop-test.tsbuildinfo"
+  },
+  "include": ["src/**/*.test.ts", "src/**/*.test.tsx", ".storybook/*.ts", ".storybook/*.tsx"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.web.json"
+    },
+    {
+      "path": "../../packages/testkit"
+    },
+    {
+      "path": "../../packages/core"
+    },
+    {
+      "path": "../../packages/adapters"
+    },
+    {
+      "path": "../../packages/ipc"
+    },
+    {
+      "path": "../../packages/schemas"
+    },
+    {
+      "path": "../../packages/tools"
+    },
+    {
+      "path": "../../packages/brand"
+    },
+    {
+      "path": "../../packages/editor"
+    }
+  ]
+}

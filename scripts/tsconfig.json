@@ -1,0 +1,34 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["es2024"],
+    "types": ["node"],
+    "rootDir": "..",
+    "outDir": "../.cache/tsc/scripts",
+    "tsBuildInfoFile": "../.cache/tsc/scripts.tsbuildinfo"
+  },
+  "include": ["*.ts", "../eslint.config.js", "../vitest.config.ts", "../vitest.mutation.config.ts"],
+  "references": [
+    {
+      "path": "../packages/testkit"
+    },
+    {
+      "path": "../packages/core"
+    },
+    {
+      "path": "../packages/adapters"
+    },
+    {
+      "path": "../packages/ipc"
+    },
+    {
+      "path": "../packages/schemas"
+    },
+    {
+      "path": "../packages/tools"
+    },
+    {
+      "path": "../packages/brand"
+    }
+  ]
+}

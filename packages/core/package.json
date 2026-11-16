@@ -1,0 +1,19 @@
+{
+  "name": "@app/core",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Domain and use cases: pure TypeScript, I/O only through ports (IMPLEMENTATION.md \u00a72.3).",
+  "exports": {
+    ".": "./src/index.ts",
+    "./samples": "./src/samples/index.ts"
+  },
+  "dependencies": {
+    "@app/brand": "workspace:*",
+    "@app/schemas": "workspace:*",
+    "@app/tools": "workspace:*"
+  },
+  "devDependencies": {
+    "@app/testkit": "workspace:*"
+  }
+}

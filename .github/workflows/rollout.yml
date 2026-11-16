@@ -1,0 +1,37 @@
+# The staged rollout of a published release (ADR 0027, ADR 0031; IMPLEMENTATION.md Step 18, A18.6): the share of
+# users whose app tells them about the version. 0 stops the rollout: no other app tells about the version, while a fix
+# is made and shipped as a newer version. 100 tells everyone.
+# Actions are pinned to full commit SHAs: a tag can be moved to other code, a commit can't.
+name: rollout
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: The release, e.g. 1.0.0
+        required: true
+      percent:
+        description: The share of users, 0 to 100
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  rollout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - name: The feed files, with the new share
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download "v${{ inputs.version }}" --pattern 'latest*.yml' --dir feeds
+          node scripts/release-feeds.ts rollout feeds ${{ inputs.percent }}
+          gh release upload "v${{ inputs.version }}" feeds/latest*.yml --clobber

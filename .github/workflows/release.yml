@@ -1,0 +1,142 @@
+# The release (IMPLEMENTATION.md Step 18; ADR 0026, 0027, 0028), started by hand with the version to ship:
+# 1. one job per OS and architecture builds the signed installers (--release refuses to build without the signing
+#    secrets), checks their signatures (A18.1) and keeps them with their update feed files
+# 2. the catalog job signs the bundled tool catalog with the release key and replaces the assets of the release
+#    named `catalog`, which every installed app refreshes daily
+# 3. the release job merges each OS's feed files, starts the staged rollout at the share given, and makes a draft
+#    release: a person publishes it after the release candidate passed the nightly suite (A18.6)
+# Actions are pinned to full commit SHAs: a tag can be moved to other code, a commit can't.
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: The version to ship, e.g. 1.0.0 (apps/desktop/package.json must say the same)
+        required: true
+      rollout:
+        description: The share of users offered the version at first, in percent (scripts/release-feeds.ts rollout)
+        required: true
+        default: '10'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  package:
+    name: ${{ matrix.os }} ${{ matrix.arch }}
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - { os: macos-latest, arch: arm64 }
+          - { os: macos-15-intel, arch: x64 }
+          - { os: windows-latest, arch: x64 }
+          - { os: windows-11-arm, arch: arm64 }
+          - { os: ubuntu-latest, arch: x64 }
+          - { os: ubuntu-24.04-arm, arch: arm64 }
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - name: The version matches
+        shell: bash
+        run: test "$(node -p "require('./apps/desktop/package.json').version")" = "${{ inputs.version }}"
+      - if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y rpm
+      # Notarization reads the App Store Connect key from a file.
+      - if: runner.os == 'macOS'
+        name: The notarization key
+        env:
+          APPLE_API_KEY_P8: ${{ secrets.APPLE_API_KEY_P8 }}
+        run: |
+          printf '%s' "$APPLE_API_KEY_P8" > "$RUNNER_TEMP/apple-api-key.p8"
+          echo "APPLE_API_KEY=$RUNNER_TEMP/apple-api-key.p8" >> "$GITHUB_ENV"
+      - name: Signed installers
+        run: node apps/desktop/scripts/build.ts production --installers --release --arch=${{ matrix.arch }}
+        env:
+          # The Developer ID Application certificate, a base64 .p12.
+          CSC_LINK: ${{ runner.os == 'macOS' && secrets.MAC_CERTIFICATE_P12 || '' }}
+          CSC_KEY_PASSWORD: ${{ secrets.MAC_CERTIFICATE_PASSWORD }}
+          APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
+          APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          AZURE_SIGN_ENDPOINT: ${{ secrets.AZURE_SIGN_ENDPOINT }}
+          AZURE_SIGN_ACCOUNT: ${{ secrets.AZURE_SIGN_ACCOUNT }}
+          AZURE_SIGN_PROFILE: ${{ secrets.AZURE_SIGN_PROFILE }}
+          AZURE_SIGN_PUBLISHER: ${{ secrets.AZURE_SIGN_PUBLISHER }}
+      - name: Signatures (A18.1)
+        shell: bash
+        run: node scripts/verify-signatures.ts apps/desktop/release/production-*-${{ matrix.arch }}
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: release-${{ runner.os }}-${{ matrix.arch }}
+          path: |
+            apps/desktop/release/production-*/*.dmg
+            apps/desktop/release/production-*/*.zip
+            apps/desktop/release/production-*/*.exe
+            apps/desktop/release/production-*/*.AppImage
+            apps/desktop/release/production-*/*.deb
+            apps/desktop/release/production-*/*.rpm
+            apps/desktop/release/production-*/*.blockmap
+            apps/desktop/release/production-*/latest*.yml
+          if-no-files-found: error
+
+  catalog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - name: The signed catalog (ADR 0026)
+        run: node scripts/catalog-release.ts sign catalog-release
+        env:
+          CATALOG_SIGNING_KEY: ${{ secrets.CATALOG_SIGNING_KEY }}
+          CATALOG_KEY_ID: ${{ secrets.CATALOG_KEY_ID }}
+      - name: The release named catalog
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view catalog >/dev/null 2>&1 || gh release create catalog --title "Tool catalog" --notes "The signed tool catalog, refreshed by every installed app."
+          gh release upload catalog catalog-release/catalog.json catalog-release/catalog.json.sig --clobber
+
+  release:
+    needs: [package, catalog]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - name: The installers of every job
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download ${{ github.run_id }} --pattern 'release-*' --dir downloaded
+      - name: One feed file per name, with the staged rollout
+        run: |
+          mkdir -p assets
+          find downloaded -type f ! -name 'latest*.yml' -exec cp {} assets/ \;
+          node scripts/release-feeds.ts merge assets $(find downloaded -name 'latest*.yml' -exec dirname {} \; | sort -u)
+          node scripts/release-feeds.ts rollout assets ${{ inputs.rollout }}
+      - name: A draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "v${{ inputs.version }}" --draft --title "${{ inputs.version }}" --generate-notes assets/*

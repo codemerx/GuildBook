@@ -1,0 +1,18 @@
+{
+  "name": "@app/tools",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "The tool catalog as data: its schema, and one verified entry per tool (PLAN.md \u00a73.4).",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@app/brand": "workspace:*",
+    "@app/schemas": "workspace:*",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@app/testkit": "workspace:*"
+  }
+}

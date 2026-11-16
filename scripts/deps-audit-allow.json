@@ -1,0 +1,162 @@
+[
+  {
+    "id": "GHSA-333x-w4r6-6crp",
+    "package": "fast-uri@3.1.8",
+    "reason": "build and test tools only (ajv in electron-builder, Stryker, and the ajv resolver of @hookform/resolvers, which the app does not import); never runs on untrusted input"
+  },
+  {
+    "id": "GHSA-w74x-v6f9-j3xg",
+    "package": "fast-uri@3.1.8",
+    "reason": "build and test tools only (ajv in electron-builder, Stryker, and the ajv resolver of @hookform/resolvers, which the app does not import); never runs on untrusted input"
+  },
+  {
+    "id": "GHSA-wjr9-j795-jxcr",
+    "package": "fast-uri@3.1.8",
+    "reason": "build and test tools only (ajv in electron-builder, Stryker, and the ajv resolver of @hookform/resolvers, which the app does not import); never runs on untrusted input"
+  },
+  {
+    "id": "GHSA-xhq7-xmqj-769h",
+    "package": "fast-uri@3.1.8",
+    "reason": "build and test tools only (ajv in electron-builder, Stryker, and the ajv resolver of @hookform/resolvers, which the app does not import); never runs on untrusted input"
+  },
+  {
+    "id": "GHSA-3g3m-2fjr-6pw4",
+    "package": "glob@13.0.6",
+    "reason": "build and lint tools only; never packaged"
+  },
+  {
+    "id": "GHSA-238p-pmpm-9mq7",
+    "package": "katex@0.16.47",
+    "reason": "LOW, and not packaged: the editor's build leaves out Milkdown's math feature, and the renderer bundle holds no KaTeX code (checked at Step 17)"
+  },
+  {
+    "id": "GHSA-g3hv-75wg-m249",
+    "package": "minimatch@10.2.6",
+    "reason": "build and lint tools only; never packaged"
+  },
+  {
+    "id": "GHSA-g3hv-75wg-m249",
+    "package": "minimatch@9.0.9",
+    "reason": "build and lint tools only; never packaged"
+  },
+  {
+    "id": "GHSA-6pq8-jhm2-2vcw",
+    "package": "qs@6.16.0",
+    "reason": "test tool only: under Stryker (mutation testing, run by a person); never packaged"
+  },
+  {
+    "id": "GHSA-f2ph-cmg5-wxc8",
+    "package": "storybook@10.6.1",
+    "reason": "development tool only: the Storybook server is never run by the tests or the app; the stories run inside Vitest"
+  },
+  {
+    "id": "GHSA-px85-f4q5-jh77",
+    "package": "storybook@10.6.1",
+    "reason": "development tool only: the Storybook server is never run by the tests or the app; the stories run inside Vitest"
+  },
+  {
+    "id": "GHSA-2m5v-pch6-74hx",
+    "package": "undici@6.29.0",
+    "reason": "build tool only (node-gyp in @electron/rebuild); never packaged"
+  },
+  {
+    "id": "GHSA-4qv8-2p9j-2685",
+    "package": "undici@6.29.0",
+    "reason": "build tool only (node-gyp in @electron/rebuild); never packaged"
+  },
+  {
+    "id": "GHSA-9fm3-97px-rjf6",
+    "package": "undici@6.29.0",
+    "reason": "build tool only (node-gyp in @electron/rebuild); never packaged"
+  },
+  {
+    "id": "GHSA-qrxm-fqhp-jwvm",
+    "package": "undici@6.29.0",
+    "reason": "build tool only (node-gyp in @electron/rebuild); never packaged"
+  },
+  {
+    "id": "GHSA-xjj6-f33q-929c",
+    "package": "undici@6.29.0",
+    "reason": "build tool only (node-gyp in @electron/rebuild); never packaged"
+  },
+  {
+    "id": "GHSA-2m5v-pch6-74hx",
+    "package": "undici@7.30.0",
+    "reason": "build tool only (@electron/get downloads Electron); never packaged"
+  },
+  {
+    "id": "GHSA-4qv8-2p9j-2685",
+    "package": "undici@7.30.0",
+    "reason": "build tool only (@electron/get downloads Electron); never packaged"
+  },
+  {
+    "id": "GHSA-4w7w-5xrc-9h26",
+    "package": "undici@7.30.0",
+    "reason": "build tool only (@electron/get downloads Electron); never packaged"
+  },
+  {
+    "id": "GHSA-55wc-3pg8-jfw6",
+    "package": "undici@7.30.0",
+    "reason": "build tool only (@electron/get downloads Electron); never packaged"
+  },
+  {
+    "id": "GHSA-9fm3-97px-rjf6",
+    "package": "undici@7.30.0",
+    "reason": "build tool only (@electron/get downloads Electron); never packaged"
+  },
+  {
+    "id": "GHSA-f72v-6w45-q472",
+    "package": "undici@7.30.0",
+    "reason": "build tool only (@electron/get downloads Electron); never packaged"
+  },
+  {
+    "id": "GHSA-qrxm-fqhp-jwvm",
+    "package": "undici@7.30.0",
+    "reason": "build tool only (@electron/get downloads Electron); never packaged"
+  },
+  {
+    "id": "GHSA-xjj6-f33q-929c",
+    "package": "undici@7.30.0",
+    "reason": "build tool only (@electron/get downloads Electron); never packaged"
+  },
+  {
+    "id": "GHSA-2m5v-pch6-74hx",
+    "package": "undici@8.11.2",
+    "reason": "test tool only (jsdom under Vitest); never packaged"
+  },
+  {
+    "id": "GHSA-4qv8-2p9j-2685",
+    "package": "undici@8.11.2",
+    "reason": "test tool only (jsdom under Vitest); never packaged"
+  },
+  {
+    "id": "GHSA-4w7w-5xrc-9h26",
+    "package": "undici@8.11.2",
+    "reason": "test tool only (jsdom under Vitest); never packaged"
+  },
+  {
+    "id": "GHSA-55wc-3pg8-jfw6",
+    "package": "undici@8.11.2",
+    "reason": "test tool only (jsdom under Vitest); never packaged"
+  },
+  {
+    "id": "GHSA-9fm3-97px-rjf6",
+    "package": "undici@8.11.2",
+    "reason": "test tool only (jsdom under Vitest); never packaged"
+  },
+  {
+    "id": "GHSA-f72v-6w45-q472",
+    "package": "undici@8.11.2",
+    "reason": "test tool only (jsdom under Vitest); never packaged"
+  },
+  {
+    "id": "GHSA-qrxm-fqhp-jwvm",
+    "package": "undici@8.11.2",
+    "reason": "test tool only (jsdom under Vitest); never packaged"
+  },
+  {
+    "id": "GHSA-xjj6-f33q-929c",
+    "package": "undici@8.11.2",
+    "reason": "test tool only (jsdom under Vitest); never packaged"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "name": "@app/brand",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "The product name and every name-derived value, in one place (PLAN.md \u00a73.16).",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "@app/testkit": "workspace:*"
+  }
+}

@@ -1,0 +1,467 @@
+{
+  "gitLfs": "v3.7.1",
+  "go": {
+    "versions": [
+      "go1.25.1",
+      "go1.25.3"
+    ],
+    "license": "BSD-3-Clause",
+    "file": "go-LICENSE.txt",
+    "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+    "url": "https://go.dev/"
+  },
+  "modules": [
+    {
+      "path": "github.com/alexbrainman/sspi",
+      "version": "v0.0.0-20210105120005-909beea2cc74",
+      "sum": "h1:Kk6a4nehpJ3UuJRqlA3JxYxBZEqCeOmATOvrbT4p9RA=",
+      "license": "BSD-3-Clause",
+      "file": "github.com/alexbrainman/sspi@v0.0.0-20210105120005-909beea2cc74/LICENSE",
+      "sha256": "dd26a7abddd02e2d0aba97805b31f248ef7835d9e10da289b22e3b8ab78b324d",
+      "systems": [
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/avast/retry-go",
+      "version": "v2.4.2+incompatible",
+      "sum": "h1:+ZjCypQT/CyP0kyJO2EcU4d/ZEJWSbP8NENI578cPmA=",
+      "license": "MIT",
+      "file": "github.com/avast/retry-go@v2.4.2+incompatible/LICENSE",
+      "sha256": "2fc9e8c374cacc9c0e0c7214911cc2f90f1ade45af2cef646460de278042d930",
+      "systems": [
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/dpotapov/go-spnego",
+      "version": "v0.0.0-20210315154721-298b63a54430",
+      "sum": "h1:oempk9HjNt6rVKyKmpdnoN7XABQv3SXLWu3pxUI7Vlk=",
+      "license": "MIT",
+      "file": "github.com/dpotapov/go-spnego@v0.0.0-20210315154721-298b63a54430/LICENSE",
+      "sha256": "74e635bc5b835cbac01362dc69dcf5d84c4e8f69aa4207ed7301b1a9f238214c",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/git-lfs/gitobj/v2",
+      "version": "v2.1.1",
+      "sum": "h1:tf/VU6zL1kxa3he+nf6FO/syX+LGkm6WGDsMpfuXV7Q=",
+      "license": "MIT",
+      "file": "github.com/git-lfs/gitobj/v2@v2.1.1/LICENSE.md",
+      "sha256": "49e9a8cbb772da6682b4613a36aa17934fa949e5e30e58b3f0f24d6ea3265c69",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/git-lfs/go-netrc",
+      "version": "v0.0.0-20250218165306-ba0029b43d11",
+      "sum": "h1:LotqdxyBRc7u2fxoBrzW6Mn3ZBvv7FlcBPlAa10DKAg=",
+      "license": "MIT",
+      "file": "github.com/git-lfs/go-netrc@v0.0.0-20250218165306-ba0029b43d11/LICENSE",
+      "sha256": "c3880f30146c2ad11c85a243858027e8a1d61e241e53284d7cef3aa9452f16df",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/git-lfs/pktline",
+      "version": "v0.0.0-20210330133718-06e9096e2825",
+      "sum": "h1:riQhgheTL7tMF4d5raz9t3+IzoR1i1wqxE1kZC6dY+U=",
+      "license": "MIT",
+      "file": "github.com/git-lfs/pktline@v0.0.0-20210330133718-06e9096e2825/LICENSE.md",
+      "sha256": "09c5e6c848991ae3a8884ce05457102a474e00ca237b92745eef333a9b0e813a",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/git-lfs/wildmatch/v2",
+      "version": "v2.0.1",
+      "sum": "h1:Ds+aobrV5bK0wStILUOn9irllPyf9qrFETbKzwzoER8=",
+      "license": "MIT",
+      "file": "github.com/git-lfs/wildmatch/v2@v2.0.1/LICENSE.md",
+      "sha256": "34ece938f52ea9d3b706a780db52c14ba4544c2e0fdbccaa2701283000182c23",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/golang/groupcache",
+      "version": "v0.0.0-20241129210726-2c02b8208cf8",
+      "sum": "h1:f+oWsMOmNPc8JmEHVZIycC7hBoQxHH9pNKQORJNozsQ=",
+      "license": "Apache-2.0",
+      "file": "github.com/golang/groupcache@v0.0.0-20241129210726-2c02b8208cf8/LICENSE",
+      "sha256": "73ba74dfaa520b49a401b5d21459a8523a146f3b7518a833eea5efa85130bf68",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/hashicorp/go-uuid",
+      "version": "v1.0.2",
+      "sum": "h1:cfejS+Tpcp13yd5nYHWDI6qVCny6wyX2Mt5SGur2IGE=",
+      "license": "MPL-2.0",
+      "file": "github.com/hashicorp/go-uuid@v1.0.2/LICENSE",
+      "sha256": "60222c28c1a7f6a92c7df98e5c5f4459e624e6e285e0b9b94467af5f6ab3343d",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64"
+      ]
+    },
+    {
+      "path": "github.com/inconshreveable/mousetrap",
+      "version": "v1.1.0",
+      "sum": "h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2s0bqwp9tc8=",
+      "license": "Apache-2.0",
+      "file": "github.com/inconshreveable/mousetrap@v1.1.0/LICENSE",
+      "sha256": "4819582701f150b28a563a6cd8ed0bf5a754e3c67b90ad38d78ba4131bf77795",
+      "systems": [
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/jcmturner/aescts/v2",
+      "version": "v2.0.0",
+      "sum": "h1:9YKLH6ey7H4eDBXW8khjYslgyqG2xZikXP0EQFKrle8=",
+      "license": "Apache-2.0",
+      "file": "github.com/jcmturner/aescts/v2@v2.0.0/LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64"
+      ]
+    },
+    {
+      "path": "github.com/jcmturner/dnsutils/v2",
+      "version": "v2.0.0",
+      "sum": "h1:lltnkeZGL0wILNvrNiVCR6Ro5PGU/SeBvVO/8c/iPbo=",
+      "license": "Apache-2.0",
+      "file": "github.com/jcmturner/dnsutils/v2@v2.0.0/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64"
+      ]
+    },
+    {
+      "path": "github.com/jcmturner/gofork",
+      "version": "v1.0.0",
+      "sum": "h1:J7uCkflzTEhUZ64xqKnkDxq3kzc96ajM1Gli5ktUem8=",
+      "license": "BSD-3-Clause",
+      "file": "github.com/jcmturner/gofork@v1.0.0/LICENSE",
+      "sha256": "2d36597f7117c38b006835ae7f537487207d8ec407aa9d9980794b2030cbc067",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64"
+      ]
+    },
+    {
+      "path": "github.com/jcmturner/goidentity/v6",
+      "version": "v6.0.1",
+      "sum": "h1:VKnZd2oEIMorCTsFBnJWbExfNN7yZr3EhJAxwOkZg6o=",
+      "license": "Apache-2.0",
+      "file": "github.com/jcmturner/goidentity/v6@v6.0.1/LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64"
+      ]
+    },
+    {
+      "path": "github.com/jcmturner/gokrb5/v8",
+      "version": "v8.4.2",
+      "sum": "h1:6ZIM6b/JJN0X8UM43ZOM6Z4SJzla+a/u7scXFJzodkA=",
+      "license": "Apache-2.0",
+      "file": "github.com/jcmturner/gokrb5/v8@v8.4.2/LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64"
+      ]
+    },
+    {
+      "path": "github.com/jcmturner/rpc/v2",
+      "version": "v2.0.3",
+      "sum": "h1:7FXXj8Ti1IaVFpSAziCZWNzbNuZmnvw/i6CqLNdWfZY=",
+      "license": "Apache-2.0",
+      "file": "github.com/jcmturner/rpc/v2@v2.0.3/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64"
+      ]
+    },
+    {
+      "path": "github.com/jmhodges/clock",
+      "version": "v1.2.0",
+      "sum": "h1:eq4kys+NI0PLngzaHEe7AmPT90XMGIEySD1JfV1PDIs=",
+      "license": "MIT",
+      "file": "github.com/jmhodges/clock@v1.2.0/LICENSE",
+      "sha256": "6fd396f2d21c26cac28597b7aea66706684fe7e0aede98c7ce08e8d7886409a1",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/leonelquinteros/gotext",
+      "version": "v1.5.0",
+      "sum": "h1:ODY7LzLpZWWSJdAHnzhreOr6cwLXTAmc914FOauSkBM=",
+      "license": "MIT",
+      "file": "github.com/leonelquinteros/gotext@v1.5.0/LICENSE",
+      "sha256": "bf78e51361b486dc8b97c5be426574ffb5ce736414db00af90a11f8e4f9dccdf",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/mattn/go-isatty",
+      "version": "v0.0.4",
+      "sum": "h1:bnP0vzxcAdeI1zdubAl5PjU6zsERjGZb7raWodagDYs=",
+      "license": "MIT",
+      "file": "github.com/mattn/go-isatty@v0.0.4/LICENSE",
+      "sha256": "08eab1118c80885fa1fa6a6dd7303f65a379fcb3733e063d20d1bbc2c76e6fa1",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/olekukonko/ts",
+      "version": "v0.0.0-20171002115256-78ecb04241c0",
+      "sum": "h1:LiZB1h0GIcudcDci2bxbqI6DXV8bF8POAnArqvRrIyw=",
+      "license": "MIT",
+      "file": "github.com/olekukonko/ts@v0.0.0-20171002115256-78ecb04241c0/LICENCE",
+      "sha256": "eb472e25a1963b3078249c9bbcff5e7ed81e5f0e1ceb8fc8ecc4b43f45e87867",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/pkg/errors",
+      "version": "v0.0.0-20170505043639-c605e284fe17",
+      "sum": "h1:chPfVn+gpAM5CTpTyVU9j8J+xgRGwmoDlNDLjKnJiYo=",
+      "license": "BSD-2-Clause",
+      "file": "github.com/pkg/errors@v0.0.0-20170505043639-c605e284fe17/LICENSE",
+      "sha256": "8d427fd87bc9579ea368fde3d49f9ca22eac857f91a9dec7e3004bdfab7dee86",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/rubyist/tracerx",
+      "version": "v0.0.0-20170927163412-787959303086",
+      "sum": "h1:mncRSDOqYCng7jOD+Y6+IivdRI6Kzv2BLWYkWkdQfu0=",
+      "license": "MIT",
+      "file": "github.com/rubyist/tracerx@v0.0.0-20170927163412-787959303086/LICENSE",
+      "sha256": "82f0d2a1029154f3184c82cc146f39ae8fd3f357b76832b58190c759cbb9105a",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/spf13/cobra",
+      "version": "v1.7.0",
+      "sum": "h1:hyqWnYt1ZQShIddO5kBpj3vu05/++x6tJ6dg8EC572I=",
+      "license": "Apache-2.0",
+      "file": "github.com/spf13/cobra@v1.7.0/LICENSE.txt",
+      "sha256": "5e3400b93bbb099e83e52bab885e7441750673c21f97988ca3f1240639b63283",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/spf13/pflag",
+      "version": "v1.0.5",
+      "sum": "h1:iy+VFUOCP1a+8yFto/drg2CJ5u0yRoB7fZw3DKv/JXA=",
+      "license": "BSD-3-Clause",
+      "file": "github.com/spf13/pflag@v1.0.5/LICENSE",
+      "sha256": "b8514c577c1c4b46cee454d5a882b15fa411e72c5bd7f801f241591789fce61a",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "github.com/ssgelm/cookiejarparser",
+      "version": "v1.0.1",
+      "sum": "h1:cRdXauUbOTFzTPJFaeiWbHnQ+tRGlpKKzvIK9PUekE4=",
+      "license": "MIT",
+      "file": "github.com/ssgelm/cookiejarparser@v1.0.1/LICENSE.md",
+      "sha256": "5438a5672aec3e69f928ce05bdec56d887e023297129c17340f08d5d2572cfc7",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "golang.org/x/crypto",
+      "version": "v0.36.0",
+      "sum": "h1:AnAEvhDddvBdpY+uR+MyHmuZzzNqXSe/GvuDeob5L34=",
+      "license": "BSD-3-Clause",
+      "file": "golang.org/x/crypto@v0.36.0/LICENSE",
+      "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64"
+      ]
+    },
+    {
+      "path": "golang.org/x/net",
+      "version": "v0.38.0",
+      "sum": "h1:vRMAPTMaeGqVhG5QyLJHqNDwecKTomGeqbnfZyKlBI8=",
+      "license": "BSD-3-Clause",
+      "file": "golang.org/x/net@v0.38.0/LICENSE",
+      "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "golang.org/x/sync",
+      "version": "v0.12.0",
+      "sum": "h1:MHc5BpPuC30uJk597Ri8TV3CNZcTLu6B6z4lJy+g6Jw=",
+      "license": "BSD-3-Clause",
+      "file": "golang.org/x/sync@v0.12.0/LICENSE",
+      "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "golang.org/x/sys",
+      "version": "v0.31.0",
+      "sum": "h1:ioabZlmFYtWhL+TRYpcnNlLwhyxaM9kWTDEmfnprqik=",
+      "license": "BSD-3-Clause",
+      "file": "golang.org/x/sys@v0.31.0/LICENSE",
+      "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
+      "path": "golang.org/x/text",
+      "version": "v0.23.0",
+      "sum": "h1:D71I7dUrlY+VX0gQShAThNGHFxZ13dGLBHQLVl1mJlY=",
+      "license": "BSD-3-Clause",
+      "file": "golang.org/x/text@v0.23.0/LICENSE",
+      "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    }
+  ]
+}
