@@ -1,9 +1,8 @@
 {
-  "gitLfs": "v3.7.1",
+  "gitLfs": "v3.8.1",
   "go": {
     "versions": [
-      "go1.25.1",
-      "go1.25.3"
+      "go1.27.3"
     ],
     "license": "BSD-3-Clause",
     "file": "go-LICENSE.txt",
@@ -25,10 +24,10 @@
     },
     {
       "path": "github.com/avast/retry-go",
-      "version": "v2.4.2+incompatible",
-      "sum": "h1:+ZjCypQT/CyP0kyJO2EcU4d/ZEJWSbP8NENI578cPmA=",
+      "version": "v3.0.0+incompatible",
+      "sum": "h1:4SOWQ7Qs+oroOTQOYnAHqelpCO0biHSxpiH9JdtuBj0=",
       "license": "MIT",
-      "file": "github.com/avast/retry-go@v2.4.2+incompatible/LICENSE",
+      "file": "github.com/avast/retry-go@v3.0.0+incompatible/LICENSE",
       "sha256": "2fc9e8c374cacc9c0e0c7214911cc2f90f1ade45af2cef646460de278042d930",
       "systems": [
         "win32-arm64",
@@ -258,12 +257,35 @@
       ]
     },
     {
+      "path": "github.com/klauspost/compress",
+      "version": "v1.19.1",
+      "sum": "h1:VsB4HPswih7mmZ8WleSFQ75c/Ui1M4trX5oAsJnhSlk=",
+      "license": "BSD-3-Clause AND MIT",
+      "file": "github.com/klauspost/compress@v1.19.1/LICENSE",
+      "sha256": "0d9e582ee4bff57bf1189c9e514e6da7ce277f9cd3bc2d488b22fbb39a6d87cf",
+      "more": [
+        {
+          "part": "zstd/internal/xxhash",
+          "file": "github.com/klauspost/compress@v1.19.1/zstd/internal/xxhash/LICENSE.txt",
+          "sha256": "f566a9f97bacdaf00d9f21dd991e81dc11201c4e016c86b470799429a1c9a79c"
+        }
+      ],
+      "systems": [
+        "darwin-arm64",
+        "darwin-x64",
+        "linux-arm64",
+        "linux-x64",
+        "win32-arm64",
+        "win32-x64"
+      ]
+    },
+    {
       "path": "github.com/leonelquinteros/gotext",
-      "version": "v1.5.0",
-      "sum": "h1:ODY7LzLpZWWSJdAHnzhreOr6cwLXTAmc914FOauSkBM=",
-      "license": "MIT",
-      "file": "github.com/leonelquinteros/gotext@v1.5.0/LICENSE",
-      "sha256": "bf78e51361b486dc8b97c5be426574ffb5ce736414db00af90a11f8e4f9dccdf",
+      "version": "v1.7.2",
+      "sum": "h1:bDPndU8nt+/kRo1m4l/1OXiiy2v7Z7dfPQ9+YP7G1Mc=",
+      "license": "MIT AND BSD-3-Clause",
+      "file": "github.com/leonelquinteros/gotext@v1.7.2/LICENSE",
+      "sha256": "3a64aa4539f34bcf8370feb989228e6bd610e8d0d2991626c86d81ddd779ca31",
       "systems": [
         "darwin-arm64",
         "darwin-x64",
@@ -275,10 +297,10 @@
     },
     {
       "path": "github.com/mattn/go-isatty",
-      "version": "v0.0.4",
-      "sum": "h1:bnP0vzxcAdeI1zdubAl5PjU6zsERjGZb7raWodagDYs=",
+      "version": "v0.0.24",
+      "sum": "h1:tGZZoVgT/KiqK1c8ocVLeDS8BSWMRd47J3Lbz7vsReI=",
       "license": "MIT",
-      "file": "github.com/mattn/go-isatty@v0.0.4/LICENSE",
+      "file": "github.com/mattn/go-isatty@v0.0.24/LICENSE",
       "sha256": "08eab1118c80885fa1fa6a6dd7303f65a379fcb3733e063d20d1bbc2c76e6fa1",
       "systems": [
         "darwin-arm64",
@@ -307,10 +329,10 @@
     },
     {
       "path": "github.com/pkg/errors",
-      "version": "v0.0.0-20170505043639-c605e284fe17",
-      "sum": "h1:chPfVn+gpAM5CTpTyVU9j8J+xgRGwmoDlNDLjKnJiYo=",
+      "version": "v0.9.1",
+      "sum": "h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=",
       "license": "BSD-2-Clause",
-      "file": "github.com/pkg/errors@v0.0.0-20170505043639-c605e284fe17/LICENSE",
+      "file": "github.com/pkg/errors@v0.9.1/LICENSE",
       "sha256": "8d427fd87bc9579ea368fde3d49f9ca22eac857f91a9dec7e3004bdfab7dee86",
       "systems": [
         "darwin-arm64",
@@ -339,10 +361,10 @@
     },
     {
       "path": "github.com/spf13/cobra",
-      "version": "v1.7.0",
-      "sum": "h1:hyqWnYt1ZQShIddO5kBpj3vu05/++x6tJ6dg8EC572I=",
+      "version": "v1.10.2",
+      "sum": "h1:DMTTonx5m65Ic0GOoRY2c16WCbHxOOw6xxezuLaBpcU=",
       "license": "Apache-2.0",
-      "file": "github.com/spf13/cobra@v1.7.0/LICENSE.txt",
+      "file": "github.com/spf13/cobra@v1.10.2/LICENSE.txt",
       "sha256": "5e3400b93bbb099e83e52bab885e7441750673c21f97988ca3f1240639b63283",
       "systems": [
         "darwin-arm64",
@@ -355,10 +377,10 @@
     },
     {
       "path": "github.com/spf13/pflag",
-      "version": "v1.0.5",
-      "sum": "h1:iy+VFUOCP1a+8yFto/drg2CJ5u0yRoB7fZw3DKv/JXA=",
+      "version": "v1.0.9",
+      "sum": "h1:9exaQaMOCwffKiiiYk6/BndUBv+iRViNW+4lEMi0PvY=",
       "license": "BSD-3-Clause",
-      "file": "github.com/spf13/pflag@v1.0.5/LICENSE",
+      "file": "github.com/spf13/pflag@v1.0.9/LICENSE",
       "sha256": "b8514c577c1c4b46cee454d5a882b15fa411e72c5bd7f801f241591789fce61a",
       "systems": [
         "darwin-arm64",
@@ -387,10 +409,10 @@
     },
     {
       "path": "golang.org/x/crypto",
-      "version": "v0.36.0",
-      "sum": "h1:AnAEvhDddvBdpY+uR+MyHmuZzzNqXSe/GvuDeob5L34=",
+      "version": "v0.54.0",
+      "sum": "h1:YLIA59K4fiNzHzjnZt2tUJQjQtUWfWbeHBqKtk3eScw=",
       "license": "BSD-3-Clause",
-      "file": "golang.org/x/crypto@v0.36.0/LICENSE",
+      "file": "golang.org/x/crypto@v0.54.0/LICENSE",
       "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
       "systems": [
         "darwin-arm64",
@@ -401,10 +423,10 @@
     },
     {
       "path": "golang.org/x/net",
-      "version": "v0.38.0",
-      "sum": "h1:vRMAPTMaeGqVhG5QyLJHqNDwecKTomGeqbnfZyKlBI8=",
+      "version": "v0.57.0",
+      "sum": "h1:K5+3DljvIuDG9/Jv9rvyMywYNFCQ9RSUY6OOTTkT+tE=",
       "license": "BSD-3-Clause",
-      "file": "golang.org/x/net@v0.38.0/LICENSE",
+      "file": "golang.org/x/net@v0.57.0/LICENSE",
       "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
       "systems": [
         "darwin-arm64",
@@ -417,10 +439,10 @@
     },
     {
       "path": "golang.org/x/sync",
-      "version": "v0.12.0",
-      "sum": "h1:MHc5BpPuC30uJk597Ri8TV3CNZcTLu6B6z4lJy+g6Jw=",
+      "version": "v0.22.0",
+      "sum": "h1:SZjpbeLmrCk4xhRSZFNZW5gFUeCeFgjekvI/+gfScek=",
       "license": "BSD-3-Clause",
-      "file": "golang.org/x/sync@v0.12.0/LICENSE",
+      "file": "golang.org/x/sync@v0.22.0/LICENSE",
       "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
       "systems": [
         "darwin-arm64",
@@ -433,10 +455,10 @@
     },
     {
       "path": "golang.org/x/sys",
-      "version": "v0.31.0",
-      "sum": "h1:ioabZlmFYtWhL+TRYpcnNlLwhyxaM9kWTDEmfnprqik=",
+      "version": "v0.47.0",
+      "sum": "h1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs=",
       "license": "BSD-3-Clause",
-      "file": "golang.org/x/sys@v0.31.0/LICENSE",
+      "file": "golang.org/x/sys@v0.47.0/LICENSE",
       "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
       "systems": [
         "darwin-arm64",
@@ -449,10 +471,10 @@
     },
     {
       "path": "golang.org/x/text",
-      "version": "v0.23.0",
-      "sum": "h1:D71I7dUrlY+VX0gQShAThNGHFxZ13dGLBHQLVl1mJlY=",
+      "version": "v0.40.0",
+      "sum": "h1:Ub2Z6/xjgF1WrYQz2nuITOEegKFtiIy+rieRJ5lHZKs=",
       "license": "BSD-3-Clause",
-      "file": "golang.org/x/text@v0.23.0/LICENSE",
+      "file": "golang.org/x/text@v0.40.0/LICENSE",
       "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
       "systems": [
         "darwin-arm64",

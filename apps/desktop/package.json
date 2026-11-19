@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@parcel/watcher": "2.6.0",
-    "dugite": "3.2.3"
+    "dugite": "3.3.3"
   },
   "devDependencies": {
     "@app/adapters": "workspace:*",

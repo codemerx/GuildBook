@@ -178,7 +178,7 @@ pnpm dev        # a development build, in a fresh and separate folder
 ## Privacy
 
 The app reads only the folders you give it: the library, your tools' folders and your code repos. It sends no telemetry.
-The daily update check asks GitHub for two small files: the update feed and the tool catalog. Like every browser request,
+The daily update check asks GitHub for one small file: the update feed. Like every browser request,
 it holds the app's name and version, your system type and your language, and GitHub sees your IP address. It holds no
 ID, no name and no data from your library. A problem report is saved only when you choose, and you read the whole text
 first. It has no file contents and no secrets.

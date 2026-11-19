@@ -1,11 +1,9 @@
-// A18.1: the signatures of a release's installers, checked as the OS will check them (ADR 0028):
-//   macOS    codesign --verify --deep --strict on the app; spctl --assess (Gatekeeper accepts a Developer ID app
-//            only when it's notarized); xcrun stapler validate (the notarization ticket travels with the app and
-//            the dmg)
-//   Windows  signtool verify /pa on the installer and the installed program
-//   Linux    no OS signature (AppImage, deb and rpm reach users through the release's own checksums): every file
-//            in the update feed has the size and sha512 its latest*.yml names
-// Usage: node scripts/verify-signatures.ts <release folder>, e.g. apps/desktop/release/production-darwin-arm64
+// A18.1: the installers of a release, checked before they are published. The releases are unsigned (ADR 0036):
+//   every OS  each file in the update feed has the size and sha512 its latest*.yml names, and a feed exists
+//   macOS     codesign --verify --deep --strict on the app: the ad-hoc signature is whole (Apple Silicon starts no
+//             app without one), so the only warning users see is the one for an app from an unknown developer
+// Windows and Linux have no signature to check.
+// Usage: node scripts/verify-installers.ts <release folder>, e.g. apps/desktop/release/production-darwin-arm64
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
@@ -35,8 +33,10 @@ function find(folder: string, test: (name: string) => boolean, depth = 2): strin
 
 /** The feed's own checks: each file it names has that size and sha512 (base64, as electron-builder writes it). */
 export function feedChecks(folder: string): Check[] {
+  const feeds = readdirSync(folder).filter((n) => /^latest.*\.yml$/.test(n));
+  if (feeds.length === 0) return [{ what: 'update feed', ok: false, output: `no latest*.yml in ${folder}` }];
   const checks: Check[] = [];
-  for (const name of readdirSync(folder).filter((n) => /^latest.*\.yml$/.test(n))) {
+  for (const name of feeds) {
     const feed = parse(readFileSync(path.join(folder, name), 'utf8')) as {
       files: Array<{ url: string; sha512: string; size?: number }>;
     };
@@ -50,32 +50,23 @@ export function feedChecks(folder: string): Check[] {
   return checks;
 }
 
-export function signatureChecks(folder: string, platform: NodeJS.Platform = process.platform): Check[] {
-  if (platform === 'darwin') {
-    return find(folder, (name) => name.endsWith('.app')).flatMap((app) => [
-      run(`codesign ${path.basename(app)}`, 'codesign', ['--verify', '--deep', '--strict', '--verbose=2', app]),
-      run(`Gatekeeper ${path.basename(app)}`, 'spctl', ['--assess', '--type', 'execute', '--verbose=4', app]),
-      run(`notarization ticket ${path.basename(app)}`, 'xcrun', ['stapler', 'validate', app]),
-      ...find(folder, (name) => name.endsWith('.dmg'), 0).map((dmg) =>
-        run(`notarization ticket ${path.basename(dmg)}`, 'xcrun', ['stapler', 'validate', dmg]),
-      ),
-    ]);
-  }
-  if (platform === 'win32') {
-    return find(folder, (name) => name.endsWith('.exe')).map((exe) =>
-      run(`signtool ${path.basename(exe)}`, 'signtool', ['verify', '/pa', '/v', exe]),
-    );
-  }
-  return feedChecks(folder);
+export function installerChecks(folder: string, platform: NodeJS.Platform = process.platform): Check[] {
+  if (platform !== 'darwin') return feedChecks(folder);
+  const apps = find(folder, (name) => name.endsWith('.app'));
+  const signatures = apps.map((app) =>
+    run(`ad-hoc signature ${path.basename(app)}`, 'codesign', ['--verify', '--deep', '--strict', '--verbose=2', app]),
+  );
+  if (apps.length === 0) signatures.push({ what: 'the app', ok: false, output: `no .app in ${folder}` });
+  return [...signatures, ...feedChecks(folder)];
 }
 
 if (import.meta.main) {
   const folder = process.argv[2];
   if (!folder) {
-    process.stderr.write('usage: verify-signatures.ts <release folder>\n');
+    process.stderr.write('usage: verify-installers.ts <release folder>\n');
     process.exit(2);
   }
-  const checks = signatureChecks(folder);
+  const checks = installerChecks(folder);
   for (const check of checks) {
     process.stdout.write(`${check.ok ? 'ok  ' : 'FAIL'}  ${check.what}\n`);
     if (!check.ok) process.stdout.write(`      ${check.output.split('\n').join('\n      ')}\n`);

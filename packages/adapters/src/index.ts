@@ -38,13 +38,6 @@ export {
   openInstanceDatabase,
   type OpenedInstanceDatabase,
 } from './store/instance-database.ts';
-export {
-  CatalogLoader,
-  type CatalogLoaderOptions,
-  type CatalogRejection,
-  type LoadedCatalog,
-  verifySignedCatalog,
-} from './catalog/catalog-loader.ts';
 export { ParcelWatcher } from './watcher/parcel-watcher.ts';
 export { ZipArchive } from './zip/zip-archive.ts';
 export { classifyFailure, classifyRejection, wouldBeOverwritten } from './git/classify.ts';

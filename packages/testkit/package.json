@@ -14,7 +14,6 @@
     "./live": "./src/live/index.ts",
     "./samples": "./src/samples/index.ts",
     "./worlds": "./src/worlds/index.ts",
-    "./catalog": "./src/catalog/index.ts",
     "./rpc": "./src/rpc/index.ts"
   },
   "dependencies": {
@@ -26,7 +25,7 @@
     "@app/tools": "workspace:*",
     "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.64.0",
-    "dugite": "3.2.3",
+    "dugite": "3.3.3",
     "node-forge": "1.4.3",
     "zod": "4.6.7"
   },

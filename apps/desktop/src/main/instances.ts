@@ -138,7 +138,6 @@ export class InstanceManager {
   /** What every worker gets, an instance's or a setup's. */
   baseInit(): Omit<WorkerInit, 'instanceId' | 'name' | 'libraryPath' | 'dataFolder'> {
     return {
-      catalogDir: this.#deps.layout.catalog,
       testRoot: this.#deps.testRoot,
       clockOffsetMs: this.#deps.clock.offsetMs ?? 0,
       testHooks: this.#deps.testHooks,

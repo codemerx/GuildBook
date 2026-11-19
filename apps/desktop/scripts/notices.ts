@@ -384,6 +384,11 @@ export interface GoModules {
     /** The license text, relative to legal/git-lfs-modules. */
     file: string;
     sha256: string;
+    /**
+     * More license texts of the module, for parts that the program holds and that the text of the module root does not
+     * cover (a copy of another project inside the module, with its own license file).
+     */
+    more?: Array<{ part: string; file: string; sha256: string }>;
     /** The programs that hold the module (darwin-arm64, win32-x64, ...). */
     systems: string[];
   }>;
@@ -448,7 +453,12 @@ export function goModules(
         version: module.version,
         license: module.license,
         url: `https://pkg.go.dev/${module.path}@${module.version}`,
-        texts: [text(module.file, module.sha256, what)],
+        texts: [
+          text(module.file, module.sha256, what),
+          ...(module.more ?? []).map(
+            (part) => `The files in ${part.part}:\n\n${text(part.file, part.sha256, `${what} ${part.part}`)}`,
+          ),
+        ],
         generated: false,
       };
     }),
@@ -546,8 +556,8 @@ dugite ${dugiteVersion}. It is in the folder app.asar.unpacked/node_modules/dugi
     (Mozilla Public License 2.0, https://www.mozilla.org/MPL/2.0/).
   - On Windows: MinGit of the project Git for Windows (${versions.gitForWindows}). It holds GNU programs and libraries
     under GPL-2.0, GPL-3.0, LGPL-2.1, LGPL-3.0, MIT, BSD, Apache-2.0 and other licenses. The license texts are in the
-    Git folder: LICENSE.txt, mingw64/share/licenses and usr/share/licenses. The file etc/package-versions.txt names
-    the programs and their versions.
+    Git folder: LICENSE.txt, usr/share/licenses, and ucrt64/share/licenses (x64) or clangarm64/share/licenses (Arm).
+    The file etc/package-versions.txt names the programs and their versions.
 
 Source code
 ${RULE}

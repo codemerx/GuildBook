@@ -158,5 +158,10 @@
     "id": "GHSA-xjj6-f33q-929c",
     "package": "undici@8.11.2",
     "reason": "test tool only (jsdom under Vitest); never packaged"
+  },
+  {
+    "id": "GHSA-fc5q-39xc-vjpf",
+    "package": "picomatch@4.0.7",
+    "reason": "no fixed version yet (OSV: through 4.0.7, 2026-11-17). Packaged through @parcel/watcher, which compiles only the ignore globs of the watch calls with picomatch; the app passes fixed globs from its own code (worker.ts: '.git/objects/**' and the like), never a pattern from a user or a library, so a crafted extglob can't reach it. The rest (tinyglobby, dependency-cruiser, Storybook's rollup) are build and lint tools; update when a fixed version is out"
   }
 ]

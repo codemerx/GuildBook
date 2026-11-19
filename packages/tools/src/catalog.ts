@@ -1,5 +1,5 @@
-// The tool catalog's format (PLAN.md §3.4): one data entry per tool, not code. It ships with the app and is refreshed
-// as a signed file (ADR 0026), so the format is versioned. Field names follow the published data file.
+// The tool catalog's format (PLAN.md §3.4): one data entry per tool, not code. It ships with the app (ADR 0037), and the
+// format is versioned. Field names follow the catalog data file.
 import { z } from 'zod';
 
 export const CATALOG_SCHEMA_VERSION = 1;
@@ -82,15 +82,6 @@ export type InstructionsLimit = z.infer<typeof LimitSchema>;
 export type InstructionsEntry = z.infer<typeof InstructionsSchema>;
 export type InstructionsMethod = InstructionsEntry['method'];
 export type Catalog = z.infer<typeof CatalogSchema>;
-
-/** A refreshed catalog's detached signature: ed25519 over the exact bytes of the JSON file (ADR 0026). */
-export const CatalogSignatureSchema = z.object({
-  keyId: z.string().min(1).max(100),
-  /** Base64. */
-  signature: z.string().min(1).max(200),
-});
-
-export type CatalogSignature = z.infer<typeof CatalogSignatureSchema>;
 
 /** Each tool's instruction-file limit, for the editor's and the Doctor's warnings (PLAN.md §3.12). */
 export function instructionLimits(catalog: Catalog): Array<{ tool: string } & InstructionsLimit> {

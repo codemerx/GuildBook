@@ -3,7 +3,6 @@
 // the renderer's queries, and writes its own log. A database from a newer app version is left untouched: the worker
 // reports the failure and exits (A1.17).
 import {
-  CatalogLoader,
   createFileLogger,
   DugiteGit,
   GIT_VARIABLES,
@@ -93,7 +92,7 @@ import {
   SETUP_PAGES,
   type SetupState,
 } from '@app/schemas';
-import { bundledCatalog, instructionLimits, trustedCatalogKeys } from '@app/tools';
+import { bundledCatalog, instructionLimits } from '@app/tools';
 import type { WorkerInit } from '../main/supervisor.ts';
 import { liveToolHomeOf } from '../shared/live.ts';
 import { readAsset } from './assets.ts';
@@ -216,7 +215,7 @@ export async function startWorker(host: WorkerHost, options: WorkerOptions): Pro
     inner: new NodeFileSystem(),
     paths,
     // An instance writes only in its data folder, its library and the exact paths of an approved link plan
-    // (IMPLEMENTATION.md §2.10), and reads the refreshed tool catalog besides.
+    // (IMPLEMENTATION.md §2.10).
     roots: () => {
       const linkRoots = links?.roots();
       // A relocation also reaches the old and the new place, and the folders the user named for it (Step 9).
@@ -225,13 +224,7 @@ export async function startWorker(host: WorkerHost, options: WorkerOptions): Pro
       const originals = importing?.originals ?? [];
       return {
         write: [settings.dataFolder, settings.libraryPath, ...(moving?.write ?? [])],
-        read: [
-          settings.dataFolder,
-          settings.libraryPath,
-          settings.catalogDir,
-          ...(moving?.read ?? []),
-          ...(importing?.read ?? []),
-        ],
+        read: [settings.dataFolder, settings.libraryPath, ...(moving?.read ?? []), ...(importing?.read ?? [])],
         removeTree: [settings.dataFolder],
         ...(linkRoots
           ? {
@@ -336,17 +329,8 @@ export async function startWorker(host: WorkerHost, options: WorkerOptions): Pro
   const operations = new OperationRunner({ fs, paths, journalDir: layout.journal, clock, random, faults, logger });
   if (hooks) hooks.registerSamples({ engine, operations, fs, paths });
 
-  // The tool catalog: the bundled one, or a refreshed one whose signature checks out (ADR 0026). Development and test
-  // builds also trust the development key.
-  const catalog = await new CatalogLoader({
-    fs,
-    bundled: bundledCatalog,
-    file: paths.join(settings.catalogDir, 'catalog.json') as AbsPath,
-    signatureFile: paths.join(settings.catalogDir, 'catalog.json.sig') as AbsPath,
-    keys: trustedCatalogKeys({ development: options.testHooks }),
-    logger,
-  }).loadWithSource();
-  logger.info('tool catalog loaded', { source: catalog.source, tools: catalog.catalog.tools.length });
+  // The tool catalog: the one the app ships with. A change to it comes with a new version (ADR 0037).
+  const catalog = bundledCatalog;
 
   // The library: its snapshot, refreshed from the watcher's events (IMPLEMENTATION.md Step 2).
   const libraryRoot = settings.libraryPath as AbsPath;
@@ -355,7 +339,7 @@ export async function startWorker(host: WorkerHost, options: WorkerOptions): Pro
     platform: env.platform,
     libraryRoot,
     projection: null,
-    instructionLimits: instructionLimits(catalog.catalog),
+    instructionLimits: instructionLimits(catalog),
   });
   const libraryModel = new LibraryModel({
     source: workingTreeSource(fs, paths, libraryRoot),
@@ -526,7 +510,7 @@ export async function startWorker(host: WorkerHost, options: WorkerOptions): Pro
     home: env.home,
     dataFolder: settings.dataFolder,
     libraryRoot: () => libraryPath,
-    catalog: () => catalog.catalog,
+    catalog: () => catalog,
     snapshot: () => libraryModel.snapshot ?? null,
     repo: libraryRepo,
     baseline,
@@ -580,7 +564,7 @@ export async function startWorker(host: WorkerHost, options: WorkerOptions): Pro
           platform: env.platform,
           paths,
           home: env.home,
-          toolFolders: catalog.catalog.tools.flatMap((tool) =>
+          toolFolders: catalog.tools.flatMap((tool) =>
             [...tool.detect, ...tool.user_skill_dirs].map((dir) => ({
               tool: tool.name,
               path: expandHome(dir, env.home, paths),

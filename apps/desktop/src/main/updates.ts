@@ -1,10 +1,10 @@
 // The daily update check (PLAN.md §3.19 "App updates", Step 18; ADR 0031): once a day, and on [Check now], main reads
-// the update feed of this system (update-feed.ts) and refreshes the signed tool catalog (catalog-refresh.ts). A newer
-// version is only shown: [Download] opens its release page, and the user downloads and installs it. The app downloads
-// and installs nothing itself. The check sends nothing but its requests for the two files (PLAN.md §3.19 "Telemetry").
+// the update feed of this system (update-feed.ts). A newer version is only shown: [Download] opens its release page,
+// and the user downloads and installs it. The app downloads and installs nothing itself. The check sends nothing but
+// its request for the one file (PLAN.md §3.19 "Telemetry"). The tool catalog is not downloaded (ADR 0037).
 import { AppError, type Clock, compareVersions, type Logger, type Timer } from '@app/core';
 import type { UpdateView } from '@app/ipc';
-import { allowedReleaseUrl, type CatalogRefreshResult, type FetchedFile } from './catalog-refresh.ts';
+import { allowedReleaseUrl, type FetchedFile } from './release-feed.ts';
 import { inRollout, parseFeed } from './update-feed.ts';
 
 export const UPDATE_CHECK_EVERY_MS = 24 * 60 * 60 * 1000;
@@ -27,18 +27,10 @@ export interface UpdateServiceDeps {
   readonly feed: { readonly url: string | null; releasePage(version: string): string | null };
   readonly fetchFile: (url: string) => Promise<FetchedFile>;
   readonly openExternal: (url: string) => Promise<void>;
-  readonly catalog: {
-    refresh(): Promise<CatalogRefreshResult>;
-    /** The catalog the app uses now: the bundled one or a refreshed one, and why a saved one isn't used. */
-    current(): Promise<{ readonly source: 'bundled' | 'refreshed'; readonly rejected: string | null }>;
-  };
-  /** A refreshed catalog was saved: the workers load it when they start again. */
-  readonly onCatalogSaved: () => void;
   readonly onChange: (view: UpdateView) => void;
 }
 
 type Phase = UpdateView['phase'];
-type CatalogRejected = UpdateView['catalog']['rejected'];
 
 export class UpdateService {
   readonly #deps: UpdateServiceDeps;
@@ -47,7 +39,6 @@ export class UpdateService {
   #dismissed = false;
   #lastCheckedAt: number | null = null;
   #error: UpdateView['error'] = null;
-  #catalog: UpdateView['catalog'] = { source: 'bundled', refreshedAt: null, rejected: null };
   #timer: Timer | undefined;
   #running: Promise<UpdateView> | undefined;
 
@@ -55,10 +46,8 @@ export class UpdateService {
     this.#deps = deps;
   }
 
-  /** Reads the catalog in use, and plans the first check. */
-  async start(): Promise<void> {
-    const current = await this.#deps.catalog.current();
-    this.#catalog = { ...this.#catalog, source: current.source, rejected: this.#rejection(current.rejected) };
+  /** Plans the first check. */
+  start(): void {
     this.#schedule(FIRST_CHECK_AFTER_MS);
   }
 
@@ -76,11 +65,10 @@ export class UpdateService {
       dismissed: this.#dismissed,
       lastCheckedAt: this.#lastCheckedAt === null ? null : new Date(this.#lastCheckedAt).toISOString(),
       error: this.#error,
-      catalog: this.#catalog,
     };
   }
 
-  /** The daily check, or [Check now]: the app and the catalog together. A check already running is joined. */
+  /** The daily check, or [Check now]. A check already running is joined. */
   check(): Promise<UpdateView> {
     this.#running ??= this.#check().finally(() => {
       this.#running = undefined;
@@ -105,27 +93,9 @@ export class UpdateService {
 
   async #check(): Promise<UpdateView> {
     this.#timer?.cancel();
-    const app = this.#checkApp();
-    const catalog = this.#deps.catalog
-      .refresh()
-      .catch((error: unknown): CatalogRefreshResult => ({ outcome: 'failed', message: String(error).slice(0, 300) }));
-    const [, refreshed] = await Promise.all([app, catalog]);
+    await this.#checkApp();
     this.#lastCheckedAt = this.#deps.clock.now();
-    if (refreshed.outcome === 'saved') {
-      this.#catalog = { source: 'refreshed', refreshedAt: new Date(this.#lastCheckedAt).toISOString(), rejected: null };
-      this.#deps.onCatalogSaved();
-    } else if (refreshed.outcome === 'rejected') {
-      this.#catalog = { ...this.#catalog, rejected: refreshed.reason };
-    } else if (refreshed.outcome === 'failed') {
-      this.#catalog = { ...this.#catalog, rejected: 'failed' };
-    } else if (refreshed.outcome === 'same') {
-      this.#catalog = { ...this.#catalog, rejected: null };
-    }
-    this.#deps.logger.info('update check done', {
-      phase: this.#phase,
-      available: this.#available,
-      catalog: refreshed.outcome,
-    });
+    this.#deps.logger.info('update check done', { phase: this.#phase, available: this.#available });
     this.#schedule(UPDATE_CHECK_EVERY_MS);
     this.#changed();
     return this.view();
@@ -183,11 +153,6 @@ export class UpdateService {
   #schedule(ms: number): void {
     this.#timer?.cancel();
     this.#timer = this.#deps.clock.setTimer(ms, () => void this.check());
-  }
-
-  #rejection(reason: string | null): CatalogRejected {
-    const known = ['unreadable', 'unknownKey', 'badSignature', 'invalid', 'newerSchema', 'failed'] as const;
-    return (known as readonly string[]).includes(reason ?? '') ? (reason as CatalogRejected) : null;
   }
 
   #changed(): void {

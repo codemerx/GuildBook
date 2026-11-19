@@ -524,11 +524,15 @@ class DugiteRepo implements GitRepo {
         sign: true,
       });
     }
-    const all = `${text(result)}\n${result.stderr}`;
     if (result.exitCode === 0) {
       const head = (await this.resolve('HEAD')) ?? '';
-      if (/Applying autostash resulted in conflicts/.test(all)) {
-        return { kind: 'stashConflicts', head, files: await this.#conflictedFiles() };
+      // The merge or rebase is done, but the local changes it stashed came back with conflicts: git keeps the stash and
+      // leaves the files in conflict. The state tells it, not git's words, which changed in Git 2.56 ("Applying
+      // autostash resulted in conflicts." became "Your local changes are stashed, however applying them resulted in
+      // conflicts.").
+      if (input.autostash) {
+        const files = await this.#conflictedFiles();
+        if (files.length > 0) return { kind: 'stashConflicts', head, files };
       }
       if (head === input.commit && fastForward) return { kind: 'fastForwarded', head };
       return input.mode === 'merge' ? { kind: 'merged', head } : { kind: 'rebased', head };
@@ -685,9 +689,10 @@ class DugiteRepo implements GitRepo {
 
   async stashApply(index: number, options: { pop: boolean; identity: GitIdentity }): Promise<StashApplyOutcome> {
     await this.#notBusy();
+    // Local changes that the stash would overwrite end the command with 1 before Git 2.56, and with 128 since.
     const result = await this.#run(['stash', options.pop ? 'pop' : 'apply', `stash@{${Math.trunc(index)}}`], {
       env: this.#git.identity(options.identity),
-      ok: [0, 1],
+      ok: [0, 1, 128],
     });
     if (result.exitCode === 0) return { kind: 'applied' };
     // A new file the stash brings back is in the folder already: "<path> already exists, no checkout".

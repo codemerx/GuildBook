@@ -51,27 +51,6 @@ function AppStatus({ view }: { view: UpdateView }) {
   }
 }
 
-/** Which tool catalog the app uses, and why a downloaded one wasn't used. */
-function CatalogStatus({ catalog }: { catalog: UpdateView['catalog'] }) {
-  const { t } = useTranslation();
-  return (
-    <div className="flex flex-col gap-1 border-t border-border pt-3 text-sm">
-      <p>
-        {catalog.source === 'refreshed' ? t('updates.catalogRefreshed') : t('updates.catalogBundled')}
-        {catalog.refreshedAt !== null && (
-          <>
-            {' '}
-            <EventTime ms={Date.parse(catalog.refreshedAt)} />
-          </>
-        )}
-      </p>
-      {catalog.rejected !== null && (
-        <p className="text-muted-foreground">{t(`updates.catalogRejected.${catalog.rejected}`)}</p>
-      )}
-    </div>
-  );
-}
-
 export function UpdatesCardView({ view, actions = deviceActions }: { view: UpdateView; actions?: UpdateActions }) {
   const { t } = useTranslation();
   return (
@@ -97,7 +76,6 @@ export function UpdatesCardView({ view, actions = deviceActions }: { view: Updat
           </Button>
           {view.phase === 'available' && <DownloadButton actions={actions} />}
         </div>
-        <CatalogStatus catalog={view.catalog} />
       </CardContent>
     </Card>
   );

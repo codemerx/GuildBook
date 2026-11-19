@@ -3,7 +3,6 @@
 // only into the temporary download folder main recorded for it. It serves the worker API (so the supervisor can ping
 // and stop it) and the setup API, which main forwards the wizard's calls to.
 import {
-  CatalogLoader,
   createFileLogger,
   DugiteGit,
   GIT_VARIABLES,
@@ -35,7 +34,7 @@ import {
 } from '@app/core';
 import { deviceServicesApi, RpcEndpoint, type RpcPort, type SetupView, setupWorkerApi, workerApi } from '@app/ipc';
 import type { ErrorView } from '@app/schemas';
-import { bundledCatalog, trustedCatalogKeys } from '@app/tools';
+import { bundledCatalog } from '@app/tools';
 import type { PendingSetupInit, WorkerInit } from '../main/supervisor.ts';
 import { liveToolHomeOf } from '../shared/live.ts';
 import { testClientIdOf } from '../shared/test-client-id.ts';
@@ -106,11 +105,7 @@ export async function runSetupWorker(
       : nodeRandom;
   // What the worker may touch grows as main hands it folders: the one to check, then the download (§2.10).
   // The default location (~/<brand.defaultLibraryFolderName>) may be looked at, for the default folder's number (PLAN.md §3.16).
-  const readRoots = new Set<string>([
-    setup.tmpDir,
-    settings.catalogDir,
-    paths.join(env.home, brand.defaultLibraryFolderName),
-  ]);
+  const readRoots = new Set<string>([setup.tmpDir, paths.join(env.home, brand.defaultLibraryFolderName)]);
   const downloadRoots = new Set<string>();
   // The tools' skills folders: only the names in them are listed, to find a prefix in use (PLAN.md §3.3 "Detection").
   let skillFolders: string[] = [];
@@ -161,14 +156,8 @@ export async function runSetupWorker(
     sshOptions: testSshOptions(env),
     ...(hooks ? { onRun: (run: GitRunRecord) => void (gitRuns.push(run) > 500 && gitRuns.shift()) } : {}),
   });
-  const catalog = await new CatalogLoader({
-    fs,
-    bundled: bundledCatalog,
-    file: paths.join(settings.catalogDir, 'catalog.json') as AbsPath,
-    signatureFile: paths.join(settings.catalogDir, 'catalog.json.sig') as AbsPath,
-    keys: trustedCatalogKeys({ development: settings.testHooks }),
-    logger,
-  }).load();
+  // The tool catalog the app ships with (ADR 0037).
+  const catalog = bundledCatalog;
   // Every tool's skills folders, enabled or not, with the device's custom tools and changed folders (PLAN.md §3.3).
   const toolSettings = await services.query.toolSettings({});
   skillFolders = resolveTools(

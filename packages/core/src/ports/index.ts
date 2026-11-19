@@ -1,5 +1,4 @@
 export type * from './archive.ts';
-export type * from './catalog-source.ts';
 export type * from './clock.ts';
 export * from './device-services.ts';
 export type * from './env.ts';

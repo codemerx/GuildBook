@@ -2,17 +2,17 @@
 //   production  every production fuse set, no test hooks
 //   test-hooks  the same, with the test hooks and the --inspect fuse Playwright needs
 // Usage: node scripts/build.ts [production|test-hooks ...] [--installers] [--arch=arm64|x64] [--skip-vite]
-//          [--version=1.2.3] [--release-url=<url>] [--release] [--targets=AppImage,deb] [--output=<folder>]
+//          [--version=1.2.3] [--release-url=<url>] [--targets=AppImage,deb] [--output=<folder>]
 // Without --installers it packages an unpacked app folder, which the end-to-end tests use.
 // Updates (Step 18, ADR 0027, ADR 0031): a build checks an update feed when brand.releaseRepository is set (GitHub
 // Releases), or with --release-url (a generic feed: the local release host of the release rehearsal, A18.5). --version
 // builds another version than package.json's.
-// Signing (ADR 0028) comes from the environment, as the release pipeline sets it:
+// Signing: the project's releases are unsigned (ADR 0036), and on macOS every build is re-signed ad hoc, which Apple
+// Silicon needs to start the app. A build is signed only when the environment holds the keys (for a fork that signs):
 //   macOS    CSC_LINK + CSC_KEY_PASSWORD (or CSC_NAME), and for notarization APPLE_API_KEY + APPLE_API_KEY_ID +
 //            APPLE_API_ISSUER (or APPLE_ID + APPLE_APP_SPECIFIC_PASSWORD + APPLE_TEAM_ID)
 //   Windows  AZURE_SIGN_ENDPOINT, AZURE_SIGN_ACCOUNT, AZURE_SIGN_PROFILE, AZURE_SIGN_PUBLISHER, with AZURE_TENANT_ID,
 //            AZURE_CLIENT_ID and AZURE_CLIENT_SECRET for Azure Trusted Signing
-// Without them a build is unsigned (re-signed ad hoc on macOS). --release refuses to build without them.
 import { brand } from '../../../packages/brand/src/index.ts';
 import { spawnSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -39,7 +39,6 @@ const value = (name: string) => args.find((a) => a.startsWith(`--${name}=`))?.sl
 const arch = (value('arch') ?? process.arch) as 'arm64' | 'x64';
 const version = value('version');
 const releaseUrl = value('release-url');
-const release = args.includes('--release');
 /** Only these installers (the rehearsal needs only the AppImage), and another output folder, so it never replaces the
  * builds the end-to-end tests use. */
 const targets = value('targets')?.split(',');
@@ -68,13 +67,6 @@ const azureSigning =
         publisherName: env.AZURE_SIGN_PUBLISHER,
       }
     : null;
-const signed = { darwin: macSigning && macNotarizing, win32: azureSigning !== null, linux: true }[
-  process.platform as 'darwin'
-];
-if (release && !signed) {
-  process.stderr.write('a release build needs its signing secrets (see the top of scripts/build.ts)\n');
-  process.exit(1);
-}
 
 /** Where the app's updates come from: the generic feed given, or the release repository's GitHub Releases. */
 function publishConfig() {
@@ -100,7 +92,7 @@ export function fuses(variant: BuildVariant) {
     enableEmbeddedAsarIntegrityValidation: true,
     onlyLoadAppFromAsar: true,
     grantFileProtocolExtraPrivileges: false,
-    // An unsigned build (ADR 0028): flipping fuses breaks Electron's ad-hoc signature, which Apple Silicon requires,
+    // An unsigned build (ADR 0036): flipping fuses breaks Electron's ad-hoc signature, which Apple Silicon requires,
     // so it's redone. A signed build is signed after the fuses are set.
     resetAdHocDarwinSignature: process.platform === 'darwin' && !macSigning,
   };
@@ -198,7 +190,8 @@ for (const variant of variants) {
       // dugite runs its own git, which must be a real file: it finds it under app.asar.unpacked (ADR 0013, 0023).
       asarUnpack: ['**/node_modules/dugite/git/**'],
       // dugite's Git folder holds Git Credential Manager, which the app never starts. It is deleted from the packaged copy
-      // after the files are copied and before the app is signed; node_modules stays as it is (ADR 0035, decision 7).
+      // after the files are copied and before the app is signed (ad hoc on macOS); node_modules stays as it is (ADR 0035,
+      // decision 7).
       afterPack: afterPackGit({ enforce: variant === 'production', arch }),
       // Nothing is compiled for Electron: SQLite is built in (ADR 0011, 0023).
       npmRebuild: false,
@@ -215,7 +208,7 @@ for (const variant of variants) {
           { from: path.join(electron, 'LICENSE'), to: 'LICENSE.electron.txt' },
           { from: path.join(electron, 'LICENSES.chromium.html'), to: 'LICENSES.chromium.html' },
         ],
-        // Signed and notarized with the release's Developer ID, or unsigned (ADR 0028).
+        // Unsigned and re-signed ad hoc (ADR 0036), or signed and notarized when the environment holds a Developer ID.
         ...(macSigning
           ? {
               hardenedRuntime: true,

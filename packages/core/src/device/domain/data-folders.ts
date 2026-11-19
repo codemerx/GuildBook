@@ -50,8 +50,6 @@ export interface DataLayout {
   readonly electron: AbsPath;
   readonly secrets: AbsPath;
   readonly caBundle: AbsPath;
-  /** The refreshed tool catalog and its signature (PLAN.md §3.4, ADR 0026): main writes them, workers read them. */
-  readonly catalog: AbsPath;
   readonly instances: AbsPath;
   instance(id: string): InstanceLayout;
 }
@@ -74,7 +72,6 @@ export function dataLayout(root: AbsPath, paths: PathFlavour): DataLayout {
     electron: at('electron'),
     secrets: at('secrets.json'),
     caBundle: at('ca-bundle.pem'),
-    catalog: at('catalog'),
     instances: at('instances'),
     instance: (id) => instanceLayout(paths.join(root, 'instances', id) as AbsPath, paths),
   };

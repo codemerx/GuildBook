@@ -24,8 +24,11 @@ export const PACKAGED_GIT = ['app.asar.unpacked', 'node_modules', 'dugite', 'git
 /** macOS and Linux: the folder of the helper programs of Git. GCM puts its files here. */
 const UNIX_CORE = 'libexec/git-core';
 
-/** Windows: the folders of the Git for Windows build (x64, arm64, x86). GCM puts its files in bin and doc. */
-const WINDOWS_PREFIXES = ['mingw64', 'clangarm64', 'mingw32'];
+/**
+ * Windows: the folders of the Git for Windows build (x64, arm64, x86). GCM puts its files in bin and doc. x64 is `ucrt64`
+ * since dugite 3.3 (dugite-native v2.56.1); it was `mingw64` before.
+ */
+const WINDOWS_PREFIXES = ['ucrt64', 'clangarm64', 'mingw32'];
 
 /**
  * macOS and Linux, files of GCM next to the programs of Git (Git has no file of these names there):

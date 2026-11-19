@@ -27,7 +27,5 @@ The Node implementations of `core`'s ports (IMPLEMENTATION.md §2.2). It's the o
   library's ignore rules match, so a projected copy never writes them back.
 - `volumes/`: `NodeVolumes`: the kind of disk, the free space, write access, and (Step 9) the disk's number, so a
   relocation knows whether one rename can move the library. Test mode simulates any of them.
-- `catalog/`: `CatalogLoader`, the bundled tool catalog unless a refreshed one has a valid ed25519 signature from a
-  trusted key (ADR 0026); `verifySignedCatalog`.
 
 - **Imports:** `core`, `schemas`, `tools`, `brand`.

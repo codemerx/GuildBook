@@ -2,7 +2,6 @@
 // constructor, with no global state. Test hooks are added only in test-hooks builds (`__TEST_HOOKS__`).
 import {
   caBundle,
-  CatalogLoader,
   createFileLogger,
   GuardedFileSystem,
   hostName,
@@ -42,7 +41,7 @@ import {
 } from '@app/ipc';
 import type { WorkerTestApi } from '@app/ipc/test-api';
 import type * as TestHooks from './test-hooks/index.ts';
-import { homeEnvVariables, bundledCatalog, trustedCatalogKeys } from '@app/tools';
+import { homeEnvVariables, bundledCatalog } from '@app/tools';
 import { app, type BrowserWindow, ipcMain, nativeTheme, net, session } from 'electron';
 import path from 'node:path';
 import { PACKAGED_CSP } from '../shared/csp.ts';
@@ -56,8 +55,7 @@ import { translate } from '../shared/i18n.ts';
 import { deviceServicesHandlers } from './device-services.ts';
 import { messageChannel, utilityProcessLauncher } from './electron/launcher.ts';
 import { electronOs } from './electron/os-integrations.ts';
-import { CatalogRefresh, MAX_CATALOG_BYTES } from './catalog-refresh.ts';
-import { releaseFeed } from './release-feed.ts';
+import { MAX_RELEASE_FILE_BYTES, releaseFeed } from './release-feed.ts';
 import { feedFileName } from './update-feed.ts';
 import { UpdateService } from './updates.ts';
 import { certificateViews } from './certificates.ts';
@@ -172,7 +170,7 @@ export async function startMain(options: StartOptions): Promise<void> {
   const appImage = env.platform === 'linux' && !testMode ? appImagePath({ APPIMAGE: env.variable('APPIMAGE') }) : null;
   const dataHome = env.variable('XDG_DATA_HOME') ?? env.paths.join(env.home, '.local', 'share');
   const applications = env.paths.join(dataHome, 'applications');
-  // Where updates and the signed tool catalog come from (release-feed.ts, Step 18).
+  // Where updates come from (release-feed.ts, Step 18).
   const feed = releaseFeed({
     buildUrl: __RELEASE_URL__,
     repository: brand.releaseRepository,
@@ -298,19 +296,9 @@ export async function startMain(options: StartOptions): Promise<void> {
 
   const scriptedTools = hooks && testMode ? new hooks.ScriptedTools() : undefined;
   // The tools' version and list commands for the Doctor (PLAN.md §3.4): scripted in test mode, where nothing real runs
-  // (TESTING.md §3). The catalog is the one the workers load: the bundled one, or a refreshed one that checks out.
+  // (TESTING.md §3). The catalog is the one the app ships with (ADR 0037).
   const toolCommands = new ToolCommandService({
-    catalog: async () =>
-      (
-        await new CatalogLoader({
-          fs,
-          bundled: bundledCatalog,
-          file: env.paths.join(layout.catalog, 'catalog.json') as AbsPath,
-          signatureFile: env.paths.join(layout.catalog, 'catalog.json.sig') as AbsPath,
-          keys: trustedCatalogKeys({ development: testHooks }),
-          logger,
-        }).loadWithSource()
-      ).catalog,
+    catalog: async () => bundledCatalog,
     registry,
     process: scriptedTools ?? new NodeProcessRunner(),
     env: () => {
@@ -581,21 +569,15 @@ export async function startMain(options: StartOptions): Promise<void> {
     },
   };
 
-  // App updates and the signed tool catalog, checked once a day and on [Check now] (PLAN.md §3.19, Step 18). Both files
-  // come through the session: the OS proxy, or the recording proxy in test mode.
-  const catalogFiles = {
-    folder: layout.catalog,
-    file: env.paths.join(layout.catalog, 'catalog.json') as AbsPath,
-    signatureFile: env.paths.join(layout.catalog, 'catalog.json.sig') as AbsPath,
-  };
-  const catalogKeys = trustedCatalogKeys({ development: testHooks });
+  // App updates, checked once a day and on [Check now] (PLAN.md §3.19, Step 18). The feed comes through the session:
+  // the OS proxy, or the recording proxy in test mode.
   const fetchFile = async (url: string) => {
     const response = await net.fetch(url, {
       redirect: 'follow',
       cache: 'no-store',
       bypassCustomProtocolHandlers: true,
     });
-    if (Number(response.headers.get('content-length') ?? 0) > MAX_CATALOG_BYTES) throw new Error('too large');
+    if (Number(response.headers.get('content-length') ?? 0) > MAX_RELEASE_FILE_BYTES) throw new Error('too large');
     return { status: response.status, bytes: new Uint8Array(await response.arrayBuffer()) };
   };
   const updates = new UpdateService({
@@ -609,35 +591,6 @@ export async function startMain(options: StartOptions): Promise<void> {
     },
     fetchFile,
     openExternal: (url) => os.shell.openExternal(url),
-    catalog: {
-      refresh: () =>
-        new CatalogRefresh({
-          url: feed.catalogUrl,
-          fetch: fetchFile,
-          fs,
-          ...catalogFiles,
-          keys: catalogKeys,
-          logger,
-        }).refresh(),
-      current: async () => {
-        const loaded = await new CatalogLoader({
-          fs,
-          bundled: bundledCatalog,
-          ...catalogFiles,
-          keys: catalogKeys,
-        }).loadWithSource();
-        return { source: loaded.source, rejected: loaded.rejected };
-      },
-    },
-    // The workers read the catalog when they start: each running one starts again, as after a crash.
-    onCatalogSaved: () => {
-      for (const worker of supervisor.list()) {
-        if (worker.state !== 'running' || isSetupId(worker.instanceId)) continue;
-        void instances
-          ?.restartWorker(worker.instanceId)
-          .catch((error: unknown) => logger.error('the worker could not start again', { error: String(error) }));
-      }
-    },
     onChange: (view) => broker?.device?.emit('updatesChanged', view),
   });
 
@@ -942,7 +895,7 @@ export async function startMain(options: StartOptions): Promise<void> {
     logger.info('started at login: the status view');
   } else logger.info('started at login: only the tray');
   // The first update check comes a little later, then once a day.
-  void updates.start().catch((error: unknown) => logger.error('updates did not start', { error: String(error) }));
+  updates.start();
 
   app.on('before-quit', (event) => {
     if (quitting) return;

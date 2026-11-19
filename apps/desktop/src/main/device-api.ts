@@ -57,7 +57,7 @@ export interface DeviceApiDeps {
     openFull(): void;
     quit(): void;
   };
-  /** App updates and the catalog refresh (Step 18). */
+  /** App updates (Step 18). */
   readonly updates?: UpdateService;
   /** Settings → Extra certificates (Step 18): kept in device.json, and the certificate bundle written again. */
   readonly certificates?: {
@@ -76,7 +76,6 @@ const NO_UPDATES = (version: string): UpdateView => ({
   dismissed: false,
   lastCheckedAt: null,
   error: null,
-  catalog: { source: 'bundled', refreshedAt: null, rejected: null },
 });
 
 const DIALOG_TITLES = {

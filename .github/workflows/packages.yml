@@ -1,6 +1,6 @@
-# Unsigned packages for every target (macOS, Windows and Linux, each on arm64 and x64). Each is built on a runner of its
-# own architecture. These are unsigned: the signed ones come from release.yml. Started by hand only: the artifacts of a
-# public repository can be downloaded by anyone.
+# The packages for every target (macOS, Windows and Linux, each on arm64 and x64), unsigned like every release (ADR 0036).
+# Each is built on a runner of its own architecture. Started by hand only: the artifacts of a public repository can be
+# downloaded by anyone.
 name: packages
 
 on:

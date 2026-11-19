@@ -2714,7 +2714,7 @@
   "updates": {
     "title": "Updates",
     "body": "{{appName}} checks for a newer version once a day, and tells you. You download and install it from its release page.",
-    "unsupported": "This build of {{appName}} doesn't check for newer versions. The tool catalog is still kept current.",
+    "unsupported": "This build of {{appName}} doesn't check for newer versions.",
     "notChecked": "Not checked yet.",
     "checking": "Checking for updates…",
     "upToDate": "{{appName}} is up to date.",
@@ -2722,16 +2722,6 @@
     "lastChecked": "Last checked",
     "checkNow": "Check now",
     "download": "Download",
-    "later": "Later",
-    "catalogBundled": "Tool catalog: the one this version came with.",
-    "catalogRefreshed": "Tool catalog: refreshed",
-    "catalogRejected": {
-      "unreadable": "The last downloaded tool catalog was not used: it couldn't be read.",
-      "unknownKey": "The last downloaded tool catalog was not used: an unknown key signed it.",
-      "badSignature": "The last downloaded tool catalog was not used: its signature didn't check out.",
-      "invalid": "The last downloaded tool catalog was not used: its contents aren't valid.",
-      "newerSchema": "The last downloaded tool catalog needs a newer version of the app.",
-      "failed": "The tool catalog couldn't be downloaded. It tries again tomorrow."
-    }
+    "later": "Later"
   }
 }

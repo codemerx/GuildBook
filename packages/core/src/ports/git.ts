@@ -421,7 +421,7 @@ export interface ImportSourceGit {
 }
 
 export interface Git {
-  /** The bundled git's version, e.g. "2.53.0". */
+  /** The bundled git's version, e.g. "2.56.1". */
   version(): Promise<string>;
   clone(input: CloneInput): Promise<void>;
   lsRemote(url: string, options?: GitCallOptions): Promise<RemoteRefs>;

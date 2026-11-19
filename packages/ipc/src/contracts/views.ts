@@ -72,9 +72,8 @@ export const AppInfoSchema = z.object({
 export type AppInfo = z.infer<typeof AppInfoSchema>;
 
 /**
- * App updates and the tool catalog's refresh (PLAN.md §3.19 "App updates", Step 18; ADR 0031): the daily check finds
- * a newer version and tells the user, who downloads and installs it from the release page. The same check refreshes
- * the signed tool catalog (ADR 0026).
+ * App updates (PLAN.md §3.19 "App updates", Step 18; ADR 0031): the daily check finds a newer version and tells the
+ * user, who downloads and installs it from the release page. The tool catalog is not downloaded (ADR 0037).
  */
 export const UpdateViewSchema = z.object({
   /** The running version. */
@@ -90,14 +89,6 @@ export const UpdateViewSchema = z.object({
   lastCheckedAt: z.string().nullable(),
   /** Why the last check of the app failed (`update.failed`, `update.offline`). */
   error: ErrorViewSchema.nullable(),
-  catalog: z.object({
-    /** The catalog the app uses: the one it shipped with, or a refreshed one whose signature checked out. */
-    source: z.enum(['bundled', 'refreshed']),
-    /** When a refreshed catalog was last saved, ISO 8601. */
-    refreshedAt: z.string().nullable(),
-    /** Why the last downloaded catalog was not used. */
-    rejected: z.enum(['unreadable', 'unknownKey', 'badSignature', 'invalid', 'newerSchema', 'failed']).nullable(),
-  }),
 });
 export type UpdateView = z.infer<typeof UpdateViewSchema>;
 

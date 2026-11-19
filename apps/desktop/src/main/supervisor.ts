@@ -26,8 +26,6 @@ export interface WorkerInit {
   readonly name: string;
   readonly libraryPath: string;
   readonly dataFolder: string;
-  /** Where a refreshed tool catalog would be (DataLayout.catalog); the worker only reads it. */
-  readonly catalogDir: string;
   readonly testRoot: string | undefined;
   readonly clockOffsetMs: number;
   readonly testHooks: boolean;

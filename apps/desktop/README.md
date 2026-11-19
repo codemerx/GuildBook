@@ -35,7 +35,7 @@ Git. A production build stops on a license that nobody approved (`ALLOWED_LICENS
 of Git and the other programs that `dugite` brings; its README says how to update them.
 
 The Git folder of `dugite` also holds Git Credential Manager, which the app never starts. Every build deletes it from
-the packaged app, after the files are copied and before the app is signed (`scripts/git-bundle.ts`, ADR 0035); the
+the packaged app, after the files are copied and before the app is signed ad hoc (`scripts/git-bundle.ts`, ADR 0035); the
 folder in `node_modules` stays as it is. A production build stops when a file of it stays, when an unknown file stands
 where it stood, or when the Git of the package does not start.
 

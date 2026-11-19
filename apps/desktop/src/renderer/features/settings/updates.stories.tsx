@@ -10,7 +10,6 @@ const base: UpdateView = {
   dismissed: false,
   lastCheckedAt: '2026-01-15T09:02:00.000Z',
   error: null,
-  catalog: { source: 'bundled', refreshedAt: null, rejected: null },
 };
 const actions = { check: () => {}, download: () => {}, later: () => {} };
 
@@ -30,14 +29,6 @@ export const Offline: Story = {
   args: { view: { ...base, phase: 'failed', error: { code: 'update.offline', params: {} } } },
 };
 export const Unsupported: Story = { args: { view: { ...base, supported: false, phase: 'idle' } } };
-export const CatalogRefreshed: Story = {
-  args: {
-    view: { ...base, catalog: { source: 'refreshed', refreshedAt: '2026-01-15T09:02:00.000Z', rejected: null } },
-  },
-};
-export const CatalogRejected: Story = {
-  args: { view: { ...base, catalog: { source: 'bundled', refreshedAt: null, rejected: 'badSignature' } } },
-};
 export const Banner: StoryObj<typeof UpdateAvailableBannerView> = {
   render: () => (
     <UpdateAvailableBannerView view={{ ...base, phase: 'available', available: '1.1.0' }} actions={actions} />

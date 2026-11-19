@@ -243,8 +243,8 @@ importers:
         specifier: 2.6.0
         version: 2.6.0
       dugite:
-        specifier: 3.2.3
-        version: 3.2.3
+        specifier: 3.3.3
+        version: 3.3.3
     devDependencies:
       '@app/adapters':
         specifier: workspace:*
@@ -394,8 +394,8 @@ importers:
         specifier: 2.6.0
         version: 2.6.0
       dugite:
-        specifier: 3.2.3
-        version: 3.2.3
+        specifier: 3.3.3
+        version: 3.3.3
       electron-log:
         specifier: 5.4.4
         version: 5.4.4
@@ -549,8 +549,8 @@ importers:
         specifier: 1.64.0
         version: 1.64.0
       dugite:
-        specifier: 3.2.3
-        version: 3.2.3
+        specifier: 3.3.3
+        version: 3.3.3
       node-forge:
         specifier: 1.4.3
         version: 1.4.3
@@ -4163,8 +4163,8 @@ packages:
     resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
     engines: {node: '>=12'}
 
-  dugite@3.2.3:
-    resolution: {integrity: sha512-kPBJ0uevCPY4pcGl0R0+dgC/prPBvnHN9109ZUUWDttkWHz4HqFGwyFri9Btmd2YucAXIJTYMGECh/Q5VAfpfA==}
+  dugite@3.3.3:
+    resolution: {integrity: sha512-rjsKuSTIitKChloA9E8czVE0zRnSsszP5QStAmx4uzsmEWVLFrtDAl9as/g2c2ceWBoXGqaWwHJ9eJT4nrhe4w==}
     engines: {node: '>= 20'}
 
   dunder-proto@1.0.1:
@@ -10188,7 +10188,7 @@ snapshots:
 
   dotenv@16.6.1: {}
 
-  dugite@3.2.3:
+  dugite@3.3.3:
     dependencies:
       progress: 2.0.3
       tar-stream: 3.2.2

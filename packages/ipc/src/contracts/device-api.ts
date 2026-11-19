@@ -51,7 +51,7 @@ export const deviceApi = api({
     invite: query(Empty, InviteViewSchema.nullable()),
     /** Whether the window is the full app or the small status view (Step 17). */
     windowMode: query(Empty, WindowModeSchema),
-    /** App updates and the catalog refresh (PLAN.md §3.19, Step 18). */
+    /** App updates (PLAN.md §3.19, Step 18). */
     updates: query(Empty, UpdateViewSchema),
   },
   commands: {
@@ -141,7 +141,7 @@ export const deviceApi = api({
      */
     addCertificate: command(Empty, z.object({ added: z.number().int().nonnegative() })),
     removeCertificate: command(z.object({ fingerprint: z.string().min(1).max(200) }), Empty),
-    /** Settings → Updates → [Check now]: the app's update and the tool catalog, at once. */
+    /** Settings → Updates → [Check now]. */
     checkForUpdates: command(Empty, UpdateViewSchema),
     /** [Download] once a newer version is out: its release page opens in the browser (ADR 0031). */
     openUpdateDownload: command(Empty, Empty),
