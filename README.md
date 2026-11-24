@@ -174,6 +174,9 @@ Download the installer for your system from the [Releases](../../releases) page.
 | Windows (x64 or Arm)           | `.exe`                        | Run the file. It installs the app for your user account, without administrator rights.                 |
 | Linux (x64 or arm64)           | `.AppImage`, `.deb` or `.rpm` | The deb and the rpm add the app to your applications menu. Make an AppImage executable, then start it. |
 
+On Ubuntu 24.04 and later, use the deb. There, an Electron app can use its sandbox only with an AppArmor rule. The deb
+installs this rule, and an AppImage cannot.
+
 The installers are not signed. The first time you open each new version, macOS and Windows warn you:
 
 - **macOS:** the message says that Apple could not verify Guild Book. Click **Done**. Open **System Settings → Privacy &

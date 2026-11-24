@@ -91,7 +91,11 @@ jobs:
           find downloaded -type f ! -name 'latest*.yml' -exec cp {} assets/ \;
           node scripts/release-feeds.ts merge assets $(find downloaded -name 'latest*.yml' -exec dirname {} \; | sort -u)
           node scripts/release-feeds.ts rollout assets ${{ inputs.rollout }}
+      # The tag goes on the commit that the installers were built from. Without --target, the release's target is the
+      # default branch, and the tag of a draft is made only when a person publishes it: at main's newest commit then.
       - name: A draft release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "v${{ inputs.version }}" --draft --title "${{ inputs.version }}" --generate-notes assets/*
+        run: >-
+          gh release create "v${{ inputs.version }}" --draft --target "${{ github.sha }}" --title "${{ inputs.version }}"
+          --generate-notes assets/*
