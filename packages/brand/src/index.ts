@@ -5,7 +5,7 @@
 export const brand = {
   /** What users see: window titles, the tray, dialogs. */
   displayName: 'Guild Book',
-  /** The npm-style name: installers, the Linux package, the executable. */
+  /** The npm-style name: installers, the Linux package, the program on Windows and Linux (macOS: displayName). */
   packageName: 'guildbook',
   /** Signing and auto-update identity (macOS bundle id, Windows AppUserModelID). */
   appId: 'com.codemerx.guildbook',
@@ -31,10 +31,9 @@ export const brand = {
   githubAppClientId: 'Iv23liTb8BL0hVxI7vtK' as string | null,
   gitlabClientId: null as string | null,
   /**
-   * The GitHub repository whose releases carry the app's updates, and whose release named `catalog` carries the signed
-   * tool catalog (ADR 0027, Step 18). Production builds check it once a day. Test-hooks builds never do: they use only
-   * a release host that a test gives them (apps/desktop/src/main/release-feed.ts). Without a release, the check fails
-   * and the app uses its bundled catalog.
+   * The GitHub repository whose releases carry the app's updates (ADR 0027, Step 18). Production builds check its
+   * update feed once a day; the tool catalog is inside the app (ADR 0037). Test-hooks builds never check it: they use
+   * only a release host that a test gives them (apps/desktop/src/main/release-feed.ts).
    */
   releaseRepository: { owner: 'codemerx', repo: 'GuildBook' } as {
     readonly owner: string;

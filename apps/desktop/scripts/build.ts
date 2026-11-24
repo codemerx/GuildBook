@@ -51,6 +51,10 @@ const platform = { darwin: Platform.MAC, win32: Platform.WINDOWS, linux: Platfor
 const installerTargets = { darwin: ['dmg', 'zip'], win32: ['nsis'], linux: ['AppImage', 'deb', 'rpm'] }[
   process.platform as 'darwin'
 ];
+// The short and the long description of the Linux packages: the deb's Description, the rpm's Summary and Description,
+// and the Comment of the menu entry. Debian wants the short one without a full stop and under 80 characters.
+const LINUX_SYNOPSIS = 'One library of AI skills for your whole team, in every AI tool';
+const LINUX_DESCRIPTION = "Keep your team's skills and instructions in git, and link them into every AI tool.";
 
 const env = process.env;
 const macSigning = Boolean(env.CSC_LINK || env.CSC_NAME);
@@ -152,9 +156,11 @@ for (const variant of variants) {
     config: {
       appId: brand.appId,
       productName: brand.displayName,
-      executableName: brand.packageName,
+      // No executableName here: on macOS it would also name the app, and the app is "<display name>.app" with a
+      // program of the same name. Windows and Linux name their program below.
       copyright: `Copyright © ${brand.vendor}`,
-      artifactName: `${brand.packageName}-${variant}-\${version}-\${os}-\${arch}.\${ext}`,
+      // <package name>-1.0.0-mac-arm64.dmg; a test-hooks build says so in its name, as it is never published.
+      artifactName: `${brand.packageName}${variant === 'production' ? '' : `-${variant}`}-\${version}-\${os}-\${arch}.\${ext}`,
       directories: { output: releaseDir(variant), buildResources: 'resources' },
       files: [
         'out/**/*',
@@ -224,6 +230,8 @@ for (const variant of variants) {
       linux: {
         category: 'Development',
         maintainer: brand.vendor,
+        synopsis: LINUX_SYNOPSIS,
+        description: LINUX_DESCRIPTION,
         executableName: brand.packageName,
         syncDesktopName: true,
         desktop: { entry: { Name: brand.displayName } },

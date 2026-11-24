@@ -1,7 +1,9 @@
 // GitHub as a GitHub App (PLAN.md §3.17 step 2, ADR 0016), on github.com and on GitHub Enterprise Server. Sign-in is
-// the device flow; user tokens expire after 8 hours and are renewed with their refresh token, which needs no client
-// secret for the device flow. The role facts come from the repository API's permission flags and the branch rules
-// API, which anyone who can read the repo may call (PLAN.md §3.11). An anti-corruption layer: GitHub's JSON stays here.
+// the device flow. With the App's "Expire user authorization tokens" on, user tokens expire after 8 hours and are
+// renewed with their refresh token, which needs no client secret for the device flow. With it off (the project's App,
+// owner 2026-11-24), they never expire and have no refresh token. The role facts come from the repository API's
+// permission flags and the branch rules API, which anyone who can read the repo may call (PLAN.md §3.11). An
+// anti-corruption layer: GitHub's JSON stays here.
 import {
   AppError,
   type DeviceCode,

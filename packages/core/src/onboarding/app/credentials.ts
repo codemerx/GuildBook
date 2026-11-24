@@ -1,8 +1,8 @@
 // An instance's sign-in, kept by main's secrets service (IMPLEMENTATION.md §2.13 rule 9). The worker asks for it each
 // time it needs it and keeps it only for that call. A device-flow token is renewed with its refresh token before it
-// expires (GitHub App tokens after 8 hours, GitLab's after 2), both ahead of a command and in the background; a
-// renewal the host refuses asks the user to sign in again (A4.8). Git gets the credential only in its environment
-// (ADR 0014): a header for its own origin, or an SSH key or agent for SSH URLs.
+// expires (GitLab's after 2 hours; GitHub App tokens after 8 hours, or never when the App sets no expiry), both ahead
+// of a command and in the background; a renewal the host refuses asks the user to sign in again (A4.8). Git gets the
+// credential only in its environment (ADR 0014): a header for its own origin, or an SSH key or agent for SSH URLs.
 import { HOST_CREDENTIAL_KEY, type HostCredential, HostCredentialSchema } from '@app/schemas';
 import type { Clock } from '../../ports/clock.ts';
 import type { DeviceServices } from '../../ports/device-services.ts';

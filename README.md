@@ -166,7 +166,28 @@ is tested so far. Open an issue when you test another tool.
 
 ## Install
 
-There are no installers yet. Build the app from source. You need Node 24 and pnpm 12.
+Download the installer for your system from the [Releases](../../releases) page.
+
+| System                         | File                          | How                                                                                                    |
+| ------------------------------ | ----------------------------- | ------------------------------------------------------------------------------------------------------ |
+| macOS (Apple silicon or Intel) | `.dmg`                        | Open the file, and drag Guild Book to Applications.                                                    |
+| Windows (x64 or Arm)           | `.exe`                        | Run the file. It installs the app for your user account, without administrator rights.                 |
+| Linux (x64 or arm64)           | `.AppImage`, `.deb` or `.rpm` | The deb and the rpm add the app to your applications menu. Make an AppImage executable, then start it. |
+
+The installers are not signed. The first time you open each new version, macOS and Windows warn you:
+
+- **macOS:** the message says that Apple could not verify Guild Book. Click **Done**. Open **System Settings → Privacy &
+  Security**, find the message about Guild Book, and click **Open Anyway**. Then type your password. After an update,
+  macOS also asks for your password so that the app can read your saved sign-ins. Type it, and click **Always Allow**.
+- **Windows:** the message says "Windows protected your PC". Click **More info**, then **Run anyway**. If your company
+  blocks apps that are not signed, ask your IT department to allow Guild Book.
+
+The app does not update itself. Once a day it checks for a new version, and **Settings → Updates** tells you when one
+is available. Download and install it in the same way.
+
+### Build from source
+
+You need Node 24 and pnpm 12.
 
 ```bash
 corepack enable pnpm
@@ -185,7 +206,7 @@ first. It has no file contents and no secrets.
 
 ## Status
 
-This is the first public version (0.1). The app is tested on macOS (Apple silicon) and Linux (arm64). It has not run on a
+This is the first release (1.0). The app is tested on macOS (Apple silicon) and Linux (arm64). It has not run on a
 real Windows machine yet. Please [open an issue](../../issues) when something is wrong.
 
 ## Contributing
