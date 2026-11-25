@@ -3,7 +3,7 @@
 // electron-builder copies the ones it finds on disk. If the package for the build's target is missing, the app stops at its
 // start ("No prebuild or local build of @parcel/watcher found"). The Intel macOS app of the 1.0.0 draft did (2026-11-25).
 // So every build checks the packaged app, after electron-builder made it and before the installers are made from it.
-import { existsSync, realpathSync } from 'node:fs';
+import { existsSync, readFileSync, realpathSync } from 'node:fs';
 import path from 'node:path';
 import type { AfterPackContext } from 'electron-builder';
 
@@ -16,6 +16,22 @@ export function watcherPackage(platform: string, arch: string): string {
 export function packagedWatcher(resourcesDir: string, platform: string, arch: string): string {
   const name = watcherPackage(platform, arch).split('/');
   return path.join(resourcesDir, 'app.asar.unpacked', 'node_modules', ...name, 'watcher.node');
+}
+
+/**
+ * The package manager that electron-builder must read the app's dependencies with: the workspace's pnpm, as
+ * npm_config_user_agent says it. electron-builder looks for a lockfile or a packageManager field only in apps/desktop,
+ * which has neither, and then uses the user agent of the command that started the build. Without one (`node
+ * scripts/build.ts`, as in CI) it uses `npm ls`, and npm 11.17 leaves out the optional packages of a pnpm tree: the
+ * Intel runner had that npm, so the Intel macOS app of the 1.0.0 draft had no watcher (2026-11-25).
+ */
+export function packageManagerAgent(workspaceRoot: string): string {
+  const { packageManager } = JSON.parse(readFileSync(path.join(workspaceRoot, 'package.json'), 'utf8')) as {
+    packageManager?: string;
+  };
+  const [name, version] = packageManager?.split('@') ?? [];
+  if (name !== 'pnpm' || !version) throw new Error(`the package.json in ${workspaceRoot} names no pnpm version`);
+  return `pnpm/${version}`;
 }
 
 /** Whether pnpm installed the package next to @parcel/watcher, where electron-builder looks for it. */

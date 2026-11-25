@@ -19,7 +19,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { Arch, build, Platform } from 'electron-builder';
 import { afterPackGit } from './git-bundle.ts';
-import { checkPackagedWatcher } from './native-modules.ts';
+import { checkPackagedWatcher, packageManagerAgent } from './native-modules.ts';
 import {
   APP_LICENSE,
   BUNDLED_PACKAGES_FILE,
@@ -58,6 +58,8 @@ const LINUX_SYNOPSIS = 'One library of AI skills for your whole team, in every A
 const LINUX_DESCRIPTION = "Keep your team's skills and instructions in git, and link them into every AI tool.";
 
 const env = process.env;
+// electron-builder reads the app's dependencies with pnpm, however the build was started (native-modules.ts).
+env.npm_config_user_agent = packageManagerAgent(path.resolve(appDir, '..', '..'));
 const macSigning = Boolean(env.CSC_LINK || env.CSC_NAME);
 const macNotarizing = Boolean(
   (env.APPLE_API_KEY && env.APPLE_API_KEY_ID && env.APPLE_API_ISSUER) ||
