@@ -19,6 +19,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { Arch, build, Platform } from 'electron-builder';
 import { afterPackGit } from './git-bundle.ts';
+import { checkPackagedWatcher } from './native-modules.ts';
 import {
   APP_LICENSE,
   BUNDLED_PACKAGES_FILE,
@@ -197,8 +198,11 @@ for (const variant of variants) {
       asarUnpack: ['**/node_modules/dugite/git/**'],
       // dugite's Git folder holds Git Credential Manager, which the app never starts. It is deleted from the packaged copy
       // after the files are copied and before the app is signed (ad hoc on macOS); node_modules stays as it is (ADR 0035,
-      // decision 7).
-      afterPack: afterPackGit({ enforce: variant === 'production', arch }),
+      // decision 7). Then every build checks that the app holds the native watcher of its target (native-modules.ts).
+      afterPack: (context) => {
+        afterPackGit({ enforce: variant === 'production', arch })(context);
+        checkPackagedWatcher(context, arch);
+      },
       // Nothing is compiled for Electron: SQLite is built in (ADR 0011, 0023).
       npmRebuild: false,
       // The AppImage's runtime (ADR 0030): the static type2 runtime. The default one needs libz.so, which most arm64

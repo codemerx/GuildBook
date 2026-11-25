@@ -166,13 +166,24 @@ is tested so far. Open an issue when you test another tool.
 
 ## Install
 
-Download the installer for your system from the [Releases](../../releases) page.
+Download the installer for your system and its processor from the [Releases](../../releases) page. An installer for
+the other processor does not start, or runs slowly.
 
-| System                         | File                          | How                                                                                                    |
-| ------------------------------ | ----------------------------- | ------------------------------------------------------------------------------------------------------ |
-| macOS (Apple silicon or Intel) | `.dmg`                        | Open the file, and drag Guild Book to Applications.                                                    |
-| Windows (x64 or Arm)           | `.exe`                        | Run the file. It installs the app for your user account, without administrator rights.                 |
-| Linux (x64 or arm64)           | `.AppImage`, `.deb` or `.rpm` | The deb and the rpm add the app to your applications menu. Make an AppImage executable, then start it. |
+| System                             | File                                                                |
+| ---------------------------------- | ------------------------------------------------------------------- |
+| macOS, Apple silicon (M1 or later) | `guildbook-<version>-mac-arm64.dmg`                                 |
+| macOS, Intel                       | `guildbook-<version>-mac-x64.dmg`                                   |
+| Windows, x64 (Intel or AMD)        | `guildbook-<version>-win-x64.exe`                                   |
+| Windows on Arm                     | `guildbook-<version>-win-arm64.exe`                                 |
+| Linux, x64                         | `-linux-amd64.deb`, `-linux-x86_64.rpm` or `-linux-x86_64.AppImage` |
+| Linux, arm64                       | `-linux-arm64.deb`, `-linux-aarch64.rpm` or `-linux-arm64.AppImage` |
+
+To find the processor of a Mac, open the Apple menu → **About This Mac**. "Chip: Apple M…" is Apple silicon, and
+"Processor: … Intel" is Intel. On Windows, open **Settings → System → About** and read **System type**.
+
+- **macOS:** open the dmg, and drag Guild Book to Applications.
+- **Windows:** run the exe. It installs the app for your user account, without administrator rights.
+- **Linux:** the deb and the rpm add the app to your applications menu. Make an AppImage executable, then start it.
 
 On Ubuntu 24.04 and later, use the deb. There, an Electron app can use its sandbox only with an AppArmor rule. The deb
 installs this rule, and an AppImage cannot.

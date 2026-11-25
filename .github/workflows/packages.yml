@@ -35,6 +35,10 @@ jobs:
       - if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y rpm
       - run: node apps/desktop/scripts/build.ts production --installers --arch=${{ matrix.arch }}
+      # The same checks as a release: the feed, the native watcher of the target and, on macOS, the signature.
+      - name: The installers are whole (A18.1)
+        shell: bash
+        run: node scripts/verify-installers.ts apps/desktop/release/production-*-${{ matrix.arch }}
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: packages-${{ runner.os }}-${{ matrix.arch }}
